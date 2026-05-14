@@ -1,42 +1,23 @@
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import type { PeriodPreset } from "@/types/expense";
+import { CalendarRange } from "lucide-react";
 
 type FilterBarProps = {
-  value: PeriodPreset;
-  onChange: (preset: PeriodPreset) => void;
+  rangeLabel: string;
 };
 
-const OPTIONS: { value: PeriodPreset; label: string }[] = [
-  { value: "week", label: "Esta semana" },
-  { value: "month", label: "Este mês" },
-  { value: "last30", label: "Últimos 30 dias" },
-];
-
-export function FilterBar({ value, onChange }: FilterBarProps) {
+export function FilterBar({ rangeLabel }: FilterBarProps) {
   return (
-    <Select value={value} onValueChange={(v) => onChange(v as PeriodPreset)}>
-      <SelectTrigger
-        className="h-auto w-auto justify-end gap-2 border-0 border-b border-ink/40 rounded-none bg-transparent px-0 py-1 font-display text-lg italic shadow-none focus:ring-0 focus:border-stamp hover:border-ink"
-      >
-        <SelectValue />
-      </SelectTrigger>
-      <SelectContent className="border-ink/30 bg-paper">
-        {OPTIONS.map((opt) => (
-          <SelectItem
-            key={opt.value}
-            value={opt.value}
-            className="font-display italic"
-          >
-            {opt.label}
-          </SelectItem>
-        ))}
-      </SelectContent>
-    </Select>
+    <div className="flex min-h-12 items-center gap-3 border border-ink bg-paper px-3 py-2 shadow-[3px_3px_0_hsl(var(--ink))]">
+      <div className="flex min-w-0 items-center gap-3">
+        <CalendarRange className="h-4 w-4 shrink-0 text-ledger" />
+        <div className="min-w-0">
+          <div className="whitespace-nowrap font-sans text-sm font-bold text-ink">
+            Esta semana
+          </div>
+          <div className="num mt-0.5 whitespace-nowrap text-[10px] text-ink-soft">
+            {rangeLabel}
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
