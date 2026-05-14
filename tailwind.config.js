@@ -10,7 +10,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Fraunces", "Times New Roman", "serif"],
+        display: ["Newsreader", "Georgia", "serif"],
+        sans: ["Manrope", "Inter", "system-ui", "sans-serif"],
         mono: ["IBM Plex Mono", "Menlo", "monospace"],
       },
       colors: {
@@ -22,6 +23,12 @@ export default {
         rule: "hsl(var(--rule))",
         stamp: "hsl(var(--stamp))",
         "stamp-soft": "hsl(var(--stamp-soft))",
+        ledger: "hsl(var(--ledger))",
+        "ledger-soft": "hsl(var(--ledger-soft))",
+        trust: "hsl(var(--trust))",
+        "trust-soft": "hsl(var(--trust-soft))",
+        brass: "hsl(var(--brass))",
+        "brass-soft": "hsl(var(--brass-soft))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
