@@ -29,19 +29,21 @@ export type PeriodRange = {
 };
 
 // Fonte única de rótulos e cores de categoria.
-// Paleta com tintas institucionais: caixa, confiança, carimbo e metais contábeis.
+// Paleta editorial harmonizada com o verde-petróleo da marca:
+// tons terrosos e dessaturados que assentam sobre o papel creme,
+// sem cair na "paleta arco-íris" que o BRAND.md pede para evitar.
 export const CATEGORY_META: Record<
   ExpenseCategory,
   { label: string; color: string }
 > = {
-  alimentacao: { label: "Alimentação", color: "#9f3a26" },
-  transporte: { label: "Transporte", color: "#26547c" },
-  lazer: { label: "Lazer", color: "#6b4778" },
-  mercado: { label: "Mercado", color: "#2f6b4f" },
-  saude: { label: "Saúde", color: "#9a3155" },
-  educacao: { label: "Educação", color: "#1f6675" },
-  casa: { label: "Casa", color: "#9a6424" },
-  assinaturas: { label: "Assinaturas", color: "#4d4a86" },
-  vestuario: { label: "Vestuário", color: "#2d6f68" },
-  outros: { label: "Outros", color: "#5c5b51" },
+  alimentacao: { label: "Alimentação", color: "#a8472f" }, // terracota
+  transporte:  { label: "Transporte",  color: "#2b5d52" }, // petróleo médio
+  lazer:       { label: "Lazer",       color: "#6e4a63" }, // ameixa fosca
+  mercado:     { label: "Mercado",     color: "#6f7e2e" }, // oliva
+  saude:       { label: "Saúde",       color: "#8f3a44" }, // borgonha
+  educacao:    { label: "Educação",    color: "#1f5f63" }, // verde-azulado
+  casa:        { label: "Casa",        color: "#9a6b2f" }, // ocre
+  assinaturas: { label: "Assinaturas", color: "#44574f" }, // verde-grafite
+  vestuario:   { label: "Vestuário",   color: "#3a7a6b" }, // teal fosco
+  outros:      { label: "Outros",      color: "#6b6357" }, // cinza quente
 };

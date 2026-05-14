@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
+import { PieChart as PieIcon } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { CATEGORY_META } from "@/types/expense";
 import type { Expense, ExpenseCategory } from "@/types/expense";
@@ -34,37 +35,40 @@ export function CategoryChart({ expenses, loading }: CategoryChartProps) {
   }, [expenses]);
 
   const total = data.reduce((acc, d) => acc + d.value, 0);
-  const leader = data[0];
-  const leaderShare = leader && total > 0 ? (leader.value / total) * 100 : 0;
 
   return (
-    <article className="relative border-t border-ink pt-6">
-      <SectionHead number="III" title="Distribuição" subtitle="categorias" />
+    <article className="card-soft p-5">
+      <div className="flex items-center gap-2.5">
+        <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-surface-muted text-brand">
+          <PieIcon className="h-4 w-4" strokeWidth={2} />
+        </span>
+        <h2 className="text-base font-semibold text-ink">Por categoria</h2>
+      </div>
 
       {loading ? (
-        <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-[240px_1fr]">
-          <Skeleton className="mx-auto h-[240px] w-[240px] rounded-full" />
-          <div className="space-y-4">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <Skeleton key={i} className="h-8 w-full" />
-            ))}
-          </div>
+        <div className="mt-5 space-y-3">
+          <Skeleton className="mx-auto h-[180px] w-[180px] rounded-full" />
+          {Array.from({ length: 4 }).map((_, i) => (
+            <Skeleton key={i} className="h-6 w-full rounded-md" />
+          ))}
         </div>
       ) : data.length === 0 ? (
-        <Empty />
+        <p className="mt-8 text-center text-sm text-ink-muted">
+          Nenhum lançamento para distribuir.
+        </p>
       ) : (
-        <div className="mt-6 grid grid-cols-1 gap-8 md:grid-cols-[260px_1fr] md:items-center">
-          <div className="relative mx-auto h-[260px] w-[260px]">
+        <div className="mt-5">
+          <div className="relative mx-auto h-[180px] w-[180px]">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie
                   data={data}
                   dataKey="value"
                   nameKey="label"
-                  innerRadius={82}
-                  outerRadius={118}
-                  paddingAngle={1.75}
-                  stroke="hsl(var(--paper))"
+                  innerRadius={58}
+                  outerRadius={86}
+                  paddingAngle={2}
+                  stroke="hsl(var(--surface))"
                   strokeWidth={3}
                 >
                   {data.map((d) => (
@@ -74,74 +78,53 @@ export function CategoryChart({ expenses, loading }: CategoryChartProps) {
                 <Tooltip
                   cursor={false}
                   contentStyle={{
-                    background: "hsl(var(--paper))",
-                    border: "1px solid hsl(var(--ink))",
-                    borderRadius: 2,
-                    boxShadow: "4px 4px 0 hsl(var(--ink))",
+                    background: "hsl(var(--surface))",
+                    border: "1px solid hsl(var(--line))",
+                    borderRadius: 10,
+                    boxShadow: "0 4px 16px hsl(168 30% 14% / 0.1)",
                     fontFamily: "var(--font-mono)",
                     fontSize: 11,
                   }}
                   formatter={(value: number, _name, item) => {
                     const pct = total > 0 ? (value / total) * 100 : 0;
                     return [
-                      `${formatCurrency(value)} / ${pct.toFixed(1)}%`,
+                      `${formatCurrency(value)} · ${pct.toFixed(0)}%`,
                       String(item?.payload?.label ?? ""),
                     ];
                   }}
                 />
               </PieChart>
             </ResponsiveContainer>
-            <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center text-center">
+            <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center">
               <span className="eyebrow">Total</span>
-              <span className="num mt-1 text-xl text-stamp">
+              <span className="num mt-0.5 text-base font-semibold text-stamp">
                 {formatCurrency(total)}
               </span>
-              {leader && (
-                <span className="mt-2 max-w-[120px] text-xs italic leading-4 text-ink-soft">
-                  {leader.label} lidera com {leaderShare.toFixed(1)}%
-                </span>
-              )}
             </div>
           </div>
 
-          <ul className="space-y-3 self-stretch md:self-center">
-            {data.map((d, i) => {
+          <ul className="mt-5 space-y-1">
+            {data.map((d) => {
               const pct = total > 0 ? (d.value / total) * 100 : 0;
               return (
                 <li
                   key={d.category}
-                  className="border-b border-dashed border-rule pb-3 last:border-b-0"
+                  className="flex items-center gap-3 rounded-lg px-2 py-1.5 transition-colors hover:bg-surface-muted"
                 >
-                  <div className="grid grid-cols-[auto_1fr_auto] items-center gap-3">
-                    <span className="num w-6 text-[10px] text-ink-faint">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className="flex min-w-0 items-center gap-2 font-display">
-                      <span
-                        aria-hidden
-                        className="inline-block h-2.5 w-2.5 shrink-0 border border-ink/15"
-                        style={{ backgroundColor: d.color }}
-                      />
-                      <span className="truncate">{d.label}</span>
-                    </span>
-                    <span className="num text-right text-sm text-stamp">
-                      {formatCurrency(d.value)}
-                    </span>
-                  </div>
-                  <div className="mt-2 grid grid-cols-[1fr_auto] items-center gap-3 pl-9">
-                    <div className="h-1.5 bg-paper-deep">
-                      <div
-                        className="h-full"
-                        style={{
-                          width: `${pct}%`,
-                          backgroundColor: d.color,
-                        }}
-                      />
-                    </div>
-                    <span className="num text-[10px] text-ink-soft">
-                      {pct.toFixed(1)}%
-                    </span>
-                  </div>
+                  <span
+                    aria-hidden
+                    className="h-2.5 w-2.5 shrink-0 rounded-full"
+                    style={{ backgroundColor: d.color }}
+                  />
+                  <span className="flex-1 truncate text-sm text-ink">
+                    {d.label}
+                  </span>
+                  <span className="num text-xs text-ink-muted">
+                    {pct.toFixed(0)}%
+                  </span>
+                  <span className="num w-24 text-right text-sm font-medium text-ink">
+                    {formatCurrency(d.value)}
+                  </span>
                 </li>
               );
             })}
@@ -149,35 +132,5 @@ export function CategoryChart({ expenses, loading }: CategoryChartProps) {
         </div>
       )}
     </article>
-  );
-}
-
-function Empty() {
-  return (
-    <p className="mt-10 text-center font-display italic text-ink-soft">
-      Nenhum lançamento para distribuir.
-    </p>
-  );
-}
-
-function SectionHead({
-  number,
-  title,
-  subtitle,
-}: {
-  number: string;
-  title: string;
-  subtitle?: string;
-}) {
-  return (
-    <div className="flex items-baseline gap-4">
-      <span className="num text-xs text-ink-soft">{number}</span>
-      <h2 className="font-display text-2xl text-ink">
-        {title}
-        {subtitle && (
-          <span className="ml-2 italic text-ink-soft">/ {subtitle}</span>
-        )}
-      </h2>
-    </div>
   );
 }

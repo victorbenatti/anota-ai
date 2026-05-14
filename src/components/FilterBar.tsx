@@ -4,19 +4,14 @@ type FilterBarProps = {
   rangeLabel: string;
 };
 
+// Componente apresentacional — o dashboard opera em visão semanal fixa.
 export function FilterBar({ rangeLabel }: FilterBarProps) {
   return (
-    <div className="flex min-h-12 items-center gap-3 border border-ink bg-paper px-3 py-2 shadow-[3px_3px_0_hsl(var(--ink))]">
-      <div className="flex min-w-0 items-center gap-3">
-        <CalendarRange className="h-4 w-4 shrink-0 text-ledger" />
-        <div className="min-w-0">
-          <div className="whitespace-nowrap font-sans text-sm font-bold text-ink">
-            Esta semana
-          </div>
-          <div className="num mt-0.5 whitespace-nowrap text-[10px] text-ink-soft">
-            {rangeLabel}
-          </div>
-        </div>
+    <div className="inline-flex items-center gap-2.5 rounded-lg border border-line bg-surface px-3.5 py-2 shadow-soft">
+      <CalendarRange className="h-4 w-4 shrink-0 text-brand" strokeWidth={2} />
+      <div className="leading-tight">
+        <div className="text-sm font-semibold text-ink">Esta semana</div>
+        <div className="num text-[11px] text-ink-muted">{rangeLabel}</div>
       </div>
     </div>
   );

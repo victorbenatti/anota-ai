@@ -11,6 +11,10 @@ import { useSupabaseRealtime } from "@/hooks/useSupabaseRealtime";
 import { isSupabaseConfigured } from "@/lib/supabase";
 import type { PeriodRange } from "@/types/expense";
 
+// Logo oficial servida estaticamente de public/
+const LOGO_URL = "/logo-anotaAI.png";
+
+// O painel opera em visão semanal fixa (segunda a domingo).
 function buildWeeklyRange(): PeriodRange {
   const now = new Date();
   return {
@@ -22,7 +26,6 @@ function buildWeeklyRange(): PeriodRange {
 
 export function Dashboard() {
   const range = useMemo(() => buildWeeklyRange(), []);
-
   const { expenses, loading, error, refetch } = useExpenses(range);
 
   const handleInsert = useCallback(() => {
@@ -37,36 +40,42 @@ export function Dashboard() {
   const isEmpty = !loading && !error && expenses.length === 0;
 
   return (
-    <div className="relative min-h-screen overflow-hidden">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 hidden lg:block"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, transparent calc(2.5rem - 1px), hsl(var(--rule) / 0.45) calc(2.5rem), transparent calc(2.5rem + 1px)), linear-gradient(to left, transparent calc(2.5rem - 1px), hsl(var(--rule) / 0.45) calc(2.5rem), transparent calc(2.5rem + 1px))",
-        }}
-      />
+    <div className="min-h-screen">
+      {/* Barra de topo */}
+      <nav className="sticky top-0 z-10 border-b border-line bg-bg/80 backdrop-blur-md">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 md:px-8">
+          <img
+            src={LOGO_URL}
+            alt="AnotAI"
+            className="h-9 w-auto select-none md:h-11"
+            draggable={false}
+          />
+          <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5 text-xs font-medium text-ink-soft">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+            </span>
+            Agente online
+          </span>
+        </div>
+      </nav>
 
-      <div className="relative mx-auto max-w-[1320px] px-5 pb-24 pt-7 md:px-12 lg:px-16">
-        <Masthead />
-
+      <div className="mx-auto max-w-6xl px-5 pb-20 pt-8 md:px-8">
         <DashboardHeader range={range} />
 
         {!isSupabaseConfigured && (
-          <div className="mb-8 border-l-2 border-stamp bg-stamp-soft/70 px-4 py-3 font-display text-sm text-ink shadow-[3px_3px_0_hsl(var(--ink))]">
-            <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-stamp">
-              Aviso da redação
-            </span>
-            <p className="mt-1">
-              Preencha <code className="font-mono">VITE_SUPABASE_URL</code> e{" "}
-              <code className="font-mono">VITE_SUPABASE_ANON_KEY</code> em{" "}
-              <code className="font-mono">.env.local</code> e reinicie o servidor.
+          <div className="reveal mb-8 flex gap-3 rounded-xl border border-stamp/20 bg-stamp-soft px-4 py-3.5 text-sm text-ink">
+            <span className="mt-0.5 font-semibold text-stamp">Configuração pendente</span>
+            <p className="text-ink-soft">
+              Preencha <code className="rounded bg-surface px-1 py-0.5 font-mono text-xs">VITE_SUPABASE_URL</code> e{" "}
+              <code className="rounded bg-surface px-1 py-0.5 font-mono text-xs">VITE_SUPABASE_ANON_KEY</code> em{" "}
+              <code className="rounded bg-surface px-1 py-0.5 font-mono text-xs">.env.local</code> e reinicie o servidor.
             </p>
           </div>
         )}
 
         {error && (
-          <div className="mb-8 border-l-2 border-stamp px-4 py-3 font-display italic text-stamp">
+          <div className="reveal mb-8 rounded-xl border border-stamp/20 bg-stamp-soft px-4 py-3.5 text-sm text-stamp">
             Não foi possível carregar os dados: {error}
           </div>
         )}
@@ -74,101 +83,42 @@ export function Dashboard() {
         {isEmpty ? (
           <EmptyState />
         ) : (
-          <main className="space-y-14">
-            <section>
-              <SectionLabel number="I" title="Leitura rápida" />
-              <div className="mt-6">
-                <SummaryCards
-                  expenses={expenses}
-                  range={range}
-                  loading={loading}
-                />
-              </div>
+          <main className="space-y-8">
+            <section className="reveal" style={{ animationDelay: "60ms" }}>
+              <SummaryCards expenses={expenses} range={range} loading={loading} />
             </section>
 
-            <section className="grid grid-cols-1 gap-8 lg:grid-cols-[1.08fr_0.92fr]">
+            <section
+              className="reveal grid grid-cols-1 gap-6 lg:grid-cols-[1.1fr_0.9fr]"
+              style={{ animationDelay: "120ms" }}
+            >
               <WeeklyTrendChart expenses={expenses} range={range} loading={loading} />
               <CategoryChart expenses={expenses} loading={loading} />
             </section>
 
-            <section>
+            <section className="reveal" style={{ animationDelay: "180ms" }}>
               <ExpensesList expenses={expenses} loading={loading} />
             </section>
           </main>
         )}
-
-        <Colophon />
       </div>
-    </div>
-  );
-}
-
-function Masthead() {
-  return (
-    <div className="mb-8 flex flex-col gap-4 border-b border-ink pb-4 sm:flex-row sm:items-center sm:justify-between">
-      <div className="flex items-center gap-4">
-        <span className="brand-mark" aria-hidden />
-        <div>
-          <div
-            className="font-display text-2xl leading-none text-ink"
-            style={{ fontVariationSettings: '"opsz" 72, "wght" 700' }}
-          >
-            ANOTA AI
-          </div>
-          <div className="eyebrow mt-1">Gestão financeira</div>
-        </div>
-      </div>
-
-      <div className="flex flex-wrap items-center gap-3 sm:justify-end">
-        <span className="eyebrow">v 0.1 / TCC FATEC</span>
-        <span className="inline-flex items-center gap-2 border border-rule bg-ledger-soft px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-ledger">
-          <span
-            aria-hidden
-            className="h-2 w-2 animate-pulse rounded-full bg-ledger"
-          />
-          Online
-        </span>
-      </div>
-    </div>
-  );
-}
-
-function SectionLabel({ number, title }: { number: string; title: string }) {
-  return (
-    <div className="flex items-baseline gap-4 border-t border-ink pt-4">
-      <span className="num text-xs text-ink-soft">{number}</span>
-      <h2 className="font-display text-2xl text-ink">{title}</h2>
     </div>
   );
 }
 
 function EmptyState() {
   return (
-    <div className="mt-12 border-y border-ink py-24 text-center">
-      <p className="eyebrow">Edição em branco</p>
-      <p
-        className="mt-4 font-display text-4xl italic text-ink"
-        style={{ fontVariationSettings: '"opsz" 72, "wght" 460' }}
-      >
-        Nada anotado nesta semana.
-      </p>
-      <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-ink-soft">
+    <div className="reveal mt-6 flex flex-col items-center rounded-2xl border border-dashed border-line-strong bg-surface px-6 py-20 text-center">
+      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent-soft text-accent">
+        <span className="text-xl">✦</span>
+      </div>
+      <h2 className="mt-5 text-xl font-semibold text-ink">
+        Nada anotado nesta semana
+      </h2>
+      <p className="mt-2 max-w-sm text-sm leading-6 text-ink-soft">
         Assim que uma despesa entrar no Supabase, o painel assume a leitura do
         período automaticamente.
       </p>
     </div>
-  );
-}
-
-function Colophon() {
-  return (
-    <footer className="mt-24 border-t border-ink pt-4">
-      <div className="flex flex-col gap-2 text-[10px] uppercase tracking-[0.14em] text-ink-faint sm:flex-row sm:items-center sm:justify-between">
-        <span className="font-mono">Fonte: Supabase / expenses</span>
-        <span className="font-display italic">
-          Composto em Newsreader, Manrope e IBM Plex Mono
-        </span>
-      </div>
-    </footer>
   );
 }

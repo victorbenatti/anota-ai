@@ -10,25 +10,32 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Newsreader", "Georgia", "serif"],
-        sans: ["Manrope", "Inter", "system-ui", "sans-serif"],
+        sans: ["Plus Jakarta Sans", "system-ui", "sans-serif"],
+        display: ["Plus Jakarta Sans", "system-ui", "sans-serif"],
         mono: ["IBM Plex Mono", "Menlo", "monospace"],
       },
       colors: {
-        paper: "hsl(var(--paper))",
-        "paper-deep": "hsl(var(--paper-deep))",
+        bg: "hsl(var(--bg))",
+        surface: "hsl(var(--surface))",
+        "surface-muted": "hsl(var(--surface-muted))",
         ink: "hsl(var(--ink))",
         "ink-soft": "hsl(var(--ink-soft))",
-        "ink-faint": "hsl(var(--ink-faint))",
-        rule: "hsl(var(--rule))",
-        stamp: "hsl(var(--stamp))",
-        "stamp-soft": "hsl(var(--stamp-soft))",
-        ledger: "hsl(var(--ledger))",
-        "ledger-soft": "hsl(var(--ledger-soft))",
-        trust: "hsl(var(--trust))",
-        "trust-soft": "hsl(var(--trust-soft))",
-        brass: "hsl(var(--brass))",
-        "brass-soft": "hsl(var(--brass-soft))",
+        "ink-muted": "hsl(var(--ink-muted))",
+        brand: {
+          DEFAULT: "hsl(var(--brand))",
+          strong: "hsl(var(--brand-strong))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          soft: "hsl(var(--accent-soft))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        stamp: {
+          DEFAULT: "hsl(var(--stamp))",
+          soft: "hsl(var(--stamp-soft))",
+        },
+        line: "hsl(var(--line))",
+        "line-strong": "hsl(var(--line-strong))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -50,10 +57,6 @@ export default {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
         },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
@@ -63,24 +66,16 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      boxShadow: {
+        soft: "0 1px 2px hsl(168 30% 14% / 0.04), 0 4px 12px hsl(168 30% 14% / 0.04)",
+        "soft-md":
+          "0 2px 4px hsl(168 30% 14% / 0.05), 0 8px 24px hsl(168 30% 14% / 0.06)",
+      },
       borderRadius: {
+        xl: "calc(var(--radius) + 4px)",
         lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
-      keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
+        md: "calc(var(--radius) - 4px)",
+        sm: "calc(var(--radius) - 8px)",
       },
     },
   },
