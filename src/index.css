@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Paleta "editorial ledger" — papel creme, tinta preta, carimbo vermelho */
+    --paper:        42 38% 95%;   /* #f5f1e8 papel creme */
+    --paper-deep:   38 28% 90%;   /* tom secundário (cards, hover) */
+    --ink:          30 18% 10%;   /* #1d1812 tinta principal */
+    --ink-soft:     30 10% 32%;   /* tinta diluída — labels */
+    --ink-faint:    30 8% 55%;    /* placeholder / meta */
+    --rule:         30 18% 78%;   /* hairlines */
+    --stamp:        4 65% 38%;    /* vermelho carimbo */
+    --stamp-soft:   4 55% 92%;    /* fundo de selo */
+
+    /* Mapeia pra variáveis shadcn */
+    --background: var(--paper);
+    --foreground: var(--ink);
+    --card: var(--paper);
+    --card-foreground: var(--ink);
+    --popover: var(--paper);
+    --popover-foreground: var(--ink);
+    --primary: var(--ink);
+    --primary-foreground: var(--paper);
+    --secondary: var(--paper-deep);
+    --secondary-foreground: var(--ink);
+    --muted: var(--paper-deep);
+    --muted-foreground: var(--ink-soft);
+    --accent: var(--paper-deep);
+    --accent-foreground: var(--ink);
+    --destructive: var(--stamp);
+    --destructive-foreground: var(--paper);
+    --border: var(--rule);
+    --input: var(--rule);
+    --ring: var(--stamp);
+    --radius: 0.125rem;
+
+    --font-display: "Fraunces", "Times New Roman", serif;
+    --font-mono: "IBM Plex Mono", "Menlo", monospace;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    font-feature-settings: "ss01", "ss02";
+  }
+  body {
+    background-color: hsl(var(--paper));
+    color: hsl(var(--ink));
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    font-variation-settings: "opsz" 14, "SOFT" 50;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    /* Textura papel: grão sutil sobre o fundo creme */
+    background-image:
+      radial-gradient(hsl(30 18% 10% / 0.025) 1px, transparent 1px),
+      radial-gradient(hsl(30 18% 10% / 0.018) 1px, transparent 1px);
+    background-size: 3px 3px, 7px 7px;
+    background-position: 0 0, 1px 2px;
+  }
+
+  .font-display { font-family: var(--font-display); }
+  .font-mono { font-family: var(--font-mono); }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: hsl(var(--ink-soft));
+  }
+
+  .num {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum", "ss01";
+  }
+
+  .display {
+    font-family: var(--font-display);
+    font-variation-settings: "opsz" 96;
+    letter-spacing: -0.025em;
+    line-height: 0.95;
+  }
+
+  .hairline {
+    border-color: hsl(var(--rule));
+  }
+}
+
+/* Recharts overrides — encaixar nos tons do papel */
+@layer components {
+  .recharts-cartesian-grid line {
+    stroke: hsl(var(--rule));
+    stroke-dasharray: 2 4;
+  }
+  .recharts-cartesian-axis-tick text,
+  .recharts-legend-item-text {
+    fill: hsl(var(--ink-soft)) !important;
+    font-family: var(--font-mono) !important;
+    font-size: 11px !important;
+  }
+  .recharts-tooltip-wrapper {
+    outline: none;
+  }
+}
