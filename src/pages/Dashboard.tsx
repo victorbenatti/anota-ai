@@ -1,14 +1,6 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo } from "react";
 import { toast } from "sonner";
-import {
-  endOfDay,
-  endOfMonth,
-  endOfWeek,
-  startOfDay,
-  startOfMonth,
-  startOfWeek,
-  subDays,
-} from "date-fns";
+import { endOfWeek, startOfWeek } from "date-fns";
 import { DashboardHeader } from "@/components/DashboardHeader";
 import { SummaryCards } from "@/components/SummaryCards";
 import { CategoryChart } from "@/components/CategoryChart";
@@ -17,34 +9,25 @@ import { ExpensesList } from "@/components/ExpensesList";
 import { useExpenses } from "@/hooks/useExpenses";
 import { useSupabaseRealtime } from "@/hooks/useSupabaseRealtime";
 import { isSupabaseConfigured } from "@/lib/supabase";
-import type { PeriodPreset, PeriodRange } from "@/types/expense";
+import type { PeriodRange } from "@/types/expense";
 
-function buildRange(preset: PeriodPreset): PeriodRange {
+function buildWeeklyRange(): PeriodRange {
   const now = new Date();
-  switch (preset) {
-    case "week":
-      return {
-        preset,
-        from: startOfWeek(now, { weekStartsOn: 1 }),
-        to: endOfWeek(now, { weekStartsOn: 1 }),
-      };
-    case "month":
-      return { preset, from: startOfMonth(now), to: endOfMonth(now) };
-    case "last30":
-    case "custom":
-      return { preset, from: startOfDay(subDays(now, 29)), to: endOfDay(now) };
-  }
+  return {
+    preset: "week",
+    from: startOfWeek(now, { weekStartsOn: 1 }),
+    to: endOfWeek(now, { weekStartsOn: 1 }),
+  };
 }
 
 export function Dashboard() {
-  const [period, setPeriod] = useState<PeriodPreset>("month");
-  const range = useMemo(() => buildRange(period), [period]);
+  const range = useMemo(() => buildWeeklyRange(), []);
 
   const { expenses, loading, error, refetch } = useExpenses(range);
 
   const handleInsert = useCallback(() => {
     toast("Nova despesa registrada", {
-      description: "atualização em tempo real via WhatsApp",
+      description: "Atualização em tempo real via WhatsApp.",
     });
     void refetch();
   }, [refetch]);
@@ -54,25 +37,23 @@ export function Dashboard() {
   const isEmpty = !loading && !error && expenses.length === 0;
 
   return (
-    <div className="relative min-h-screen">
-      {/* margem editorial: linhas verticais sutis nas laterais em telas grandes */}
+    <div className="relative min-h-screen overflow-hidden">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 hidden lg:block"
         style={{
           backgroundImage:
-            "linear-gradient(to right, transparent calc(2.5rem - 1px), hsl(var(--rule) / 0.5) calc(2.5rem), transparent calc(2.5rem + 1px)), linear-gradient(to left, transparent calc(2.5rem - 1px), hsl(var(--rule) / 0.5) calc(2.5rem), transparent calc(2.5rem + 1px))",
+            "linear-gradient(to right, transparent calc(2.5rem - 1px), hsl(var(--rule) / 0.45) calc(2.5rem), transparent calc(2.5rem + 1px)), linear-gradient(to left, transparent calc(2.5rem - 1px), hsl(var(--rule) / 0.45) calc(2.5rem), transparent calc(2.5rem + 1px))",
         }}
       />
 
-      <div className="relative mx-auto max-w-[1320px] px-6 pb-24 pt-10 md:px-16">
-        {/* Cabeçalho da "publicação" */}
+      <div className="relative mx-auto max-w-[1320px] px-5 pb-24 pt-7 md:px-12 lg:px-16">
         <Masthead />
 
-        <DashboardHeader period={period} onPeriodChange={setPeriod} />
+        <DashboardHeader range={range} />
 
         {!isSupabaseConfigured && (
-          <div className="mb-8 border-l-2 border-stamp bg-stamp-soft/60 px-4 py-3 font-display text-sm text-ink">
+          <div className="mb-8 border-l-2 border-stamp bg-stamp-soft/70 px-4 py-3 font-display text-sm text-ink shadow-[3px_3px_0_hsl(var(--ink))]">
             <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-stamp">
               Aviso da redação
             </span>
@@ -86,7 +67,7 @@ export function Dashboard() {
 
         {error && (
           <div className="mb-8 border-l-2 border-stamp px-4 py-3 font-display italic text-stamp">
-            Não foi possível carregar os dados — {error}
+            Não foi possível carregar os dados: {error}
           </div>
         )}
 
@@ -95,7 +76,7 @@ export function Dashboard() {
         ) : (
           <main className="space-y-14">
             <section>
-              <SectionLabel number="I" title="Sumário do período" />
+              <SectionLabel number="I" title="Leitura rápida" />
               <div className="mt-6">
                 <SummaryCards
                   expenses={expenses}
@@ -105,9 +86,9 @@ export function Dashboard() {
               </div>
             </section>
 
-            <section className="grid grid-cols-1 gap-10 lg:grid-cols-2">
+            <section className="grid grid-cols-1 gap-8 lg:grid-cols-[1.08fr_0.92fr]">
+              <WeeklyTrendChart expenses={expenses} range={range} loading={loading} />
               <CategoryChart expenses={expenses} loading={loading} />
-              <WeeklyTrendChart expenses={expenses} loading={loading} />
             </section>
 
             <section>
@@ -124,23 +105,29 @@ export function Dashboard() {
 
 function Masthead() {
   return (
-    <div className="mb-12 flex items-center justify-between border-b border-ink pb-3">
-      <div className="flex items-baseline gap-3">
-        <span
-          className="font-display text-2xl"
-          style={{ fontVariationSettings: '"opsz" 144, "wght" 600' }}
-        >
-          ANOTA·AI
-        </span>
-        <span className="eyebrow">Diário de gastos</span>
-      </div>
+    <div className="mb-8 flex flex-col gap-4 border-b border-ink pb-4 sm:flex-row sm:items-center sm:justify-between">
       <div className="flex items-center gap-4">
-        <span className="eyebrow hidden sm:inline">v 0.1 — TCC FATEC</span>
-        <span
-          aria-hidden
-          className="inline-flex h-2 w-2 animate-pulse rounded-full bg-stamp"
-          title="Realtime ativo"
-        />
+        <span className="brand-mark" aria-hidden />
+        <div>
+          <div
+            className="font-display text-2xl leading-none text-ink"
+            style={{ fontVariationSettings: '"opsz" 72, "wght" 700' }}
+          >
+            ANOTA AI
+          </div>
+          <div className="eyebrow mt-1">Gestão financeira</div>
+        </div>
+      </div>
+
+      <div className="flex flex-wrap items-center gap-3 sm:justify-end">
+        <span className="eyebrow">v 0.1 / TCC FATEC</span>
+        <span className="inline-flex items-center gap-2 border border-rule bg-ledger-soft px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-ledger">
+          <span
+            aria-hidden
+            className="h-2 w-2 animate-pulse rounded-full bg-ledger"
+          />
+          Online
+        </span>
       </div>
     </div>
   );
@@ -161,13 +148,13 @@ function EmptyState() {
       <p className="eyebrow">Edição em branco</p>
       <p
         className="mt-4 font-display text-4xl italic text-ink"
-        style={{ fontVariationSettings: '"opsz" 144, "wght" 380' }}
+        style={{ fontVariationSettings: '"opsz" 72, "wght" 460' }}
       >
-        Nada anotado ainda.
+        Nada anotado nesta semana.
       </p>
-      <p className="mx-auto mt-3 max-w-md text-sm text-ink-soft">
-        Mande uma mensagem no WhatsApp — assim que o agente registrar, o livro-razão
-        abre nesta página em tempo real.
+      <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-ink-soft">
+        Assim que uma despesa entrar no Supabase, o painel assume a leitura do
+        período automaticamente.
       </p>
     </div>
   );
@@ -176,10 +163,10 @@ function EmptyState() {
 function Colophon() {
   return (
     <footer className="mt-24 border-t border-ink pt-4">
-      <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.14em] text-ink-faint">
-        <span className="font-mono">Fonte: Supabase · expenses</span>
+      <div className="flex flex-col gap-2 text-[10px] uppercase tracking-[0.14em] text-ink-faint sm:flex-row sm:items-center sm:justify-between">
+        <span className="font-mono">Fonte: Supabase / expenses</span>
         <span className="font-display italic">
-          Composto em Fraunces & IBM Plex Mono
+          Composto em Newsreader, Manrope e IBM Plex Mono
         </span>
       </div>
     </footer>
