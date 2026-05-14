@@ -4,17 +4,23 @@
 
 @layer base {
   :root {
-    /* Paleta "editorial ledger" — papel creme, tinta preta, carimbo vermelho */
-    --paper:        42 38% 95%;   /* #f5f1e8 papel creme */
-    --paper-deep:   38 28% 90%;   /* tom secundário (cards, hover) */
-    --ink:          30 18% 10%;   /* #1d1812 tinta principal */
-    --ink-soft:     30 10% 32%;   /* tinta diluída — labels */
-    --ink-faint:    30 8% 55%;    /* placeholder / meta */
-    --rule:         30 18% 78%;   /* hairlines */
-    --stamp:        4 65% 38%;    /* vermelho carimbo */
-    --stamp-soft:   4 55% 92%;    /* fundo de selo */
+    /* Editorial Ledger 2.0: papel, tinta institucional, verde-caixa e carimbo. */
+    --paper:        43 46% 96%;
+    --paper-deep:   42 34% 91%;
+    --paper-warm:   38 42% 88%;
+    --ink:          210 24% 12%;
+    --ink-soft:     208 12% 34%;
+    --ink-faint:    207 9% 56%;
+    --rule:         40 19% 78%;
+    --stamp:        5 62% 38%;
+    --stamp-soft:   6 48% 92%;
+    --ledger:       154 37% 24%;
+    --ledger-soft:  150 32% 90%;
+    --trust:        213 45% 30%;
+    --trust-soft:   211 42% 92%;
+    --brass:        38 56% 42%;
+    --brass-soft:   40 55% 90%;
 
-    /* Mapeia pra variáveis shadcn */
     --background: var(--paper);
     --foreground: var(--ink);
     --card: var(--paper);
@@ -27,16 +33,17 @@
     --secondary-foreground: var(--ink);
     --muted: var(--paper-deep);
     --muted-foreground: var(--ink-soft);
-    --accent: var(--paper-deep);
-    --accent-foreground: var(--ink);
+    --accent: var(--ledger-soft);
+    --accent-foreground: var(--ledger);
     --destructive: var(--stamp);
     --destructive-foreground: var(--paper);
     --border: var(--rule);
     --input: var(--rule);
-    --ring: var(--stamp);
+    --ring: var(--ledger);
     --radius: 0.125rem;
 
-    --font-display: "Fraunces", "Times New Roman", serif;
+    --font-display: "Newsreader", "Georgia", serif;
+    --font-sans: "Manrope", "Inter", system-ui, sans-serif;
     --font-mono: "IBM Plex Mono", "Menlo", monospace;
   }
 }
@@ -45,26 +52,33 @@
   * {
     @apply border-border;
   }
+
   html {
     font-feature-settings: "ss01", "ss02";
   }
+
   body {
     background-color: hsl(var(--paper));
     color: hsl(var(--ink));
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
     font-optical-sizing: auto;
-    font-variation-settings: "opsz" 14, "SOFT" 50;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    /* Textura papel: grão sutil sobre o fundo creme */
     background-image:
-      radial-gradient(hsl(30 18% 10% / 0.025) 1px, transparent 1px),
-      radial-gradient(hsl(30 18% 10% / 0.018) 1px, transparent 1px);
-    background-size: 3px 3px, 7px 7px;
-    background-position: 0 0, 1px 2px;
+      radial-gradient(hsl(var(--ink) / 0.026) 1px, transparent 1px),
+      radial-gradient(hsl(var(--ink) / 0.018) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--rule) / 0.18) 1px, transparent 1px);
+    background-size: 3px 3px, 7px 7px, 5rem 100%;
+    background-position: 0 0, 1px 2px, center top;
+  }
+
+  ::selection {
+    background: hsl(var(--ledger) / 0.18);
+    color: hsl(var(--ink));
   }
 
   .font-display { font-family: var(--font-display); }
+  .font-sans { font-family: var(--font-sans); }
   .font-mono { font-family: var(--font-mono); }
 
   .eyebrow {
@@ -83,9 +97,9 @@
 
   .display {
     font-family: var(--font-display);
-    font-variation-settings: "opsz" 96;
-    letter-spacing: -0.025em;
-    line-height: 0.95;
+    font-variation-settings: "opsz" 72;
+    letter-spacing: 0;
+    line-height: 0.98;
   }
 
   .hairline {
@@ -93,18 +107,62 @@
   }
 }
 
-/* Recharts overrides — encaixar nos tons do papel */
 @layer components {
+  .brand-mark {
+    position: relative;
+    display: inline-grid;
+    height: 2.25rem;
+    width: 2.25rem;
+    place-items: center;
+    border: 1px solid hsl(var(--ink));
+    background:
+      linear-gradient(135deg, hsl(var(--ledger)) 0 49%, transparent 50%),
+      linear-gradient(315deg, hsl(var(--brass)) 0 49%, hsl(var(--paper)) 50%);
+    box-shadow: 3px 3px 0 hsl(var(--ink));
+  }
+
+  .brand-mark::after {
+    content: "";
+    height: 0.72rem;
+    width: 0.72rem;
+    border: 1px solid hsl(var(--paper));
+    background: hsl(var(--stamp));
+  }
+
+  .ledger-panel {
+    border-top: 1px solid hsl(var(--ink));
+    background:
+      linear-gradient(180deg, hsl(var(--paper) / 0.92), hsl(var(--paper) / 0.72)),
+      linear-gradient(90deg, hsl(var(--rule) / 0.28) 1px, transparent 1px);
+    background-size: auto, 4rem 100%;
+  }
+
+  .status-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid hsl(var(--rule));
+    background: hsl(var(--paper) / 0.82);
+    padding: 0.35rem 0.55rem;
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: hsl(var(--ink-soft));
+  }
+
   .recharts-cartesian-grid line {
     stroke: hsl(var(--rule));
     stroke-dasharray: 2 4;
   }
+
   .recharts-cartesian-axis-tick text,
   .recharts-legend-item-text {
     fill: hsl(var(--ink-soft)) !important;
     font-family: var(--font-mono) !important;
     font-size: 11px !important;
   }
+
   .recharts-tooltip-wrapper {
     outline: none;
   }
