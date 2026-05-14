@@ -20,7 +20,7 @@ export type Expense = {
   raw_message: string;
 };
 
-export type PeriodPreset = "week" | "month" | "last30" | "custom";
+export type PeriodPreset = "week";
 
 export type PeriodRange = {
   preset: PeriodPreset;
@@ -28,21 +28,20 @@ export type PeriodRange = {
   to: Date;
 };
 
-// Metadados visuais por categoria (cor + rótulo PT-BR).
-// As cores são usadas tanto no PieChart quanto no Badge.
-// Paleta "tinta" — tons saturados-pra-baixo, sensação de pigmento sobre papel.
+// Fonte única de rótulos e cores de categoria.
+// Paleta com tintas institucionais: caixa, confiança, carimbo e metais contábeis.
 export const CATEGORY_META: Record<
   ExpenseCategory,
   { label: string; color: string }
 > = {
-  alimentacao: { label: "Alimentação", color: "#a8321c" }, // tinta vermelha
-  transporte:  { label: "Transporte",  color: "#1d3557" }, // azul-marinho
-  lazer:       { label: "Lazer",       color: "#6b3e75" }, // ameixa
-  mercado:     { label: "Mercado",     color: "#3f6b3a" }, // verde-musgo
-  saude:       { label: "Saúde",       color: "#9c2a4e" }, // borgonha
-  educacao:    { label: "Educação",    color: "#1f5d6b" }, // petróleo
-  casa:        { label: "Casa",        color: "#a35a1c" }, // ocre
-  assinaturas: { label: "Assinaturas", color: "#4a3b78" }, // índigo
-  vestuario:   { label: "Vestuário",   color: "#2d6b5f" }, // teal escuro
-  outros:      { label: "Outros",      color: "#5c5247" }, // grafite quente
+  alimentacao: { label: "Alimentação", color: "#9f3a26" },
+  transporte: { label: "Transporte", color: "#26547c" },
+  lazer: { label: "Lazer", color: "#6b4778" },
+  mercado: { label: "Mercado", color: "#2f6b4f" },
+  saude: { label: "Saúde", color: "#9a3155" },
+  educacao: { label: "Educação", color: "#1f6675" },
+  casa: { label: "Casa", color: "#9a6424" },
+  assinaturas: { label: "Assinaturas", color: "#4d4a86" },
+  vestuario: { label: "Vestuário", color: "#2d6f68" },
+  outros: { label: "Outros", color: "#5c5b51" },
 };
