@@ -1,7 +1,7 @@
 import { useCallback, useMemo, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-import { LogOut } from "lucide-react";
+import { LogOut, Settings as SettingsIcon } from "lucide-react";
 import {
   endOfDay,
   endOfMonth,
@@ -17,7 +17,9 @@ import { CategoryChart } from "@/components/CategoryChart";
 import { WeeklyTrendChart } from "@/components/WeeklyTrendChart";
 import { ExpensesList } from "@/components/ExpensesList";
 import { WhatsappLinkCard } from "@/components/WhatsappLinkCard";
+import { MonthComparisonCard } from "@/components/MonthComparisonCard";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { useExpenses } from "@/hooks/useExpenses";
 import { useSupabaseRealtime } from "@/hooks/useSupabaseRealtime";
 import { useAuth } from "@/hooks/useAuth";
@@ -46,6 +48,7 @@ function buildRange(preset: PeriodPreset): PeriodRange {
 
 export function Dashboard() {
   const [period, setPeriod] = useState<PeriodPreset>("week");
+  const [comparisonRefreshKey, setComparisonRefreshKey] = useState(0);
   const range = useMemo(() => buildRange(period), [period]);
   const { expenses, loading, error, refetch } = useExpenses(range);
   const { profile } = useProfile();
@@ -56,6 +59,7 @@ export function Dashboard() {
     toast("Nova despesa registrada", {
       description: "Atualização em tempo real via WhatsApp.",
     });
+    setComparisonRefreshKey((key) => key + 1);
     void refetch();
   }, [refetch]);
 
@@ -93,6 +97,12 @@ export function Dashboard() {
                 <span className="hidden text-xs text-ink-muted md:inline">
                   {user.email}
                 </span>
+                <ThemeToggle />
+                <Button asChild variant="ghost" size="icon" aria-label="Configurações" title="Configurações">
+                  <Link to="/app/settings">
+                    <SettingsIcon className="h-4 w-4" />
+                  </Link>
+                </Button>
                 <Button
                   variant="ghost"
                   size="sm"
@@ -136,27 +146,33 @@ export function Dashboard() {
           </div>
         )}
 
-        {isEmpty ? (
-          <EmptyState />
-        ) : (
-          <main className="space-y-8">
-            <section className="reveal" style={{ animationDelay: "60ms" }}>
-              <SummaryCards expenses={expenses} range={range} loading={loading} />
-            </section>
+        <main className="space-y-8">
+          <section className="reveal" style={{ animationDelay: "40ms" }}>
+            <MonthComparisonCard refreshKey={comparisonRefreshKey} />
+          </section>
 
-            <section
-              className="reveal grid grid-cols-1 gap-6 lg:grid-cols-[1.1fr_0.9fr]"
-              style={{ animationDelay: "120ms" }}
-            >
-              <WeeklyTrendChart expenses={expenses} range={range} loading={loading} />
-              <CategoryChart expenses={expenses} loading={loading} />
-            </section>
+          {isEmpty ? (
+            <EmptyState />
+          ) : (
+            <>
+              <section className="reveal" style={{ animationDelay: "80ms" }}>
+                <SummaryCards expenses={expenses} range={range} loading={loading} />
+              </section>
 
-            <section className="reveal" style={{ animationDelay: "180ms" }}>
-              <ExpensesList expenses={expenses} loading={loading} />
-            </section>
-          </main>
-        )}
+              <section
+                className="reveal grid grid-cols-1 gap-6 lg:grid-cols-[1.1fr_0.9fr]"
+                style={{ animationDelay: "120ms" }}
+              >
+                <WeeklyTrendChart expenses={expenses} range={range} loading={loading} />
+                <CategoryChart expenses={expenses} loading={loading} />
+              </section>
+
+              <section className="reveal" style={{ animationDelay: "180ms" }}>
+                <ExpensesList expenses={expenses} loading={loading} />
+              </section>
+            </>
+          )}
+        </main>
       </div>
     </div>
   );

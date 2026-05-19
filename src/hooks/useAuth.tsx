@@ -21,6 +21,8 @@ type AuthContextValue = {
     displayName?: string
   ) => Promise<{ error: AuthError | null }>;
   signOut: () => Promise<void>;
+  updatePassword: (newPassword: string) => Promise<{ error: AuthError | null }>;
+  deleteAccount: () => Promise<{ error: string | null }>;
 };
 
 const AuthContext = createContext<AuthContextValue | undefined>(undefined);
@@ -71,6 +73,20 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     await supabase.auth.signOut();
   }, []);
 
+  const updatePassword = useCallback(async (newPassword: string) => {
+    const { error } = await supabase.auth.updateUser({ password: newPassword });
+    return { error };
+  }, []);
+
+  // Chama a function SQL `delete_current_user` (criada na migration 0003)
+  // que apaga a conta do usuário e cascateia pra profiles/expenses.
+  const deleteAccount = useCallback(async () => {
+    const { error } = await supabase.rpc("delete_current_user");
+    if (error) return { error: error.message };
+    await supabase.auth.signOut();
+    return { error: null };
+  }, []);
+
   const value = useMemo<AuthContextValue>(
     () => ({
       session,
@@ -79,8 +95,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       signIn,
       signUp,
       signOut,
+      updatePassword,
+      deleteAccount,
     }),
-    [session, loading, signIn, signUp, signOut]
+    [session, loading, signIn, signUp, signOut, updatePassword, deleteAccount]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

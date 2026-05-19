@@ -2,10 +2,12 @@ import { useState, type FormEvent } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { CheckCircle2, Loader2 } from "lucide-react";
 import { AuthLayout } from "@/components/AuthLayout";
+import { PasswordChecklist } from "@/components/PasswordChecklist";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useAuth } from "@/hooks/useAuth";
+import { isPasswordStrong } from "@/lib/passwordRules";
 
 export function Signup() {
   const { signUp, session, loading: authLoading } = useAuth();
@@ -26,8 +28,8 @@ export function Signup() {
     e.preventDefault();
     setError(null);
 
-    if (password.length < 6) {
-      setError("A senha precisa ter ao menos 6 caracteres.");
+    if (!isPasswordStrong(password)) {
+      setError("Sua senha precisa cumprir todos os requisitos abaixo.");
       return;
     }
 
@@ -120,11 +122,12 @@ export function Signup() {
             type="password"
             autoComplete="new-password"
             required
-            minLength={6}
+            minLength={8}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="mínimo 6 caracteres"
+            placeholder="Crie uma senha forte"
           />
+          <PasswordChecklist password={password} className="pt-1" />
         </div>
 
         {error && (
@@ -133,7 +136,11 @@ export function Signup() {
           </p>
         )}
 
-        <Button type="submit" className="w-full" disabled={submitting}>
+        <Button
+          type="submit"
+          className="w-full"
+          disabled={submitting || !isPasswordStrong(password)}
+        >
           {submitting ? <Loader2 className="h-4 w-4 animate-spin" /> : "Criar conta"}
         </Button>
       </form>
@@ -143,6 +150,6 @@ export function Signup() {
 
 function translateError(msg: string): string {
   if (/already registered/i.test(msg)) return "Este e-mail já está cadastrado.";
-  if (/password.*at least/i.test(msg)) return "A senha precisa ter ao menos 6 caracteres.";
+  if (/password/i.test(msg)) return "A senha não atende aos requisitos de segurança.";
   return msg;
 }

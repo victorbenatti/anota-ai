@@ -31,7 +31,7 @@ export function WhatsappChatMockup() {
         </header>
 
         {/* Corpo da conversa */}
-        <div className="flex flex-col gap-2.5 bg-[#efeae2]/40 px-4 py-5">
+        <div className="chat-thread-surface flex flex-col gap-2.5 px-4 py-5">
           {/* 1. Bot greeting */}
           <BotBubble className="chat-anim-1">
             Oi! Sou o AnotAI 👋 me conta seus gastos quando quiser.
@@ -85,7 +85,7 @@ function BotBubble({
 }) {
   return (
     <div className={`flex max-w-[85%] flex-col ${className}`}>
-      <div className="rounded-2xl rounded-bl-md bg-white px-3.5 py-2 text-sm leading-snug text-ink shadow-[0_1px_1px_rgba(0,0,0,0.05)]">
+      <div className="chat-bubble-bot rounded-2xl rounded-bl-md px-3.5 py-2 text-sm leading-snug shadow-[0_1px_1px_rgba(0,0,0,0.05)]">
         {children}
       </div>
       {time && (
@@ -108,7 +108,7 @@ function UserBubble({
 }) {
   return (
     <div className={`flex max-w-[85%] flex-col self-end ${className}`}>
-      <div className="flex items-end gap-1.5 rounded-2xl rounded-br-md bg-[#d9fdd3] px-3.5 py-2 text-sm leading-snug text-ink shadow-[0_1px_1px_rgba(0,0,0,0.05)]">
+      <div className="chat-bubble-user flex items-end gap-1.5 rounded-2xl rounded-br-md px-3.5 py-2 text-sm leading-snug shadow-[0_1px_1px_rgba(0,0,0,0.05)]">
         <span>{children}</span>
       </div>
       <div className="mt-0.5 flex items-center gap-1 self-end pr-2">
@@ -124,7 +124,7 @@ function UserBubble({
 function TypingIndicator({ className = "" }: { className?: string }) {
   return (
     <div className={`flex max-w-[60px] ${className}`}>
-      <div className="flex items-center gap-1 rounded-2xl rounded-bl-md bg-white px-3 py-2.5 shadow-[0_1px_1px_rgba(0,0,0,0.05)]">
+      <div className="chat-bubble-bot flex items-center gap-1 rounded-2xl rounded-bl-md px-3 py-2.5 shadow-[0_1px_1px_rgba(0,0,0,0.05)]">
         <span className="typing-dot-anim h-1.5 w-1.5 rounded-full bg-ink-muted" />
         <span className="typing-dot-anim h-1.5 w-1.5 rounded-full bg-ink-muted" />
         <span className="typing-dot-anim h-1.5 w-1.5 rounded-full bg-ink-muted" />
@@ -132,4 +132,3 @@ function TypingIndicator({ className = "" }: { className?: string }) {
     </div>
   );
 }
-

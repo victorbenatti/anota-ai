@@ -128,14 +128,14 @@ function AnimatedChatPreview() {
     <div className="min-h-[240px] space-y-2.5">
       {/* Bot greeting */}
       <div className="chat-anim-1 max-w-[80%]">
-        <div className="rounded-2xl rounded-bl-md bg-white px-3.5 py-2 text-sm text-ink shadow-lg">
+        <div className="chat-bubble-bot rounded-2xl rounded-bl-md px-3.5 py-2 text-sm shadow-lg">
           Oi! Sou o AnotAI 👋 me conta seus gastos.
         </div>
       </div>
 
       {/* User msg */}
       <div className="chat-anim-2 ml-auto flex max-w-[80%] flex-col items-end">
-        <div className="flex items-end gap-1.5 rounded-2xl rounded-br-md bg-[#d9fdd3] px-3.5 py-2 text-sm text-ink shadow-lg">
+        <div className="chat-bubble-user flex items-end gap-1.5 rounded-2xl rounded-br-md px-3.5 py-2 text-sm shadow-lg">
           <span>gastei 30 na padaria</span>
         </div>
         <div className="mt-0.5 flex items-center gap-1 pr-2">
@@ -146,7 +146,7 @@ function AnimatedChatPreview() {
 
       {/* Typing indicator */}
       <div className="chat-typing-anim-1 flex max-w-[60px]">
-        <div className="flex items-center gap-1 rounded-2xl rounded-bl-md bg-white px-3 py-2.5 shadow-lg">
+        <div className="chat-bubble-bot flex items-center gap-1 rounded-2xl rounded-bl-md px-3 py-2.5 shadow-lg">
           <span className="typing-dot-anim h-1.5 w-1.5 rounded-full bg-ink-muted" />
           <span className="typing-dot-anim h-1.5 w-1.5 rounded-full bg-ink-muted" />
           <span className="typing-dot-anim h-1.5 w-1.5 rounded-full bg-ink-muted" />
@@ -155,7 +155,7 @@ function AnimatedChatPreview() {
 
       {/* Bot confirm */}
       <div className="chat-anim-3 max-w-[80%]">
-        <div className="rounded-2xl rounded-bl-md bg-white px-3.5 py-2 text-sm text-ink shadow-lg">
+        <div className="chat-bubble-bot rounded-2xl rounded-bl-md px-3.5 py-2 text-sm shadow-lg">
           ✅ R$ 30,00 em <strong className="font-semibold">alimentação</strong> registrado.
         </div>
         <span className="num mt-0.5 inline-block pl-2 text-[9px] text-white/50">14:02</span>

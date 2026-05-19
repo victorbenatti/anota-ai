@@ -51,7 +51,15 @@ export function useProfile(): UseProfileResult {
       if (!user) return { error: "Não autenticado." };
 
       const normalized = phone.replace(/\D/g, "");
-      const e164 = normalized.startsWith("55") ? `+${normalized}` : `+55${normalized}`;
+      const localNumber = normalized.startsWith("55") && normalized.length > 11
+        ? normalized.slice(2)
+        : normalized;
+
+      if (localNumber.length < 10 || localNumber.length > 11) {
+        return { error: "Informe um WhatsApp brasileiro com DDD." };
+      }
+
+      const e164 = `+55${localNumber}`;
 
       const { error: updateError } = await supabase
         .from("profiles")

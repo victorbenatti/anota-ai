@@ -23,6 +23,8 @@
     --line:          150 12% 90%;   /* bordas */
     --line-strong:   150 10% 82%;
 
+    --shadow:        168 30% 14%;   /* cor base das sombras (vira preto no dark) */
+
     --background: var(--bg);
     --foreground: var(--ink);
     --card: var(--surface);
@@ -45,6 +47,58 @@
 
     --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
     --font-mono: "IBM Plex Mono", "Menlo", monospace;
+  }
+
+  /* === Dark mode === */
+  .dark {
+    --bg:            170 18% 8%;    /* fundo principal — teal muito escuro */
+    --surface:       170 16% 11%;   /* cards */
+    --surface-muted: 170 15% 14%;   /* hover / blocos internos */
+
+    --ink:           60 15% 94%;    /* off-white quente */
+    --ink-soft:      170 8% 68%;
+    --ink-muted:     170 6% 48%;
+
+    --brand:         170 35% 55%;   /* petróleo clareado pra ler no escuro */
+    --brand-strong:  170 30% 30%;
+    --accent:        75 65% 55%;    /* lima um pouco mais brilhante */
+    --accent-soft:   75 30% 18%;    /* fundo de selo escuro */
+    --stamp:         2 70% 62%;     /* vermelho clareado */
+    --stamp-soft:    2 50% 18%;     /* fundo escuro pra alerta */
+
+    --line:          170 12% 20%;
+    --line-strong:   170 12% 28%;
+
+    --shadow:        0 0% 0%;       /* sombras viram preto puro */
+
+    --primary-foreground: 170 18% 8%;
+    --destructive-foreground: 60 15% 94%;
+    --shadow-rgb: 0, 0, 0;
+  }
+
+  /* Adapta utilitários card-soft pra usar --shadow (funciona em ambos os temas) */
+  .card-soft {
+    box-shadow:
+      0 1px 2px hsl(var(--shadow) / 0.08),
+      0 4px 12px hsl(var(--shadow) / 0.06);
+  }
+  .dark .card-soft {
+    box-shadow:
+      0 1px 2px hsl(0 0% 0% / 0.5),
+      0 6px 18px hsl(0 0% 0% / 0.35);
+  }
+
+  /* Sombras coloridas das classes shadow-soft / shadow-soft-md já vêm do tailwind config
+     com ink hardcoded — sobrescrevemos no dark */
+  .dark .shadow-soft {
+    box-shadow:
+      0 1px 2px hsl(0 0% 0% / 0.5),
+      0 4px 12px hsl(0 0% 0% / 0.35);
+  }
+  .dark .shadow-soft-md {
+    box-shadow:
+      0 2px 4px hsl(0 0% 0% / 0.5),
+      0 8px 24px hsl(0 0% 0% / 0.4);
   }
 }
 
@@ -103,14 +157,146 @@
     font-feature-settings: "tnum";
   }
 
-  /* Card moderno: superfície branca, borda fina, sombra suave */
+  /* Card moderno: superfície + borda. Shadow aplicado em @layer base p/ dark mode */
   .card-soft {
     background: hsl(var(--surface));
     border: 1px solid hsl(var(--line));
     border-radius: var(--radius);
+  }
+
+  .chat-thread-surface {
+    background:
+      radial-gradient(circle at 20% 10%, hsl(var(--accent) / 0.08), transparent 14rem),
+      hsl(39 28% 91% / 0.42);
+  }
+
+  .chat-bubble-bot {
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--line) / 0.55);
+    color: hsl(var(--ink));
+  }
+
+  .chat-bubble-user {
+    background: hsl(110 82% 91%);
+    border: 1px solid hsl(110 45% 80%);
+    color: hsl(var(--ink));
+  }
+
+  .dark .chat-thread-surface {
+    background:
+      radial-gradient(circle at 18% 8%, hsl(var(--accent) / 0.13), transparent 14rem),
+      linear-gradient(180deg, hsl(170 15% 13%), hsl(170 16% 10%));
+  }
+
+  .dark .chat-bubble-bot {
+    background: hsl(170 14% 18%);
+    border-color: hsl(170 12% 28%);
+    color: hsl(var(--ink));
+  }
+
+  .dark .chat-bubble-user {
+    background: hsl(var(--brand-strong));
+    border-color: hsl(var(--brand) / 0.42);
+    color: hsl(var(--ink));
+  }
+
+  .route-transition {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .route-transition-panel {
+    position: absolute;
+    inset: -12% -8%;
+    transform: translateX(-110%) skewX(-8deg);
+    transform-origin: center;
+    background:
+      radial-gradient(circle at 22% 35%, hsl(var(--accent) / 0.5), transparent 26rem),
+      linear-gradient(
+        115deg,
+        hsl(var(--brand-strong)) 0%,
+        hsl(var(--brand)) 44%,
+        hsl(var(--accent)) 100%
+      );
+    box-shadow: 28px 0 80px hsl(var(--brand) / 0.28);
+  }
+
+  .route-transition-glow {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    background:
+      linear-gradient(90deg, transparent, hsl(var(--accent) / 0.18), transparent),
+      radial-gradient(circle at 50% 50%, hsl(var(--accent) / 0.25), transparent 24rem);
+    mix-blend-mode: screen;
+  }
+
+  .route-transition-mark {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.96);
+  }
+
+  .route-transition-line {
+    display: block;
+    height: 1px;
+    width: min(22vw, 10rem);
+    background: hsl(var(--primary-foreground) / 0.54);
+  }
+
+  .route-transition-dot {
+    display: block;
+    height: 0.72rem;
+    width: 0.72rem;
+    border-radius: 9999px;
+    background: hsl(var(--primary-foreground));
     box-shadow:
-      0 1px 2px hsl(var(--ink) / 0.04),
-      0 4px 12px hsl(var(--ink) / 0.04);
+      0 0 0 0.45rem hsl(var(--primary-foreground) / 0.14),
+      0 0 2rem hsl(var(--accent) / 0.55);
+  }
+
+  .route-transition-covering,
+  .route-transition-revealing {
+    visibility: visible;
+  }
+
+  .route-transition-covering {
+    animation: route-overlay-show 360ms cubic-bezier(0.76, 0, 0.24, 1) forwards;
+  }
+
+  .route-transition-covering .route-transition-panel {
+    animation: route-panel-cover 360ms cubic-bezier(0.76, 0, 0.24, 1) forwards;
+  }
+
+  .route-transition-covering .route-transition-glow {
+    animation: route-glow 360ms ease-out forwards;
+  }
+
+  .route-transition-covering .route-transition-mark {
+    animation: route-mark-in 320ms cubic-bezier(0.22, 1, 0.36, 1) 80ms forwards;
+  }
+
+  .route-transition-revealing {
+    opacity: 1;
+    animation: route-overlay-hide 420ms cubic-bezier(0.76, 0, 0.24, 1) forwards;
+  }
+
+  .route-transition-revealing .route-transition-panel {
+    transform: translateX(0) skewX(-8deg);
+    animation: route-panel-reveal 420ms cubic-bezier(0.76, 0, 0.24, 1) forwards;
+  }
+
+  .route-transition-revealing .route-transition-glow {
+    animation: route-glow-out 420ms ease-out forwards;
+  }
+
+  .route-transition-revealing .route-transition-mark {
+    animation: route-mark-out 220ms ease-out forwards;
   }
 
   /* Recharts — eixos e grid discretos */
@@ -138,6 +324,62 @@
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  @keyframes route-overlay-show {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes route-overlay-hide {
+    0%, 52% { opacity: 1; }
+    100% {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  @keyframes route-panel-cover {
+    from { transform: translateX(-110%) skewX(-8deg); }
+    to { transform: translateX(0) skewX(-8deg); }
+  }
+
+  @keyframes route-panel-reveal {
+    from { transform: translateX(0) skewX(-8deg); }
+    to { transform: translateX(110%) skewX(-8deg); }
+  }
+
+  @keyframes route-glow {
+    0% { opacity: 0; transform: translateX(-12%); }
+    70% { opacity: 1; }
+    100% { opacity: 0.55; transform: translateX(0); }
+  }
+
+  @keyframes route-glow-out {
+    from { opacity: 0.55; transform: translateX(0); }
+    to { opacity: 0; transform: translateX(12%); }
+  }
+
+  @keyframes route-mark-in {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  @keyframes route-mark-out {
+    from {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(1.03);
     }
   }
 
@@ -201,6 +443,10 @@
 
   @media (prefers-reduced-motion: reduce) {
     .reveal,
+    .route-transition,
+    .route-transition-panel,
+    .route-transition-glow,
+    .route-transition-mark,
     .chat-anim-1, .chat-anim-2, .chat-anim-3, .chat-anim-4, .chat-anim-5,
     .chat-typing-anim-1, .chat-typing-anim-2,
     .typing-dot-anim {

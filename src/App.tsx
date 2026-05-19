@@ -4,29 +4,46 @@ import { Landing } from "@/pages/Landing";
 import { Dashboard } from "@/pages/Dashboard";
 import { Login } from "@/pages/Login";
 import { Signup } from "@/pages/Signup";
+import { Settings } from "@/pages/Settings";
 import { Toaster } from "@/components/ui/sonner";
+import { RouteTransition } from "@/components/RouteTransition";
 import { AuthProvider, useAuth } from "@/hooks/useAuth";
+import { ThemeProvider } from "@/hooks/useTheme";
 
 export default function App() {
   return (
     <BrowserRouter>
-      <AuthProvider>
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route
-            path="/app"
-            element={
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
-            }
-          />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-        <Toaster />
-      </AuthProvider>
+      <ThemeProvider>
+        <AuthProvider>
+          <RouteTransition>
+            {(location) => (
+              <Routes location={location}>
+                <Route path="/" element={<Landing />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route
+                  path="/app"
+                  element={
+                    <ProtectedRoute>
+                      <Dashboard />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/app/settings"
+                  element={
+                    <ProtectedRoute>
+                      <Settings />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route path="*" element={<Navigate to="/" replace />} />
+              </Routes>
+            )}
+          </RouteTransition>
+          <Toaster />
+        </AuthProvider>
+      </ThemeProvider>
     </BrowserRouter>
   );
 }

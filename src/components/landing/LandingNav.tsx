@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const LOGO_URL = "/logo-anotaAI.png";
 
@@ -35,6 +36,7 @@ export function LandingNav() {
         </div>
 
         <div className="flex items-center gap-2">
+          <ThemeToggle />
           <Button asChild variant="ghost" size="sm">
             <Link to="/login">Entrar</Link>
           </Button>
