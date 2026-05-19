@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Sobre o projeto
 
-**ANOTA-AI** é o dashboard de um sistema de controle financeiro pessoal, parte de um TCC da FATEC. Os dados **não são inseridos pela UI** — eles chegam de um agente de IA no WhatsApp que grava despesas no Supabase. Esta aplicação é puramente de leitura/visualização. Realtime do Supabase escuta INSERTs e atualiza o dashboard.
+**ANOTA-AI** é o dashboard de um sistema de controle financeiro pessoal, parte de um TCC da FATEC. Os dados **não são inseridos pela UI** — eles chegam de um agente de IA no WhatsApp que grava receitas e despesas no Supabase. Esta aplicação é puramente de leitura/visualização. Realtime do Supabase escuta INSERTs e atualiza o dashboard.
 
 ## Comandos
 
@@ -30,19 +30,20 @@ Se ausentes, `src/lib/supabase.ts` cai num placeholder (`https://placeholder.sup
 ## Arquitetura
 
 ### Fluxo de dados
-1. `useExpenses(range)` consulta `expenses` no Supabase filtrando por `occurred_at` (gte/lte com ISO UTC).
-2. `useSupabaseRealtime(onInsert)` assina `postgres_changes` (INSERT) no canal `expenses-realtime`.
+1. `useTransactions(range)` consulta `expenses` no Supabase filtrando por `occurred_at` (gte/lte com ISO UTC).
+2. `useSupabaseRealtime(onInsert)` assina `postgres_changes` (INSERT) no canal `transactions-realtime`.
 3. Quando chega INSERT, `Dashboard` chama `refetch()` em vez de fazer merge manual — mais simples e consistente com o filtro de período.
-4. Todos os componentes são puramente apresentacionais: recebem `expenses`/`loading` e calculam o que precisam via `useMemo`. **Nenhuma lógica de negócio fora de hooks.**
+4. Todos os componentes são puramente apresentacionais: recebem `transactions`/`loading` e calculam o que precisam via `useMemo`. **Nenhuma lógica de negócio fora de hooks.**
 
 ### Convenções de dado
 - **Dinheiro em centavos** (`amount: 3250` = R$ 32,50). A divisão por 100 acontece só em `formatCurrency()` (`src/lib/utils.ts`) e no eixo Y do `WeeklyTrendChart` (pra ficar legível). Não introduza floats em outros pontos.
 - **`occurred_at`** = quando o gasto aconteceu (filtro principal). **`created_at`** = quando o registro foi inserido (não usado pra agregação).
-- **Categorias** são um union literal em `src/types/expense.ts`. A fonte única de verdade pra rótulo PT-BR e cor de cada categoria é `CATEGORY_META` no mesmo arquivo — sempre atualizar lá, todo componente lê dali.
-- Para adicionar uma categoria nova: estender o union `ExpenseCategory` E adicionar entrada em `CATEGORY_META`. TypeScript pega o resto.
+- **Tipo de lançamento**: `transaction_type` é `"expense"` ou `"income"`. `amount` continua sempre positivo em centavos; o tipo define se o valor entra como saída ou entrada.
+- **Categorias** são unions literais em `src/types/transaction.ts`. Despesas usam `ExpenseCategory`, receitas usam `IncomeCategory`, e a fonte única de verdade pra rótulo PT-BR e cor é `CATEGORY_META` / `EXPENSE_CATEGORY_META` / `INCOME_CATEGORY_META`.
+- Para adicionar uma categoria nova: estender o union correto E adicionar entrada no meta correspondente. TypeScript pega o resto.
 
 ### Schema esperado no Supabase (tabela `expenses`)
-`id` (uuid), `amount` (int, centavos), `description` (text), `category` (text, um dos valores de `ExpenseCategory`), `occurred_at` (timestamptz), `created_at` (timestamptz), `raw_message` (text). Realtime precisa estar habilitado pra `expenses` (Database → Replication no painel Supabase).
+`id` (uuid), `user_id` (uuid), `amount` (int, centavos), `description` (text), `category` (text, um dos valores de `TransactionCategory`), `transaction_type` (`expense` ou `income`), `occurred_at` (date/timestamptz), `created_at` (timestamptz), `raw_message` (text), `whatsapp_number` (text). Realtime precisa estar habilitado pra `expenses` (Database → Replication no painel Supabase).
 
 ## Sistema de design — "Editorial Ledger"
 

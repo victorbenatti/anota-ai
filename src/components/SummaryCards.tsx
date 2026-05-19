@@ -1,149 +1,256 @@
 import { useMemo } from "react";
-import { Wallet, Gauge, ReceiptText, PieChart, type LucideIcon } from "lucide-react";
+import {
+  ArrowDownCircle,
+  ArrowUpCircle,
+  Landmark,
+  Percent,
+  type LucideIcon,
+} from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
-import { CATEGORY_META } from "@/types/expense";
-import type { Expense, ExpenseCategory, PeriodRange } from "@/types/expense";
-import { formatCurrency } from "@/lib/utils";
-import { differenceInCalendarDays } from "date-fns";
+import type { PeriodRange, Transaction } from "@/types/transaction";
+import { amountToneClass, cn, formatCurrency, type AmountTone } from "@/lib/utils";
 
 type SummaryCardsProps = {
-  expenses: Expense[];
+  transactions: Transaction[];
   range: PeriodRange;
   loading: boolean;
 };
 
-function useSummary(expenses: Expense[], range: PeriodRange) {
+function useSummary(transactions: Transaction[], range: PeriodRange) {
   return useMemo(() => {
-    const total = expenses.reduce((acc, e) => acc + e.amount, 0);
-    const count = expenses.length;
-    const days = Math.max(1, differenceInCalendarDays(range.to, range.from) + 1);
-    const dailyAvg = total / days;
-    const ticketAvg = count > 0 ? total / count : 0;
+    let income = 0;
+    let expense = 0;
+    let incomeCount = 0;
+    let expenseCount = 0;
 
-    const byCategory = new Map<ExpenseCategory, number>();
-    for (const e of expenses) {
-      byCategory.set(e.category, (byCategory.get(e.category) ?? 0) + e.amount);
-    }
-
-    let topCategory: ExpenseCategory | null = null;
-    let topAmount = 0;
-    for (const [cat, amount] of byCategory) {
-      if (amount > topAmount) {
-        topCategory = cat;
-        topAmount = amount;
+    for (const transaction of transactions) {
+      if (transaction.transaction_type === "income") {
+        income += transaction.amount;
+        incomeCount += 1;
+      } else {
+        expense += transaction.amount;
+        expenseCount += 1;
       }
     }
 
-    const topShare = total > 0 ? (topAmount / total) * 100 : 0;
-    return { total, count, dailyAvg, ticketAvg, topCategory, topAmount, topShare };
-  }, [expenses, range.from, range.to]);
+    const balance = income - expense;
+    const savingsRate = income > 0 ? (balance / income) * 100 : 0;
+    return { income, expense, balance, savingsRate, incomeCount, expenseCount };
+  }, [transactions, range.from, range.to]);
 }
 
-export function SummaryCards({ expenses, range, loading }: SummaryCardsProps) {
-  const { total, count, dailyAvg, ticketAvg, topCategory, topAmount, topShare } =
-    useSummary(expenses, range);
+export function SummaryCards({ transactions, range, loading }: SummaryCardsProps) {
+  const { income, expense, balance, savingsRate, incomeCount, expenseCount } =
+    useSummary(transactions, range);
 
   if (loading) {
     return (
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {Array.from({ length: 4 }).map((_, i) => (
-          <Skeleton key={i} className="h-[132px] w-full rounded-xl" />
-        ))}
+      <div className="grid gap-4 lg:grid-cols-[3fr_2fr]">
+        <Skeleton className="h-[240px] w-full rounded-xl" />
+        <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+          {Array.from({ length: 3 }).map((_, i) => (
+            <Skeleton key={i} className="h-[72px] w-full rounded-xl" />
+          ))}
+        </div>
       </div>
     );
   }
 
-  const topLabel = topCategory ? CATEGORY_META[topCategory].label : "Sem dados";
-  const topColor = topCategory ? CATEGORY_META[topCategory].color : undefined;
+  const totalCount = incomeCount + expenseCount;
 
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      <StatCard
-        icon={Wallet}
-        label="Total da semana"
-        value={formatCurrency(total)}
-        hint={`${count} ${count === 1 ? "lançamento" : "lançamentos"}`}
-        emphasis
+    <div className="grid gap-4 lg:grid-cols-[3fr_2fr]">
+      <HeroBalance
+        balance={balance}
+        income={income}
+        expense={expense}
+        totalCount={totalCount}
       />
-      <StatCard
-        icon={Gauge}
-        label="Média diária"
-        value={formatCurrency(dailyAvg)}
-        hint="ritmo de consumo"
-      />
-      <StatCard
-        icon={PieChart}
-        label="Categoria líder"
-        value={topLabel}
-        hint={
-          topCategory
-            ? `${formatCurrency(topAmount)} · ${topShare.toFixed(0)}%`
-            : "sem concentração"
-        }
-        marker={topColor}
-        textValue
-      />
-      <StatCard
-        icon={ReceiptText}
-        label="Ticket médio"
-        value={formatCurrency(ticketAvg)}
-        hint={`${count} ${count === 1 ? "compra" : "compras"}`}
-      />
+
+      <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+        <CompactStat
+          icon={ArrowUpCircle}
+          label="Receitas"
+          value={formatCurrency(income)}
+          hint={`${incomeCount} ${incomeCount === 1 ? "entrada" : "entradas"}`}
+          tone="income"
+        />
+        <CompactStat
+          icon={ArrowDownCircle}
+          label="Despesas"
+          value={formatCurrency(expense)}
+          hint={`${expenseCount} ${expenseCount === 1 ? "saída" : "saídas"}`}
+          tone="expense"
+        />
+        <CompactStat
+          icon={Percent}
+          label="Taxa de sobra"
+          value={income > 0 ? `${savingsRate.toFixed(0)}%` : "—"}
+          hint={
+            income > 0 ? "do que entrou, sobrou" : "sem receitas no período"
+          }
+          tone="neutral"
+          textValue
+        />
+      </div>
     </div>
   );
 }
 
-type StatCardProps = {
+// ---------- Hero card (esquerda, grande) ----------
+
+type HeroBalanceProps = {
+  balance: number;
+  income: number;
+  expense: number;
+  totalCount: number;
+};
+
+function HeroBalance({ balance, income, expense, totalCount }: HeroBalanceProps) {
+  const isPositive = balance >= 0;
+  return (
+    <div className="card-soft relative flex flex-col justify-between overflow-hidden p-6 md:p-8">
+      {/* Mesh decorativo discreto no canto */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-60"
+        style={{
+          background: isPositive
+            ? "radial-gradient(ellipse 50% 60% at 100% 0%, hsl(75 60% 45% / 0.10), transparent 60%)"
+            : "radial-gradient(ellipse 50% 60% at 100% 0%, hsl(2 62% 47% / 0.08), transparent 60%)",
+        }}
+      />
+
+      <header className="relative flex items-start justify-between gap-4">
+        <div>
+          <span className="eyebrow">Saldo do período</span>
+          <p className="mt-1 text-xs text-ink-muted">
+            {totalCount} {totalCount === 1 ? "lançamento" : "lançamentos"} no
+            total
+          </p>
+        </div>
+        <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-surface-muted text-brand">
+          <Landmark className="h-5 w-5" strokeWidth={2} />
+        </span>
+      </header>
+
+      <div className="relative my-6">
+        <p
+          className={cn(
+            "num text-4xl font-bold leading-none tracking-tight md:text-5xl lg:text-[3.25rem]",
+            amountToneClass("balance", balance)
+          )}
+        >
+          {formatCurrency(balance)}
+        </p>
+        <p className="mt-2 text-sm text-ink-muted">
+          {balance > 0
+            ? "Você fechou no positivo."
+            : balance < 0
+              ? "Despesas maiores que receitas no período."
+              : "Sem movimento no período."}
+        </p>
+      </div>
+
+      <footer className="relative flex flex-wrap items-end justify-between gap-4 border-t border-line pt-4">
+        <BreakdownItem
+          icon={ArrowUpCircle}
+          label="Receitas"
+          value={income}
+          tone="income"
+        />
+        <BreakdownItem
+          icon={ArrowDownCircle}
+          label="Despesas"
+          value={expense}
+          tone="expense"
+          align="right"
+        />
+      </footer>
+    </div>
+  );
+}
+
+function BreakdownItem({
+  icon: Icon,
+  label,
+  value,
+  tone,
+  align = "left",
+}: {
+  icon: LucideIcon;
+  label: string;
+  value: number;
+  tone: AmountTone;
+  align?: "left" | "right";
+}) {
+  return (
+    <div
+      className={cn(
+        "flex items-center gap-2.5",
+        align === "right" && "flex-row-reverse text-right"
+      )}
+    >
+      <Icon
+        className={cn("h-5 w-5 shrink-0", amountToneClass(tone))}
+        strokeWidth={2}
+      />
+      <div className={cn(align === "right" && "text-right")}>
+        <span className="text-[11px] uppercase tracking-wider text-ink-muted">
+          {label}
+        </span>
+        <p className={cn("num text-base font-semibold", amountToneClass(tone))}>
+          {formatCurrency(value)}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+// ---------- Compact stats (direita, empilhados) ----------
+
+type CompactStatProps = {
   icon: LucideIcon;
   label: string;
   value: string;
   hint: string;
-  emphasis?: boolean;
+  tone: AmountTone;
   textValue?: boolean;
-  marker?: string;
 };
 
-function StatCard({
+function CompactStat({
   icon: Icon,
   label,
   value,
   hint,
-  emphasis,
+  tone,
   textValue,
-  marker,
-}: StatCardProps) {
+}: CompactStatProps) {
   return (
-    <div className="card-soft flex flex-col gap-4 p-5 transition-shadow hover:shadow-soft-md">
-      <div className="flex items-center justify-between">
-        <span className="eyebrow">{label}</span>
-        <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-surface-muted text-brand">
-          <Icon className="h-4 w-4" strokeWidth={2} />
-        </span>
-      </div>
+    <div className="card-soft flex items-center gap-4 p-4 transition-shadow hover:shadow-soft-md">
+      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-surface-muted text-brand">
+        <Icon className="h-4 w-4" strokeWidth={2} />
+      </span>
 
-      <div className="flex items-center gap-2">
-        {marker && (
-          <span
-            className="h-3 w-3 shrink-0 rounded-full"
-            style={{ backgroundColor: marker }}
-            aria-hidden
-          />
-        )}
-        <span
-          className={[
-            "leading-none",
+      <div className="min-w-0 flex-1">
+        <span className="eyebrow">{label}</span>
+        <p
+          className={cn(
+            "leading-tight",
             textValue
-              ? "truncate text-xl font-bold text-ink"
-              : "num text-2xl font-semibold",
-            emphasis && !textValue ? "text-stamp" : "",
-            !emphasis && !textValue ? "text-ink" : "",
-          ].join(" ")}
+              ? "truncate text-lg font-bold"
+              : "num text-xl font-semibold",
+            amountToneClass(tone)
+          )}
         >
           {value}
-        </span>
+        </p>
       </div>
 
-      <span className="num text-xs text-ink-muted">{hint}</span>
+      <span className="hidden text-right text-[10px] uppercase tracking-wider text-ink-muted sm:block lg:block">
+        {hint}
+      </span>
     </div>
   );
 }
+

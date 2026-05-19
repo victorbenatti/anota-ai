@@ -1,26 +1,26 @@
 import { useCallback, useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { useAuth } from "@/hooks/useAuth";
-import type { Expense } from "@/types/expense";
+import type { Transaction } from "@/types/transaction";
 
 type UsePersonalDataResult = {
-  expenses: Expense[];
+  transactions: Transaction[];
   loading: boolean;
   error: string | null;
   refetch: () => Promise<void>;
 };
 
-// Busca todas as despesas do usuario autenticado para visualizacao/exportacao.
+// Busca todos os lancamentos do usuario autenticado para visualizacao/exportacao.
 // A RLS mantem o escopo limitado ao proprio usuario.
 export function usePersonalData(): UsePersonalDataResult {
   const { user } = useAuth();
-  const [expenses, setExpenses] = useState<Expense[]>([]);
+  const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   const fetchPersonalData = useCallback(async () => {
     if (!user) {
-      setExpenses([]);
+      setTransactions([]);
       setLoading(false);
       return;
     }
@@ -35,9 +35,9 @@ export function usePersonalData(): UsePersonalDataResult {
 
     if (queryError) {
       setError(queryError.message);
-      setExpenses([]);
+      setTransactions([]);
     } else {
-      setExpenses((data ?? []) as Expense[]);
+      setTransactions((data ?? []) as Transaction[]);
     }
 
     setLoading(false);
@@ -47,5 +47,5 @@ export function usePersonalData(): UsePersonalDataResult {
     void fetchPersonalData();
   }, [fetchPersonalData]);
 
-  return { expenses, loading, error, refetch: fetchPersonalData };
+  return { transactions, loading, error, refetch: fetchPersonalData };
 }

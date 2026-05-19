@@ -2,17 +2,20 @@ import { format, parseISO } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { ReceiptText } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
-import { CATEGORY_META } from "@/types/expense";
-import type { Expense } from "@/types/expense";
-import { formatCurrency } from "@/lib/utils";
+import { CATEGORY_META } from "@/types/transaction";
+import type { Transaction } from "@/types/transaction";
+import { amountToneClass, cn, formatCurrency } from "@/lib/utils";
 
-type ExpensesListProps = {
-  expenses: Expense[];
+type TransactionsListProps = {
+  transactions: Transaction[];
   loading: boolean;
 };
 
-export function ExpensesList({ expenses, loading }: ExpensesListProps) {
-  const rows = expenses.slice(0, 20);
+export function TransactionsList({
+  transactions,
+  loading,
+}: TransactionsListProps) {
+  const rows = transactions.slice(0, 20);
 
   return (
     <article className="card-soft overflow-hidden">
@@ -34,7 +37,7 @@ export function ExpensesList({ expenses, loading }: ExpensesListProps) {
         <div className="divide-y divide-line">
           {Array.from({ length: 8 }).map((_, i) => (
             <div key={i} className="flex items-center gap-4 px-5 py-3.5">
-              <Skeleton className="h-4 w-16" />
+              <Skeleton className="h-10 w-10 shrink-0 rounded-full" />
               <Skeleton className="h-4 flex-1" />
               <Skeleton className="h-5 w-20 rounded-full" />
               <Skeleton className="h-4 w-20" />
@@ -47,45 +50,48 @@ export function ExpensesList({ expenses, loading }: ExpensesListProps) {
         </p>
       ) : (
         <ul className="divide-y divide-line">
-          {rows.map((e) => {
-            const meta = CATEGORY_META[e.category];
+          {rows.map((transaction) => {
+            const meta = CATEGORY_META[transaction.category];
+            const Icon = meta.icon;
+            const isIncome = transaction.transaction_type === "income";
             return (
               <li
-                key={e.id}
+                key={transaction.id}
                 className="flex items-center gap-4 px-5 py-3.5 transition-colors hover:bg-surface-muted"
               >
-                <span className="num w-14 shrink-0 text-xs text-ink-muted">
-                  {format(parseISO(e.occurred_at), "dd/MM", { locale: ptBR })}
+                {/* Badge circular com ícone da categoria */}
+                <span
+                  aria-hidden
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full"
+                  style={{
+                    backgroundColor: `${meta.color}1f`,
+                    color: meta.color,
+                  }}
+                >
+                  <Icon className="h-4.5 w-4.5" strokeWidth={2} size={18} />
                 </span>
 
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-sm font-medium capitalize text-ink">
-                    {e.description}
+                    {transaction.description}
                   </p>
-                  {e.raw_message && (
-                    <p className="truncate text-xs text-ink-muted">
-                      {e.raw_message}
-                    </p>
-                  )}
+                  <p className="num text-xs text-ink-muted">
+                    {format(parseISO(transaction.occurred_at), "dd/MM", {
+                      locale: ptBR,
+                    })}
+                    <span className="mx-1.5 text-ink-muted/60">·</span>
+                    <span className="capitalize">{meta.label}</span>
+                  </p>
                 </div>
 
                 <span
-                  className="hidden shrink-0 items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium sm:inline-flex"
-                  style={{
-                    backgroundColor: `${meta.color}14`,
-                    color: meta.color,
-                  }}
+                  className={cn(
+                    "num w-24 shrink-0 text-right text-sm font-semibold",
+                    amountToneClass(isIncome ? "income" : "expense")
+                  )}
                 >
-                  <span
-                    aria-hidden
-                    className="h-1.5 w-1.5 rounded-full"
-                    style={{ backgroundColor: meta.color }}
-                  />
-                  {meta.label}
-                </span>
-
-                <span className="num w-24 shrink-0 text-right text-sm font-semibold text-stamp">
-                  {formatCurrency(e.amount)}
+                  {isIncome ? "+" : "-"}
+                  {formatCurrency(transaction.amount)}
                 </span>
               </li>
             );

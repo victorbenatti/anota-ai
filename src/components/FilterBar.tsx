@@ -6,7 +6,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { PERIOD_LABELS, type PeriodPreset } from "@/types/expense";
+import { PERIOD_LABELS, type PeriodPreset } from "@/types/transaction";
 
 type FilterBarProps = {
   value: PeriodPreset;

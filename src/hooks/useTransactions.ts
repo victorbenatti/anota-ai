@@ -3,21 +3,21 @@ import { format } from "date-fns";
 import { supabase } from "@/lib/supabase";
 import type { PeriodRange, Transaction } from "@/types/transaction";
 
-type UseExpensesResult = {
-  expenses: Transaction[];
+export type UseTransactionsResult = {
+  transactions: Transaction[];
   loading: boolean;
   error: string | null;
   refetch: () => Promise<void>;
 };
 
-// Busca despesas dentro de um período. `occurred_at` no banco é DATE (sem hora),
-// então mandamos YYYY-MM-DD direto — evita confusão de fuso na borda.
-export function useExpenses(range: PeriodRange): UseExpensesResult {
-  const [expenses, setExpenses] = useState<Transaction[]>([]);
+// Busca lançamentos dentro de um período. `occurred_at` no banco é DATE
+// (sem hora), então mandamos YYYY-MM-DD direto para evitar bordas de fuso.
+export function useTransactions(range: PeriodRange): UseTransactionsResult {
+  const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchExpenses = useCallback(async () => {
+  const fetchTransactions = useCallback(async () => {
     setLoading(true);
     setError(null);
 
@@ -33,16 +33,16 @@ export function useExpenses(range: PeriodRange): UseExpensesResult {
 
     if (queryError) {
       setError(queryError.message);
-      setExpenses([]);
+      setTransactions([]);
     } else {
-      setExpenses((data ?? []) as Transaction[]);
+      setTransactions((data ?? []) as Transaction[]);
     }
     setLoading(false);
   }, [range.from, range.to]);
 
   useEffect(() => {
-    void fetchExpenses();
-  }, [fetchExpenses]);
+    void fetchTransactions();
+  }, [fetchTransactions]);
 
-  return { expenses, loading, error, refetch: fetchExpenses };
+  return { transactions, loading, error, refetch: fetchTransactions };
 }

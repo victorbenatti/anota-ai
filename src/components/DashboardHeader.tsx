@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { FilterBar } from "./FilterBar";
-import type { PeriodPreset, PeriodRange } from "@/types/expense";
+import type { PeriodPreset, PeriodRange } from "@/types/transaction";
 
 type DashboardHeaderProps = {
   range: PeriodRange;
@@ -32,8 +32,8 @@ export function DashboardHeader({
           {firstName ? `Olá, ${firstName}` : "Painel financeiro"}
         </h1>
         <p className="mt-1.5 max-w-md text-sm text-ink-soft">
-          Resumo do período: para onde foi o dinheiro, o ritmo dia a dia e os
-          últimos lançamentos.
+          Resumo do período: o que entrou, o que saiu, o saldo e os últimos
+          lançamentos.
         </p>
       </div>
       <FilterBar

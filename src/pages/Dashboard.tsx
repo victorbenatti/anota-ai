@@ -15,17 +15,22 @@ import { DashboardHeader } from "@/components/DashboardHeader";
 import { SummaryCards } from "@/components/SummaryCards";
 import { CategoryChart } from "@/components/CategoryChart";
 import { WeeklyTrendChart } from "@/components/WeeklyTrendChart";
-import { ExpensesList } from "@/components/ExpensesList";
+import { TransactionsList } from "@/components/ExpensesList";
 import { WhatsappLinkCard } from "@/components/WhatsappLinkCard";
 import { MonthComparisonCard } from "@/components/MonthComparisonCard";
+import { InsightsCard } from "@/components/InsightsCard";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { useExpenses } from "@/hooks/useExpenses";
+import { useTransactions } from "@/hooks/useTransactions";
 import { useSupabaseRealtime } from "@/hooks/useSupabaseRealtime";
 import { useAuth } from "@/hooks/useAuth";
 import { useProfile } from "@/hooks/useProfile";
 import { isSupabaseConfigured } from "@/lib/supabase";
-import type { PeriodPreset, PeriodRange } from "@/types/expense";
+import type {
+  PeriodPreset,
+  PeriodRange,
+  Transaction,
+} from "@/types/transaction";
 
 const LOGO_URL = "/logo-anotaAI.png";
 
@@ -47,16 +52,17 @@ function buildRange(preset: PeriodPreset): PeriodRange {
 }
 
 export function Dashboard() {
-  const [period, setPeriod] = useState<PeriodPreset>("week");
+  const [period, setPeriod] = useState<PeriodPreset>("month");
   const [comparisonRefreshKey, setComparisonRefreshKey] = useState(0);
   const range = useMemo(() => buildRange(period), [period]);
-  const { expenses, loading, error, refetch } = useExpenses(range);
+  const { transactions, loading, error, refetch } = useTransactions(range);
   const { profile } = useProfile();
   const { signOut, user } = useAuth();
   const navigate = useNavigate();
 
-  const handleInsert = useCallback(() => {
-    toast("Nova despesa registrada", {
+  const handleInsert = useCallback((transaction: Transaction) => {
+    const isIncome = transaction.transaction_type === "income";
+    toast(isIncome ? "Nova receita registrada" : "Nova despesa registrada", {
       description: "Atualização em tempo real via WhatsApp.",
     });
     setComparisonRefreshKey((key) => key + 1);
@@ -70,7 +76,7 @@ export function Dashboard() {
     navigate("/login", { replace: true });
   }, [signOut, navigate]);
 
-  const isEmpty = !loading && !error && expenses.length === 0;
+  const isEmpty = !loading && !error && transactions.length === 0;
 
   return (
     <div className="min-h-screen">
@@ -156,19 +162,40 @@ export function Dashboard() {
           ) : (
             <>
               <section className="reveal" style={{ animationDelay: "80ms" }}>
-                <SummaryCards expenses={expenses} range={range} loading={loading} />
+                <SummaryCards
+                  transactions={transactions}
+                  range={range}
+                  loading={loading}
+                />
+              </section>
+
+              <section className="reveal" style={{ animationDelay: "100ms" }}>
+                <InsightsCard
+                  transactions={transactions}
+                  range={range}
+                  loading={loading}
+                />
               </section>
 
               <section
                 className="reveal grid grid-cols-1 gap-6 lg:grid-cols-[1.1fr_0.9fr]"
                 style={{ animationDelay: "120ms" }}
               >
-                <WeeklyTrendChart expenses={expenses} range={range} loading={loading} />
-                <CategoryChart expenses={expenses} loading={loading} />
+                <WeeklyTrendChart
+                  transactions={transactions}
+                  range={range}
+                  loading={loading}
+                  period={period}
+                  onPeriodChange={setPeriod}
+                />
+                <CategoryChart transactions={transactions} loading={loading} />
               </section>
 
               <section className="reveal" style={{ animationDelay: "180ms" }}>
-                <ExpensesList expenses={expenses} loading={loading} />
+                <TransactionsList
+                  transactions={transactions}
+                  loading={loading}
+                />
               </section>
             </>
           )}
@@ -185,11 +212,11 @@ function EmptyState() {
         <span className="text-xl">✦</span>
       </div>
       <h2 className="mt-5 text-xl font-semibold text-ink">
-        Nada anotado nesta semana
+        Nada anotado neste período
       </h2>
       <p className="mt-2 max-w-sm text-sm leading-6 text-ink-soft">
-        Assim que uma despesa entrar no Supabase, o painel assume a leitura do
-        período automaticamente.
+        Assim que uma receita ou despesa entrar no Supabase, o painel assume a
+        leitura do período automaticamente.
       </p>
     </div>
   );

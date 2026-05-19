@@ -8,20 +8,25 @@ import {
   subMonths,
 } from "date-fns";
 import { supabase } from "@/lib/supabase";
+import type { TransactionType } from "@/types/transaction";
 
 type ComparisonResult = {
-  current: number;        // centavos
-  previous: number;       // centavos
-  deltaPercent: number;   // %, positivo = gastou MAIS este mês (ruim)
-  hasPrevious: boolean;   // false quando não há dado do mês anterior pra comparar
+  currentIncome: number; // centavos
+  currentExpense: number; // centavos
+  currentBalance: number; // centavos
+  previousBalance: number; // centavos
+  deltaPercent: number; // %, positivo = saldo maior este mês
+  hasPrevious: boolean; // false quando não há dado do mês anterior pra comparar
   loading: boolean;
 };
 
-// Busca despesas do mês atual + mês anterior numa só query e agrega.
+// Busca lançamentos do mês atual + mês anterior numa só query e agrega.
 // Filtra por user_id via RLS (transparente).
 export function useMonthlyComparison(refreshKey = 0): ComparisonResult {
-  const [current, setCurrent] = useState(0);
-  const [previous, setPrevious] = useState(0);
+  const [currentIncome, setCurrentIncome] = useState(0);
+  const [currentExpense, setCurrentExpense] = useState(0);
+  const [previousIncome, setPreviousIncome] = useState(0);
+  const [previousExpense, setPreviousExpense] = useState(0);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -36,22 +41,35 @@ export function useMonthlyComparison(refreshKey = 0): ComparisonResult {
       setLoading(true);
       const { data, error } = await supabase
         .from("expenses")
-        .select("amount, occurred_at")
+        .select("amount, occurred_at, transaction_type")
         .gte("occurred_at", format(prevStart, "yyyy-MM-dd"))
         .lte("occurred_at", format(currEnd, "yyyy-MM-dd"));
 
       if (cancelled) return;
 
       if (!error && data) {
-        let c = 0;
-        let p = 0;
-        for (const row of data as { amount: number; occurred_at: string }[]) {
+        let currIncome = 0;
+        let currExpense = 0;
+        let prevIncome = 0;
+        let prevExpense = 0;
+        for (const row of data as {
+          amount: number;
+          occurred_at: string;
+          transaction_type: TransactionType;
+        }[]) {
           const d = parseISO(row.occurred_at);
-          if (isWithinInterval(d, { start: currStart, end: currEnd })) c += row.amount;
-          else if (isWithinInterval(d, { start: prevStart, end: prevEnd })) p += row.amount;
+          if (isWithinInterval(d, { start: currStart, end: currEnd })) {
+            if (row.transaction_type === "income") currIncome += row.amount;
+            else currExpense += row.amount;
+          } else if (isWithinInterval(d, { start: prevStart, end: prevEnd })) {
+            if (row.transaction_type === "income") prevIncome += row.amount;
+            else prevExpense += row.amount;
+          }
         }
-        setCurrent(c);
-        setPrevious(p);
+        setCurrentIncome(currIncome);
+        setCurrentExpense(currExpense);
+        setPreviousIncome(prevIncome);
+        setPreviousExpense(prevExpense);
       }
       setLoading(false);
     })();
@@ -61,8 +79,21 @@ export function useMonthlyComparison(refreshKey = 0): ComparisonResult {
     };
   }, [refreshKey]);
 
-  const hasPrevious = previous > 0;
-  const deltaPercent = hasPrevious ? ((current - previous) / previous) * 100 : 0;
+  const currentBalance = currentIncome - currentExpense;
+  const previousBalance = previousIncome - previousExpense;
+  const hasPrevious = previousIncome > 0 || previousExpense > 0;
+  const deltaPercent =
+    hasPrevious && previousBalance !== 0
+      ? ((currentBalance - previousBalance) / Math.abs(previousBalance)) * 100
+      : 0;
 
-  return { current, previous, deltaPercent, hasPrevious, loading };
+  return {
+    currentIncome,
+    currentExpense,
+    currentBalance,
+    previousBalance,
+    deltaPercent,
+    hasPrevious,
+    loading,
+  };
 }

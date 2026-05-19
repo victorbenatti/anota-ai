@@ -5,7 +5,7 @@ import { SettingsCard } from "./SettingsCard";
 import { Button } from "@/components/ui/button";
 import { formatCurrency } from "@/lib/utils";
 import { usePersonalData } from "@/hooks/usePersonalData";
-import type { Expense, Profile } from "@/types/expense";
+import type { Profile, Transaction } from "@/types/transaction";
 
 type PersonalDataCardProps = {
   user: User | null;
@@ -13,14 +13,11 @@ type PersonalDataCardProps = {
 };
 
 export function PersonalDataCard({ user, profile }: PersonalDataCardProps) {
-  const { expenses, loading, error, refetch } = usePersonalData();
-  const total = useMemo(
-    () => expenses.reduce((sum, expense) => sum + expense.amount, 0),
-    [expenses]
-  );
+  const { transactions, loading, error, refetch } = usePersonalData();
+  const totals = useMemo(() => calculateTotals(transactions), [transactions]);
   const exportPayload = useMemo(
-    () => (user ? buildExportPayload(user, profile, expenses) : null),
-    [user, profile, expenses]
+    () => (user ? buildExportPayload(user, profile, transactions) : null),
+    [user, profile, transactions]
   );
 
   function downloadJson() {
@@ -52,13 +49,30 @@ export function PersonalDataCard({ user, profile }: PersonalDataCardProps) {
             label="Criação da conta"
             value={user?.created_at ? formatDate(user.created_at) : "Não informado"}
           />
-          <DataPoint label="Despesas registradas" value={String(expenses.length)} />
-          <DataPoint label="Total histórico" value={formatCurrency(total)} strong />
+          <DataPoint
+            label="Lançamentos registrados"
+            value={String(transactions.length)}
+          />
+          <DataPoint
+            label="Receitas históricas"
+            value={formatCurrency(totals.income)}
+            strong
+          />
+          <DataPoint
+            label="Despesas históricas"
+            value={formatCurrency(totals.expense)}
+            strong
+          />
+          <DataPoint
+            label="Saldo histórico"
+            value={formatCurrency(totals.balance)}
+            strong
+          />
         </dl>
 
         {error && (
           <p className="rounded-lg border border-stamp/20 bg-stamp-soft px-3 py-2 text-sm text-stamp">
-            Não foi possível carregar suas despesas: {error}
+            Não foi possível carregar seus lançamentos: {error}
           </p>
         )}
 
@@ -122,9 +136,14 @@ function DataPoint({
   );
 }
 
-function buildExportPayload(user: User, profile: Profile | null, expenses: Expense[]) {
+function buildExportPayload(
+  user: User,
+  profile: Profile | null,
+  transactions: Transaction[]
+) {
+  const totals = calculateTotals(transactions);
   return {
-    schema: "anota-ai-personal-data-v1",
+    schema: "anota-ai-personal-data-v2",
     exported_at: new Date().toISOString(),
     account: {
       id: user.id,
@@ -133,7 +152,22 @@ function buildExportPayload(user: User, profile: Profile | null, expenses: Expen
       last_sign_in_at: user.last_sign_in_at,
     },
     profile,
-    expenses,
+    totals,
+    transactions,
+  };
+}
+
+function calculateTotals(transactions: Transaction[]) {
+  let income = 0;
+  let expense = 0;
+  for (const transaction of transactions) {
+    if (transaction.transaction_type === "income") income += transaction.amount;
+    else expense += transaction.amount;
+  }
+  return {
+    income,
+    expense,
+    balance: income - expense,
   };
 }
 

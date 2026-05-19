@@ -3,15 +3,22 @@ import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useMonthlyComparison } from "@/hooks/useMonthlyComparison";
-import { formatCurrency } from "@/lib/utils";
+import { amountToneClass, cn, formatCurrency } from "@/lib/utils";
 
 type MonthComparisonCardProps = {
   refreshKey?: number;
 };
 
 export function MonthComparisonCard({ refreshKey = 0 }: MonthComparisonCardProps) {
-  const { current, previous, deltaPercent, hasPrevious, loading } =
-    useMonthlyComparison(refreshKey);
+  const {
+    currentIncome,
+    currentExpense,
+    currentBalance,
+    previousBalance,
+    deltaPercent,
+    hasPrevious,
+    loading,
+  } = useMonthlyComparison(refreshKey);
 
   const monthName = format(new Date(), "MMMM", { locale: ptBR });
 
@@ -19,14 +26,14 @@ export function MonthComparisonCard({ refreshKey = 0 }: MonthComparisonCardProps
     return <Skeleton className="h-[124px] w-full rounded-xl" />;
   }
 
-  // Pra gastos: subir é ruim (stamp/vermelho), descer é bom (accent/lima)
+  // Para saldo: subir é bom (accent/lima), descer acende alerta.
   const isUp = deltaPercent > 0;
   const isDown = deltaPercent < 0;
   const TrendIcon = isUp ? TrendingUp : isDown ? TrendingDown : Minus;
   const trendColor = isUp
-    ? "text-stamp bg-stamp/10"
+    ? "text-accent bg-accent/15"
     : isDown
-      ? "text-accent bg-accent/15"
+      ? "text-stamp bg-stamp/10"
       : "text-ink-muted bg-surface-muted";
   const deltaLabel = `${isUp ? "+" : ""}${deltaPercent.toFixed(1)}%`;
 
@@ -35,13 +42,24 @@ export function MonthComparisonCard({ refreshKey = 0 }: MonthComparisonCardProps
       <div className="flex-1">
         <span className="eyebrow">Comparativo mensal</span>
         <div className="mt-2 flex items-baseline gap-2">
-          <span className="num text-3xl font-bold text-stamp">
-            {formatCurrency(current)}
+          <span
+            className={cn(
+              "num text-3xl font-bold",
+              amountToneClass("balance", currentBalance)
+            )}
+          >
+            {formatCurrency(currentBalance)}
           </span>
           <span className="text-sm font-medium capitalize text-ink-soft">
-            em {monthName}
+            de saldo em {monthName}
           </span>
         </div>
+        <p className="num mt-2 text-xs text-ink-muted">
+          Receitas{" "}
+          <span className="text-accent">{formatCurrency(currentIncome)}</span>{" "}
+          · Despesas{" "}
+          <span className="text-stamp">{formatCurrency(currentExpense)}</span>
+        </p>
       </div>
 
       {hasPrevious ? (
@@ -55,7 +73,9 @@ export function MonthComparisonCard({ refreshKey = 0 }: MonthComparisonCardProps
           <div className="text-xs leading-tight text-ink-muted">
             vs mês passado
             <br />
-            <span className="num text-ink-soft">{formatCurrency(previous)}</span>
+            <span className="num text-ink-soft">
+              {formatCurrency(previousBalance)}
+            </span>
           </div>
         </div>
       ) : (
