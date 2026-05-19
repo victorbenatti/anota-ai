@@ -47,12 +47,28 @@ export function RouteTransition({ children }: RouteTransitionProps) {
     };
   }, [displayLocation.key, location, shouldAnimate]);
 
+  useEffect(() => {
+    scrollToRouteStart(displayLocation);
+  }, [displayLocation.pathname, displayLocation.hash]);
+
   return (
     <>
       {children(displayLocation)}
       <RouteTransitionOverlay phase={phase} />
     </>
   );
+}
+
+function scrollToRouteStart(location: Location) {
+  if (typeof window === "undefined") return;
+
+  if (!location.hash) {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    return;
+  }
+
+  const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+  target?.scrollIntoView({ block: "start", behavior: "auto" });
 }
 
 function RouteTransitionOverlay({ phase }: { phase: TransitionPhase }) {

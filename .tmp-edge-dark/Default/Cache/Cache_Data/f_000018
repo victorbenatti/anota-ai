@@ -1,0 +1,274 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/landing/WhatsappChatMockup.tsx");import __vite__cjsImport0_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=e31eda09"; const jsxDEV = __vite__cjsImport0_react_jsxDevRuntime["jsxDEV"];
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+import { CheckCheck } from "/node_modules/.vite/deps/lucide-react.js?v=e31eda09";
+export function WhatsappChatMockup() {
+  return /* @__PURE__ */ jsxDEV("div", { className: "relative mx-auto w-full max-w-sm", children: [
+    /* @__PURE__ */ jsxDEV(
+      "div",
+      {
+        "aria-hidden": true,
+        className: "absolute -inset-8 -z-10 rounded-[2.5rem] bg-accent/10 blur-2xl"
+      },
+      void 0,
+      false,
+      {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+        lineNumber: 29,
+        columnNumber: 7
+      },
+      this
+    ),
+    /* @__PURE__ */ jsxDEV(
+      "div",
+      {
+        className: "overflow-hidden rounded-[1.75rem] border border-line bg-surface shadow-[0_24px_60px_-20px_rgba(18,48,43,0.25)] [transform:perspective(1200px)_rotateY(-6deg)_rotateX(4deg)]",
+        role: "img",
+        "aria-label": "Demonstração de uma conversa entre o usuário e o agente AnotAI",
+        children: [
+          /* @__PURE__ */ jsxDEV("header", { className: "flex items-center gap-3 border-b border-line bg-bg/60 px-4 py-3", children: [
+            /* @__PURE__ */ jsxDEV("div", { className: "relative flex h-9 w-9 items-center justify-center rounded-full bg-brand text-[10px] font-bold uppercase text-white", children: [
+              "AI",
+              /* @__PURE__ */ jsxDEV("span", { className: "absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-surface bg-accent" }, void 0, false, {
+                fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+                lineNumber: 43,
+                columnNumber: 13
+              }, this)
+            ] }, void 0, true, {
+              fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+              lineNumber: 41,
+              columnNumber: 11
+            }, this),
+            /* @__PURE__ */ jsxDEV("div", { className: "flex-1 leading-tight", children: [
+              /* @__PURE__ */ jsxDEV("div", { className: "text-sm font-semibold text-ink", children: "AnotAI" }, void 0, false, {
+                fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+                lineNumber: 46,
+                columnNumber: 13
+              }, this),
+              /* @__PURE__ */ jsxDEV("div", { className: "text-[10px] text-ink-muted", children: "online" }, void 0, false, {
+                fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+                lineNumber: 47,
+                columnNumber: 13
+              }, this)
+            ] }, void 0, true, {
+              fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+              lineNumber: 45,
+              columnNumber: 11
+            }, this),
+            /* @__PURE__ */ jsxDEV("span", { className: "num text-[10px] text-ink-muted", children: "agora" }, void 0, false, {
+              fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+              lineNumber: 49,
+              columnNumber: 11
+            }, this)
+          ] }, void 0, true, {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+            lineNumber: 40,
+            columnNumber: 9
+          }, this),
+          /* @__PURE__ */ jsxDEV("div", { className: "chat-thread-surface flex flex-col gap-2.5 px-4 py-5", children: [
+            /* @__PURE__ */ jsxDEV(BotBubble, { className: "chat-anim-1", children: "Oi! Sou o AnotAI 👋 me conta seus gastos quando quiser." }, void 0, false, {
+              fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+              lineNumber: 55,
+              columnNumber: 11
+            }, this),
+            /* @__PURE__ */ jsxDEV(UserBubble, { className: "chat-anim-2", time: "14:02", children: "gastei 30 na padaria" }, void 0, false, {
+              fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+              lineNumber: 60,
+              columnNumber: 11
+            }, this),
+            /* @__PURE__ */ jsxDEV(TypingIndicator, { className: "chat-typing-anim-1" }, void 0, false, {
+              fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+              lineNumber: 65,
+              columnNumber: 11
+            }, this),
+            /* @__PURE__ */ jsxDEV(BotBubble, { className: "chat-anim-3", time: "14:02", children: [
+              "✅ R$ 30,00 em ",
+              /* @__PURE__ */ jsxDEV("strong", { className: "font-semibold", children: "alimentação" }, void 0, false, {
+                fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+                lineNumber: 69,
+                columnNumber: 27
+              }, this),
+              " registrado."
+            ] }, void 0, true, {
+              fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+              lineNumber: 68,
+              columnNumber: 11
+            }, this),
+            /* @__PURE__ */ jsxDEV(UserBubble, { className: "chat-anim-4", time: "14:03", children: "quanto gastei essa semana?" }, void 0, false, {
+              fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+              lineNumber: 73,
+              columnNumber: 11
+            }, this),
+            /* @__PURE__ */ jsxDEV(TypingIndicator, { className: "chat-typing-anim-2" }, void 0, false, {
+              fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+              lineNumber: 78,
+              columnNumber: 11
+            }, this),
+            /* @__PURE__ */ jsxDEV(BotBubble, { className: "chat-anim-5", time: "14:03", children: [
+              "📊 Total ",
+              /* @__PURE__ */ jsxDEV("span", { className: "num font-semibold text-stamp", children: "R$ 187,50" }, void 0, false, {
+                fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+                lineNumber: 82,
+                columnNumber: 22
+              }, this),
+              /* @__PURE__ */ jsxDEV("br", {}, void 0, false, {
+                fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+                lineNumber: 83,
+                columnNumber: 13
+              }, this),
+              /* @__PURE__ */ jsxDEV("span", { className: "text-xs text-ink-soft", children: "top 3 · alimentação R$95 · transporte R$48 · lazer R$30" }, void 0, false, {
+                fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+                lineNumber: 84,
+                columnNumber: 13
+              }, this)
+            ] }, void 0, true, {
+              fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+              lineNumber: 81,
+              columnNumber: 11
+            }, this)
+          ] }, void 0, true, {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+            lineNumber: 53,
+            columnNumber: 9
+          }, this)
+        ]
+      },
+      void 0,
+      true,
+      {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+        lineNumber: 34,
+        columnNumber: 7
+      },
+      this
+    )
+  ] }, void 0, true, {
+    fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+    lineNumber: 27,
+    columnNumber: 5
+  }, this);
+}
+_c = WhatsappChatMockup;
+function BotBubble({
+  children,
+  className = "",
+  time
+}) {
+  return /* @__PURE__ */ jsxDEV("div", { className: `flex max-w-[85%] flex-col ${className}`, children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "chat-bubble-bot rounded-2xl rounded-bl-md px-3.5 py-2 text-sm leading-snug shadow-[0_1px_1px_rgba(0,0,0,0.05)]", children }, void 0, false, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+      lineNumber: 107,
+      columnNumber: 7
+    }, this),
+    time && /* @__PURE__ */ jsxDEV("span", { className: "num mt-0.5 self-start pl-2 text-[9px] text-ink-muted", children: time }, void 0, false, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+      lineNumber: 111,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+    lineNumber: 106,
+    columnNumber: 5
+  }, this);
+}
+_c2 = BotBubble;
+function UserBubble({
+  children,
+  className = "",
+  time
+}) {
+  return /* @__PURE__ */ jsxDEV("div", { className: `flex max-w-[85%] flex-col self-end ${className}`, children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "chat-bubble-user flex items-end gap-1.5 rounded-2xl rounded-br-md px-3.5 py-2 text-sm leading-snug shadow-[0_1px_1px_rgba(0,0,0,0.05)]", children: /* @__PURE__ */ jsxDEV("span", { children }, void 0, false, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+      lineNumber: 131,
+      columnNumber: 9
+    }, this) }, void 0, false, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+      lineNumber: 130,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "mt-0.5 flex items-center gap-1 self-end pr-2", children: [
+      time && /* @__PURE__ */ jsxDEV("span", { className: "num text-[9px] text-ink-muted", children: time }, void 0, false, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+        lineNumber: 135,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(CheckCheck, { className: "h-3 w-3 text-[#53bdeb]", strokeWidth: 2.5 }, void 0, false, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+        lineNumber: 137,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+      lineNumber: 133,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+    lineNumber: 129,
+    columnNumber: 5
+  }, this);
+}
+_c3 = UserBubble;
+function TypingIndicator({ className = "" }) {
+  return /* @__PURE__ */ jsxDEV("div", { className: `flex max-w-[60px] ${className}`, children: /* @__PURE__ */ jsxDEV("div", { className: "chat-bubble-bot flex items-center gap-1 rounded-2xl rounded-bl-md px-3 py-2.5 shadow-[0_1px_1px_rgba(0,0,0,0.05)]", children: [
+    /* @__PURE__ */ jsxDEV("span", { className: "typing-dot-anim h-1.5 w-1.5 rounded-full bg-ink-muted" }, void 0, false, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+      lineNumber: 147,
+      columnNumber: 9
+    }, this),
+    /* @__PURE__ */ jsxDEV("span", { className: "typing-dot-anim h-1.5 w-1.5 rounded-full bg-ink-muted" }, void 0, false, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+      lineNumber: 148,
+      columnNumber: 9
+    }, this),
+    /* @__PURE__ */ jsxDEV("span", { className: "typing-dot-anim h-1.5 w-1.5 rounded-full bg-ink-muted" }, void 0, false, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+      lineNumber: 149,
+      columnNumber: 9
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+    lineNumber: 146,
+    columnNumber: 7
+  }, this) }, void 0, false, {
+    fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx",
+    lineNumber: 145,
+    columnNumber: 5
+  }, this);
+}
+_c4 = TypingIndicator;
+var _c, _c2, _c3, _c4;
+$RefreshReg$(_c, "WhatsappChatMockup");
+$RefreshReg$(_c2, "BotBubble");
+$RefreshReg$(_c3, "UserBubble");
+$RefreshReg$(_c4, "TypingIndicator");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/WhatsappChatMockup.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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QUFBQSxXQUF1RTtBQUFBLElBQ3ZFLHVCQUFDLFVBQUssV0FBVSwyREFBaEI7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQUF1RTtBQUFBLE9BSHpFO0FBQUE7QUFBQTtBQUFBO0FBQUEsU0FJQSxLQUxGO0FBQUE7QUFBQTtBQUFBO0FBQUEsU0FNQTtBQUVKO0FBQUNNLE1BVlFEO0FBQWUsSUFBQVIsSUFBQUssS0FBQUUsS0FBQUU7QUFBQSxhQUFBVCxJQUFBO0FBQUEsYUFBQUssS0FBQTtBQUFBLGFBQUFFLEtBQUE7QUFBQSxhQUFBRSxLQUFBIiwibmFtZXMiOlsiQ2hlY2tDaGVjayIsIldoYXRzYXBwQ2hhdE1vY2t1cCIsIl9jIiwiQm90QnViYmxlIiwiY2hpbGRyZW4iLCJjbGFzc05hbWUiLCJ0aW1lIiwiX2MyIiwiVXNlckJ1YmJsZSIsIl9jMyIsIlR5cGluZ0luZGljYXRvciIsIl9jNCJdLCJpZ25vcmVMaXN0IjpbXSwic291cmNlcyI6WyJXaGF0c2FwcENoYXRNb2NrdXAudHN4Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IENoZWNrQ2hlY2sgfSBmcm9tIFwibHVjaWRlLXJlYWN0XCI7XG5cbi8vIE1vY2t1cCBhdXRvLWFuaW1hZG8gZGUgY29udmVyc2EgV2hhdHNBcHAuIEFuaW1hw6fDo28gMTAwJSBDU1MgKGtleWZyYW1lc1xuLy8gZW0gaW5kZXguY3NzKSBjb20gbG9vcCBkZSAxMnMuIFZpc3VhbG1lbnRlOiBjb250YWluZXIgXCJ0ZWxhIGZsdXR1YW5kb1wiXG4vLyBjb20gbGV2ZSB0aWx0IDNEIGUgc29tYnJhIHN1YXZlLlxuZXhwb3J0IGZ1bmN0aW9uIFdoYXRzYXBwQ2hhdE1vY2t1cCgpIHtcbiAgcmV0dXJuIChcbiAgICA8ZGl2IGNsYXNzTmFtZT1cInJlbGF0aXZlIG14LWF1dG8gdy1mdWxsIG1heC13LXNtXCI+XG4gICAgICB7LyogSGFsbyBkZWNvcmF0aXZvIGxpbWEgYXRyw6FzIGRvIG1vY2t1cCAqL31cbiAgICAgIDxkaXZcbiAgICAgICAgYXJpYS1oaWRkZW5cbiAgICAgICAgY2xhc3NOYW1lPVwiYWJzb2x1dGUgLWluc2V0LTggLXotMTAgcm91bmRlZC1bMi41cmVtXSBiZy1hY2NlbnQvMTAgYmx1ci0yeGxcIlxuICAgICAgLz5cblxuICAgICAgPGRpdlxuICAgICAgICBjbGFzc05hbWU9XCJvdmVyZmxvdy1oaWRkZW4gcm91bmRlZC1bMS43NXJlbV0gYm9yZGVyIGJvcmRlci1saW5lIGJnLXN1cmZhY2Ugc2hhZG93LVswXzI0cHhfNjBweF8tMjBweF9yZ2JhKDE4LDQ4LDQzLDAuMjUpXSBbdHJhbnNmb3JtOnBlcnNwZWN0aXZlKDEyMDBweClfcm90YXRlWSgtNmRlZylfcm90YXRlWCg0ZGVnKV1cIlxuICAgICAgICByb2xlPVwiaW1nXCJcbiAgICAgICAgYXJpYS1sYWJlbD1cIkRlbW9uc3RyYcOnw6NvIGRlIHVtYSBjb252ZXJzYSBlbnRyZSBvIHVzdcOhcmlvIGUgbyBhZ2VudGUgQW5vdEFJXCJcbiAgICAgID5cbiAgICAgICAgey8qIEhlYWRlciB0aXBvIFdoYXRzQXBwICovfVxuICAgICAgICA8aGVhZGVyIGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0zIGJvcmRlci1iIGJvcmRlci1saW5lIGJnLWJnLzYwIHB4LTQgcHktM1wiPlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicmVsYXRpdmUgZmxleCBoLTkgdy05IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciByb3VuZGVkLWZ1bGwgYmctYnJhbmQgdGV4dC1bMTBweF0gZm9udC1ib2xkIHVwcGVyY2FzZSB0ZXh0LXdoaXRlXCI+XG4gICAgICAgICAgICBBSVxuICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwiYWJzb2x1dGUgLWJvdHRvbS0wLjUgLXJpZ2h0LTAuNSBoLTMgdy0zIHJvdW5kZWQtZnVsbCBib3JkZXItMiBib3JkZXItc3VyZmFjZSBiZy1hY2NlbnRcIiAvPlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleC0xIGxlYWRpbmctdGlnaHRcIj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC1zbSBmb250LXNlbWlib2xkIHRleHQtaW5rXCI+QW5vdEFJPC9kaXY+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQtWzEwcHhdIHRleHQtaW5rLW11dGVkXCI+b25saW5lPC9kaXY+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwibnVtIHRleHQtWzEwcHhdIHRleHQtaW5rLW11dGVkXCI+YWdvcmE8L3NwYW4+XG4gICAgICAgIDwvaGVhZGVyPlxuXG4gICAgICAgIHsvKiBDb3JwbyBkYSBjb252ZXJzYSAqL31cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJjaGF0LXRocmVhZC1zdXJmYWNlIGZsZXggZmxleC1jb2wgZ2FwLTIuNSBweC00IHB5LTVcIj5cbiAgICAgICAgICB7LyogMS4gQm90IGdyZWV0aW5nICovfVxuICAgICAgICAgIDxCb3RCdWJibGUgY2xhc3NOYW1lPVwiY2hhdC1hbmltLTFcIj5cbiAgICAgICAgICAgIE9pISBTb3UgbyBBbm90QUkg8J+RiyBtZSBjb250YSBzZXVzIGdhc3RvcyBxdWFuZG8gcXVpc2VyLlxuICAgICAgICAgIDwvQm90QnViYmxlPlxuXG4gICAgICAgICAgey8qIDIuIFVzZXI6IGdhc3RlaSAzMCAqL31cbiAgICAgICAgICA8VXNlckJ1YmJsZSBjbGFzc05hbWU9XCJjaGF0LWFuaW0tMlwiIHRpbWU9XCIxNDowMlwiPlxuICAgICAgICAgICAgZ2FzdGVpIDMwIG5hIHBhZGFyaWFcbiAgICAgICAgICA8L1VzZXJCdWJibGU+XG5cbiAgICAgICAgICB7LyogMy4gQm90IHR5cGluZyAqL31cbiAgICAgICAgICA8VHlwaW5nSW5kaWNhdG9yIGNsYXNzTmFtZT1cImNoYXQtdHlwaW5nLWFuaW0tMVwiIC8+XG5cbiAgICAgICAgICB7LyogNC4gQm90IGNvbmZpcm0gKi99XG4gICAgICAgICAgPEJvdEJ1YmJsZSBjbGFzc05hbWU9XCJjaGF0LWFuaW0tM1wiIHRpbWU9XCIxNDowMlwiPlxuICAgICAgICAgICAg4pyFIFIkIDMwLDAwIGVtIDxzdHJvbmcgY2xhc3NOYW1lPVwiZm9udC1zZW1pYm9sZFwiPmFsaW1lbnRhw6fDo288L3N0cm9uZz4gcmVnaXN0cmFkby5cbiAgICAgICAgICA8L0JvdEJ1YmJsZT5cblxuICAgICAgICAgIHsvKiA1LiBVc2VyOiBxdWVyeSAqL31cbiAgICAgICAgICA8VXNlckJ1YmJsZSBjbGFzc05hbWU9XCJjaGF0LWFuaW0tNFwiIHRpbWU9XCIxNDowM1wiPlxuICAgICAgICAgICAgcXVhbnRvIGdhc3RlaSBlc3NhIHNlbWFuYT9cbiAgICAgICAgICA8L1VzZXJCdWJibGU+XG5cbiAgICAgICAgICB7LyogNi4gQm90IHR5cGluZyAqL31cbiAgICAgICAgICA8VHlwaW5nSW5kaWNhdG9yIGNsYXNzTmFtZT1cImNoYXQtdHlwaW5nLWFuaW0tMlwiIC8+XG5cbiAgICAgICAgICB7LyogNy4gQm90IHN1bW1hcnkgKi99XG4gICAgICAgICAgPEJvdEJ1YmJsZSBjbGFzc05hbWU9XCJjaGF0LWFuaW0tNVwiIHRpbWU9XCIxNDowM1wiPlxuICAgICAgICAgICAg8J+TiiBUb3RhbCA8c3BhbiBjbGFzc05hbWU9XCJudW0gZm9udC1zZW1pYm9sZCB0ZXh0LXN0YW1wXCI+UiQgMTg3LDUwPC9zcGFuPlxuICAgICAgICAgICAgPGJyIC8+XG4gICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LXhzIHRleHQtaW5rLXNvZnRcIj5cbiAgICAgICAgICAgICAgdG9wIDMgwrcgYWxpbWVudGHDp8OjbyBSJDk1IMK3IHRyYW5zcG9ydGUgUiQ0OCDCtyBsYXplciBSJDMwXG4gICAgICAgICAgICA8L3NwYW4+XG4gICAgICAgICAgPC9Cb3RCdWJibGU+XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9kaXY+XG4gICAgPC9kaXY+XG4gICk7XG59XG5cbi8vIC0tLS0tLS0tLS0gU3ViLWNvbXBvbmVudGVzIGludGVybm9zIC0tLS0tLS0tLS1cblxuZnVuY3Rpb24gQm90QnViYmxlKHtcbiAgY2hpbGRyZW4sXG4gIGNsYXNzTmFtZSA9IFwiXCIsXG4gIHRpbWUsXG59OiB7XG4gIGNoaWxkcmVuOiBSZWFjdC5SZWFjdE5vZGU7XG4gIGNsYXNzTmFtZT86IHN0cmluZztcbiAgdGltZT86IHN0cmluZztcbn0pIHtcbiAgcmV0dXJuIChcbiAgICA8ZGl2IGNsYXNzTmFtZT17YGZsZXggbWF4LXctWzg1JV0gZmxleC1jb2wgJHtjbGFzc05hbWV9YH0+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImNoYXQtYnViYmxlLWJvdCByb3VuZGVkLTJ4bCByb3VuZGVkLWJsLW1kIHB4LTMuNSBweS0yIHRleHQtc20gbGVhZGluZy1zbnVnIHNoYWRvdy1bMF8xcHhfMXB4X3JnYmEoMCwwLDAsMC4wNSldXCI+XG4gICAgICAgIHtjaGlsZHJlbn1cbiAgICAgIDwvZGl2PlxuICAgICAge3RpbWUgJiYgKFxuICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJudW0gbXQtMC41IHNlbGYtc3RhcnQgcGwtMiB0ZXh0LVs5cHhdIHRleHQtaW5rLW11dGVkXCI+XG4gICAgICAgICAge3RpbWV9XG4gICAgICAgIDwvc3Bhbj5cbiAgICAgICl9XG4gICAgPC9kaXY+XG4gICk7XG59XG5cbmZ1bmN0aW9uIFVzZXJCdWJibGUoe1xuICBjaGlsZHJlbixcbiAgY2xhc3NOYW1lID0gXCJcIixcbiAgdGltZSxcbn06IHtcbiAgY2hpbGRyZW46IFJlYWN0LlJlYWN0Tm9kZTtcbiAgY2xhc3NOYW1lPzogc3RyaW5nO1xuICB0aW1lPzogc3RyaW5nO1xufSkge1xuICByZXR1cm4gKFxuICAgIDxkaXYgY2xhc3NOYW1lPXtgZmxleCBtYXgtdy1bODUlXSBmbGV4LWNvbCBzZWxmLWVuZCAke2NsYXNzTmFtZX1gfT5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiY2hhdC1idWJibGUtdXNlciBmbGV4IGl0ZW1zLWVuZCBnYXAtMS41IHJvdW5kZWQtMnhsIHJvdW5kZWQtYnItbWQgcHgtMy41IHB5LTIgdGV4dC1zbSBsZWFkaW5nLXNudWcgc2hhZG93LVswXzFweF8xcHhfcmdiYSgwLDAsMCwwLjA1KV1cIj5cbiAgICAgICAgPHNwYW4+e2NoaWxkcmVufTwvc3Bhbj5cbiAgICAgIDwvZGl2PlxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJtdC0wLjUgZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTEgc2VsZi1lbmQgcHItMlwiPlxuICAgICAgICB7dGltZSAmJiAoXG4gICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwibnVtIHRleHQtWzlweF0gdGV4dC1pbmstbXV0ZWRcIj57dGltZX08L3NwYW4+XG4gICAgICAgICl9XG4gICAgICAgIDxDaGVja0NoZWNrIGNsYXNzTmFtZT1cImgtMyB3LTMgdGV4dC1bIzUzYmRlYl1cIiBzdHJva2VXaWR0aD17Mi41fSAvPlxuICAgICAgPC9kaXY+XG4gICAgPC9kaXY+XG4gICk7XG59XG5cbmZ1bmN0aW9uIFR5cGluZ0luZGljYXRvcih7IGNsYXNzTmFtZSA9IFwiXCIgfTogeyBjbGFzc05hbWU/OiBzdHJpbmcgfSkge1xuICByZXR1cm4gKFxuICAgIDxkaXYgY2xhc3NOYW1lPXtgZmxleCBtYXgtdy1bNjBweF0gJHtjbGFzc05hbWV9YH0+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImNoYXQtYnViYmxlLWJvdCBmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMSByb3VuZGVkLTJ4bCByb3VuZGVkLWJsLW1kIHB4LTMgcHktMi41IHNoYWRvdy1bMF8xcHhfMXB4X3JnYmEoMCwwLDAsMC4wNSldXCI+XG4gICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInR5cGluZy1kb3QtYW5pbSBoLTEuNSB3LTEuNSByb3VuZGVkLWZ1bGwgYmctaW5rLW11dGVkXCIgLz5cbiAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidHlwaW5nLWRvdC1hbmltIGgtMS41IHctMS41IHJvdW5kZWQtZnVsbCBiZy1pbmstbXV0ZWRcIiAvPlxuICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0eXBpbmctZG90LWFuaW0gaC0xLjUgdy0xLjUgcm91bmRlZC1mdWxsIGJnLWluay1tdXRlZFwiIC8+XG4gICAgICA8L2Rpdj5cbiAgICA8L2Rpdj5cbiAgKTtcbn1cbiJdLCJmaWxlIjoiQzovVXNlcnMvQUNFUl9OSVRSTy9EZXNrdG9wL0VzdHVkby9BRFMgLSBGQVRFQy9URy9hbm90YS1haS9zcmMvY29tcG9uZW50cy9sYW5kaW5nL1doYXRzYXBwQ2hhdE1vY2t1cC50c3gifQ==

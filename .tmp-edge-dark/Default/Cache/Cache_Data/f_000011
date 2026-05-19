@@ -1,0 +1,266 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/landing/FinalCTA.tsx");import __vite__cjsImport0_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=e31eda09"; const jsxDEV = __vite__cjsImport0_react_jsxDevRuntime["jsxDEV"];
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/FinalCTA.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+import { Link } from "/node_modules/.vite/deps/react-router-dom.js?v=e31eda09";
+import { ArrowRight, CheckCheck } from "/node_modules/.vite/deps/lucide-react.js?v=e31eda09";
+import { Button } from "/src/components/ui/button.tsx";
+export function FinalCTA() {
+  return /* @__PURE__ */ jsxDEV("section", { className: "relative overflow-hidden bg-brand-strong py-24 text-white md:py-32", children: [
+    /* @__PURE__ */ jsxDEV(
+      "div",
+      {
+        "aria-hidden": true,
+        className: "pointer-events-none absolute inset-0 opacity-70",
+        style: {
+          background: "radial-gradient(ellipse 60% 60% at 50% 0%, hsl(75 60% 45% / 0.18), transparent 60%), radial-gradient(ellipse 50% 50% at 50% 100%, hsl(170 50% 25% / 0.6), transparent 70%)"
+        }
+      },
+      void 0,
+      false,
+      {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/FinalCTA.tsx",
+        lineNumber: 31,
+        columnNumber: 7
+      },
+      this
+    ),
+    /* @__PURE__ */ jsxDEV(
+      "div",
+      {
+        "aria-hidden": true,
+        className: "pointer-events-none absolute inset-0 opacity-[0.12]",
+        style: {
+          backgroundImage: "radial-gradient(circle, hsl(0 0% 100% / 0.6) 1px, transparent 1px)",
+          backgroundSize: "28px 28px"
+        }
+      },
+      void 0,
+      false,
+      {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/FinalCTA.tsx",
+        lineNumber: 41,
+        columnNumber: 7
+      },
+      this
+    ),
+    /* @__PURE__ */ jsxDEV(FloatingBubbleLeft, {}, void 0, false, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/FinalCTA.tsx",
+      lineNumber: 52,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FloatingBubbleRight, {}, void 0, false, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/FinalCTA.tsx",
+      lineNumber: 53,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "relative mx-auto max-w-3xl px-5 text-center md:px-8", children: [
+      /* @__PURE__ */ jsxDEV("span", { className: "inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.06] px-3.5 py-1.5 text-xs font-semibold text-white/90 backdrop-blur-sm", children: [
+        /* @__PURE__ */ jsxDEV("span", { className: "relative flex h-1.5 w-1.5", children: [
+          /* @__PURE__ */ jsxDEV("span", { className: "absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-70" }, void 0, false, {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/FinalCTA.tsx",
+            lineNumber: 58,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV("span", { className: "relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" }, void 0, false, {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/FinalCTA.tsx",
+            lineNumber: 59,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/FinalCTA.tsx",
+          lineNumber: 57,
+          columnNumber: 11
+        }, this),
+        "Ainda dá pra entrar no beta"
+      ] }, void 0, true, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/FinalCTA.tsx",
+        lineNumber: 56,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("h2", { className: "mt-6 text-balance text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl", children: [
+        "É só mandar",
+        /* @__PURE__ */ jsxDEV("br", {}, void 0, false, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/FinalCTA.tsx",
+          lineNumber: 66,
+          columnNumber: 11
+        }, this),
+        "uma ",
+        /* @__PURE__ */ jsxDEV("span", { className: "text-accent", children: "mensagem" }, void 0, false, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/FinalCTA.tsx",
+          lineNumber: 67,
+          columnNumber: 15
+        }, this),
+        "."
+      ] }, void 0, true, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/FinalCTA.tsx",
+        lineNumber: 64,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("p", { className: "mx-auto mt-6 max-w-md text-base leading-relaxed text-white/70 md:text-lg", children: "Crie sua conta, vincule o WhatsApp e comece a conversar. O resto, o AnotAI cuida em tempo real." }, void 0, false, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/FinalCTA.tsx",
+        lineNumber: 70,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { className: "mt-10 flex flex-col items-center gap-3", children: [
+        /* @__PURE__ */ jsxDEV(
+          Button,
+          {
+            asChild: true,
+            size: "lg",
+            className: "group h-14 bg-accent px-8 text-base font-bold text-ink shadow-[0_8px_30px_-8px_rgb(159_190_39/0.6)] transition-all hover:bg-accent/90 hover:shadow-[0_12px_40px_-8px_rgb(159_190_39/0.8)]",
+            children: /* @__PURE__ */ jsxDEV(Link, { to: "/signup", children: [
+              "Começar grátis agora",
+              /* @__PURE__ */ jsxDEV(ArrowRight, { className: "h-5 w-5 transition-transform group-hover:translate-x-1" }, void 0, false, {
+                fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/FinalCTA.tsx",
+                lineNumber: 83,
+                columnNumber: 15
+              }, this)
+            ] }, void 0, true, {
+              fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/FinalCTA.tsx",
+              lineNumber: 81,
+              columnNumber: 13
+            }, this)
+          },
+          void 0,
+          false,
+          {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/FinalCTA.tsx",
+            lineNumber: 76,
+            columnNumber: 11
+          },
+          this
+        ),
+        /* @__PURE__ */ jsxDEV("p", { className: "num text-[11px] uppercase tracking-wider text-white/50", children: "sem cartão · sem trial · sem propaganda" }, void 0, false, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/FinalCTA.tsx",
+          lineNumber: 87,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/FinalCTA.tsx",
+        lineNumber: 75,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/FinalCTA.tsx",
+      lineNumber: 55,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/FinalCTA.tsx",
+    lineNumber: 29,
+    columnNumber: 5
+  }, this);
+}
+_c = FinalCTA;
+function FloatingBubbleLeft() {
+  return /* @__PURE__ */ jsxDEV(
+    "div",
+    {
+      "aria-hidden": true,
+      className: "pointer-events-none absolute left-[6%] top-[22%] hidden max-w-[220px] -rotate-6 lg:block",
+      children: [
+        /* @__PURE__ */ jsxDEV("div", { className: "rounded-2xl rounded-br-md bg-[#d9fdd3] px-3.5 py-2 text-sm text-ink shadow-[0_20px_40px_-12px_rgba(0,0,0,0.4)]", children: "gastei 30 na padaria" }, void 0, false, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/FinalCTA.tsx",
+          lineNumber: 104,
+          columnNumber: 7
+        }, this),
+        /* @__PURE__ */ jsxDEV("div", { className: "mt-1 flex items-center justify-end gap-1 pr-2", children: [
+          /* @__PURE__ */ jsxDEV("span", { className: "num text-[9px] text-white/50", children: "14:02" }, void 0, false, {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/FinalCTA.tsx",
+            lineNumber: 108,
+            columnNumber: 9
+          }, this),
+          /* @__PURE__ */ jsxDEV(CheckCheck, { className: "h-3 w-3 text-[#53bdeb]", strokeWidth: 2.5 }, void 0, false, {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/FinalCTA.tsx",
+            lineNumber: 109,
+            columnNumber: 9
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/FinalCTA.tsx",
+          lineNumber: 107,
+          columnNumber: 7
+        }, this)
+      ]
+    },
+    void 0,
+    true,
+    {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/FinalCTA.tsx",
+      lineNumber: 100,
+      columnNumber: 5
+    },
+    this
+  );
+}
+_c2 = FloatingBubbleLeft;
+function FloatingBubbleRight() {
+  return /* @__PURE__ */ jsxDEV(
+    "div",
+    {
+      "aria-hidden": true,
+      className: "pointer-events-none absolute right-[6%] top-[62%] hidden max-w-[240px] rotate-3 lg:block",
+      children: [
+        /* @__PURE__ */ jsxDEV("div", { className: "rounded-2xl rounded-bl-md bg-white px-3.5 py-2 text-sm text-ink shadow-[0_20px_40px_-12px_rgba(0,0,0,0.4)]", children: [
+          "✅ R$ 30,00 em ",
+          /* @__PURE__ */ jsxDEV("strong", { className: "font-semibold", children: "alimentação" }, void 0, false, {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/FinalCTA.tsx",
+            lineNumber: 122,
+            columnNumber: 23
+          }, this),
+          " registrado."
+        ] }, void 0, true, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/FinalCTA.tsx",
+          lineNumber: 121,
+          columnNumber: 7
+        }, this),
+        /* @__PURE__ */ jsxDEV("span", { className: "num mt-1 inline-block pl-2 text-[9px] text-white/50", children: "14:02" }, void 0, false, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/FinalCTA.tsx",
+          lineNumber: 124,
+          columnNumber: 7
+        }, this)
+      ]
+    },
+    void 0,
+    true,
+    {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/FinalCTA.tsx",
+      lineNumber: 117,
+      columnNumber: 5
+    },
+    this
+  );
+}
+_c3 = FloatingBubbleRight;
+var _c, _c2, _c3;
+$RefreshReg$(_c, "FinalCTA");
+$RefreshReg$(_c2, "FloatingBubbleLeft");
+$RefreshReg$(_c3, "FloatingBubbleRight");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/FinalCTA.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/landing/FinalCTA.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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QkFBL0M7QUFBQTtBQUFBO0FBQUE7QUFBQSxpQkFBb0Q7QUFBQSxVQUNwRCx1QkFBQyxjQUFXLFdBQVUsMEJBQXlCLGFBQWEsT0FBNUQ7QUFBQTtBQUFBO0FBQUE7QUFBQSxpQkFBZ0U7QUFBQSxhQUZsRTtBQUFBO0FBQUE7QUFBQTtBQUFBLGVBR0E7QUFBQTtBQUFBO0FBQUEsSUFWRjtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsRUFXQTtBQUVKO0FBQUNDLE1BZlFEO0FBaUJULFNBQVNFLHNCQUFzQjtBQUM3QixTQUNFO0FBQUEsSUFBQztBQUFBO0FBQUEsTUFDQztBQUFBLE1BQ0EsV0FBVTtBQUFBLE1BRVY7QUFBQSwrQkFBQyxTQUFJLFdBQVUsOEdBQTRHO0FBQUE7QUFBQSxVQUMzRyx1QkFBQyxZQUFPLFdBQVUsaUJBQWdCLDJCQUFsQztBQUFBO0FBQUE7QUFBQTtBQUFBLGlCQUE2QztBQUFBLFVBQVM7QUFBQSxhQUR0RTtBQUFBO0FBQUE7QUFBQTtBQUFBLGVBRUE7QUFBQSxRQUNBLHVCQUFDLFVBQUssV0FBVSx1REFBcUQscUJBQXJFO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFFQTtBQUFBO0FBQUE7QUFBQSxJQVRGO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxFQVVBO0FBRUo7QUFBQ0MsTUFkUUQ7QUFBbUIsSUFBQUgsSUFBQUUsS0FBQUU7QUFBQSxhQUFBSixJQUFBO0FBQUEsYUFBQUUsS0FBQTtBQUFBLGFBQUFFLEtBQUEiLCJuYW1lcyI6WyJMaW5rIiwiQXJyb3dSaWdodCIsIkNoZWNrQ2hlY2siLCJCdXR0b24iLCJGaW5hbENUQSIsImJhY2tncm91bmQiLCJiYWNrZ3JvdW5kSW1hZ2UiLCJiYWNrZ3JvdW5kU2l6ZSIsIl9jIiwiRmxvYXRpbmdCdWJibGVMZWZ0IiwiX2MyIiwiRmxvYXRpbmdCdWJibGVSaWdodCIsIl9jMyJdLCJpZ25vcmVMaXN0IjpbXSwic291cmNlcyI6WyJGaW5hbENUQS50c3giXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgTGluayB9IGZyb20gXCJyZWFjdC1yb3V0ZXItZG9tXCI7XG5pbXBvcnQgeyBBcnJvd1JpZ2h0LCBDaGVja0NoZWNrIH0gZnJvbSBcImx1Y2lkZS1yZWFjdFwiO1xuaW1wb3J0IHsgQnV0dG9uIH0gZnJvbSBcIkAvY29tcG9uZW50cy91aS9idXR0b25cIjtcblxuLy8gQ1RBIGRlIGZlY2hhbWVudG8uIENvbXBvc2nDp8OjbyBlZGl0b3JpYWw6IGhlYWRsaW5lIG1hc3Npdm8gKyBib2xoYXMgZGUgY2hhdFxuLy8gZmx1dHVhbmRvIGNvbW8gZWxlbWVudG9zIGdyw6FmaWNvcyAoZXN0w6F0aWNhcywgc2VtIGFuaW1hw6fDo28g4oCUIG8gZGVzdGFxdWVcbi8vIG1vdGlvbiBqw6EgZXN0w6EgbmEgaGVybykuXG5leHBvcnQgZnVuY3Rpb24gRmluYWxDVEEoKSB7XG4gIHJldHVybiAoXG4gICAgPHNlY3Rpb24gY2xhc3NOYW1lPVwicmVsYXRpdmUgb3ZlcmZsb3ctaGlkZGVuIGJnLWJyYW5kLXN0cm9uZyBweS0yNCB0ZXh0LXdoaXRlIG1kOnB5LTMyXCI+XG4gICAgICB7LyogTWVzaCByYWRpYWwgZGVjb3JhdGl2byAqL31cbiAgICAgIDxkaXZcbiAgICAgICAgYXJpYS1oaWRkZW5cbiAgICAgICAgY2xhc3NOYW1lPVwicG9pbnRlci1ldmVudHMtbm9uZSBhYnNvbHV0ZSBpbnNldC0wIG9wYWNpdHktNzBcIlxuICAgICAgICBzdHlsZT17e1xuICAgICAgICAgIGJhY2tncm91bmQ6XG4gICAgICAgICAgICBcInJhZGlhbC1ncmFkaWVudChlbGxpcHNlIDYwJSA2MCUgYXQgNTAlIDAlLCBoc2woNzUgNjAlIDQ1JSAvIDAuMTgpLCB0cmFuc3BhcmVudCA2MCUpLCByYWRpYWwtZ3JhZGllbnQoZWxsaXBzZSA1MCUgNTAlIGF0IDUwJSAxMDAlLCBoc2woMTcwIDUwJSAyNSUgLyAwLjYpLCB0cmFuc3BhcmVudCA3MCUpXCIsXG4gICAgICAgIH19XG4gICAgICAvPlxuXG4gICAgICB7LyogR3JpZCBkZSBwb250b3Mgc3V0aWwgKi99XG4gICAgICA8ZGl2XG4gICAgICAgIGFyaWEtaGlkZGVuXG4gICAgICAgIGNsYXNzTmFtZT1cInBvaW50ZXItZXZlbnRzLW5vbmUgYWJzb2x1dGUgaW5zZXQtMCBvcGFjaXR5LVswLjEyXVwiXG4gICAgICAgIHN0eWxlPXt7XG4gICAgICAgICAgYmFja2dyb3VuZEltYWdlOlxuICAgICAgICAgICAgXCJyYWRpYWwtZ3JhZGllbnQoY2lyY2xlLCBoc2woMCAwJSAxMDAlIC8gMC42KSAxcHgsIHRyYW5zcGFyZW50IDFweClcIixcbiAgICAgICAgICBiYWNrZ3JvdW5kU2l6ZTogXCIyOHB4IDI4cHhcIixcbiAgICAgICAgfX1cbiAgICAgIC8+XG5cbiAgICAgIHsvKiBCb2xoYXMgZmx1dHVhbnRlcyDigJQgcG9zaWNpb25hbWVudG8gYWJzb2x1dG8sIGVzY29uZGlkYXMgZW0gbW9iaWxlICovfVxuICAgICAgPEZsb2F0aW5nQnViYmxlTGVmdCAvPlxuICAgICAgPEZsb2F0aW5nQnViYmxlUmlnaHQgLz5cblxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJyZWxhdGl2ZSBteC1hdXRvIG1heC13LTN4bCBweC01IHRleHQtY2VudGVyIG1kOnB4LThcIj5cbiAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwiaW5saW5lLWZsZXggaXRlbXMtY2VudGVyIGdhcC0yIHJvdW5kZWQtZnVsbCBib3JkZXIgYm9yZGVyLXdoaXRlLzIwIGJnLXdoaXRlL1swLjA2XSBweC0zLjUgcHktMS41IHRleHQteHMgZm9udC1zZW1pYm9sZCB0ZXh0LXdoaXRlLzkwIGJhY2tkcm9wLWJsdXItc21cIj5cbiAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJyZWxhdGl2ZSBmbGV4IGgtMS41IHctMS41XCI+XG4gICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJhYnNvbHV0ZSBpbmxpbmUtZmxleCBoLWZ1bGwgdy1mdWxsIGFuaW1hdGUtcGluZyByb3VuZGVkLWZ1bGwgYmctYWNjZW50IG9wYWNpdHktNzBcIiAvPlxuICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwicmVsYXRpdmUgaW5saW5lLWZsZXggaC0xLjUgdy0xLjUgcm91bmRlZC1mdWxsIGJnLWFjY2VudFwiIC8+XG4gICAgICAgICAgPC9zcGFuPlxuICAgICAgICAgIEFpbmRhIGTDoSBwcmEgZW50cmFyIG5vIGJldGFcbiAgICAgICAgPC9zcGFuPlxuXG4gICAgICAgIDxoMiBjbGFzc05hbWU9XCJtdC02IHRleHQtYmFsYW5jZSB0ZXh0LTR4bCBmb250LWJvbGQgbGVhZGluZy1bMS4wNV0gdHJhY2tpbmctdGlnaHQgbWQ6dGV4dC02eGwgbGc6dGV4dC03eGxcIj5cbiAgICAgICAgICDDiSBzw7MgbWFuZGFyXG4gICAgICAgICAgPGJyIC8+XG4gICAgICAgICAgdW1hIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtYWNjZW50XCI+bWVuc2FnZW08L3NwYW4+LlxuICAgICAgICA8L2gyPlxuXG4gICAgICAgIDxwIGNsYXNzTmFtZT1cIm14LWF1dG8gbXQtNiBtYXgtdy1tZCB0ZXh0LWJhc2UgbGVhZGluZy1yZWxheGVkIHRleHQtd2hpdGUvNzAgbWQ6dGV4dC1sZ1wiPlxuICAgICAgICAgIENyaWUgc3VhIGNvbnRhLCB2aW5jdWxlIG8gV2hhdHNBcHAgZSBjb21lY2UgYSBjb252ZXJzYXIuIE8gcmVzdG8sIG9cbiAgICAgICAgICBBbm90QUkgY3VpZGEgZW0gdGVtcG8gcmVhbC5cbiAgICAgICAgPC9wPlxuXG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwibXQtMTAgZmxleCBmbGV4LWNvbCBpdGVtcy1jZW50ZXIgZ2FwLTNcIj5cbiAgICAgICAgICA8QnV0dG9uXG4gICAgICAgICAgICBhc0NoaWxkXG4gICAgICAgICAgICBzaXplPVwibGdcIlxuICAgICAgICAgICAgY2xhc3NOYW1lPVwiZ3JvdXAgaC0xNCBiZy1hY2NlbnQgcHgtOCB0ZXh0LWJhc2UgZm9udC1ib2xkIHRleHQtaW5rIHNoYWRvdy1bMF84cHhfMzBweF8tOHB4X3JnYigxNTlfMTkwXzM5LzAuNildIHRyYW5zaXRpb24tYWxsIGhvdmVyOmJnLWFjY2VudC85MCBob3ZlcjpzaGFkb3ctWzBfMTJweF80MHB4Xy04cHhfcmdiKDE1OV8xOTBfMzkvMC44KV1cIlxuICAgICAgICAgID5cbiAgICAgICAgICAgIDxMaW5rIHRvPVwiL3NpZ251cFwiPlxuICAgICAgICAgICAgICBDb21lw6dhciBncsOhdGlzIGFnb3JhXG4gICAgICAgICAgICAgIDxBcnJvd1JpZ2h0IGNsYXNzTmFtZT1cImgtNSB3LTUgdHJhbnNpdGlvbi10cmFuc2Zvcm0gZ3JvdXAtaG92ZXI6dHJhbnNsYXRlLXgtMVwiIC8+XG4gICAgICAgICAgICA8L0xpbms+XG4gICAgICAgICAgPC9CdXR0b24+XG5cbiAgICAgICAgICA8cCBjbGFzc05hbWU9XCJudW0gdGV4dC1bMTFweF0gdXBwZXJjYXNlIHRyYWNraW5nLXdpZGVyIHRleHQtd2hpdGUvNTBcIj5cbiAgICAgICAgICAgIHNlbSBjYXJ0w6NvIMK3IHNlbSB0cmlhbCDCtyBzZW0gcHJvcGFnYW5kYVxuICAgICAgICAgIDwvcD5cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L2Rpdj5cbiAgICA8L3NlY3Rpb24+XG4gICk7XG59XG5cbi8vIC0tLS0tLS0tLS0gQm9saGFzIGRlY29yYXRpdmFzIGZsdXR1YW50ZXMgLS0tLS0tLS0tLVxuXG5mdW5jdGlvbiBGbG9hdGluZ0J1YmJsZUxlZnQoKSB7XG4gIHJldHVybiAoXG4gICAgPGRpdlxuICAgICAgYXJpYS1oaWRkZW5cbiAgICAgIGNsYXNzTmFtZT1cInBvaW50ZXItZXZlbnRzLW5vbmUgYWJzb2x1dGUgbGVmdC1bNiVdIHRvcC1bMjIlXSBoaWRkZW4gbWF4LXctWzIyMHB4XSAtcm90YXRlLTYgbGc6YmxvY2tcIlxuICAgID5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwicm91bmRlZC0yeGwgcm91bmRlZC1ici1tZCBiZy1bI2Q5ZmRkM10gcHgtMy41IHB5LTIgdGV4dC1zbSB0ZXh0LWluayBzaGFkb3ctWzBfMjBweF80MHB4Xy0xMnB4X3JnYmEoMCwwLDAsMC40KV1cIj5cbiAgICAgICAgZ2FzdGVpIDMwIG5hIHBhZGFyaWFcbiAgICAgIDwvZGl2PlxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJtdC0xIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktZW5kIGdhcC0xIHByLTJcIj5cbiAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwibnVtIHRleHQtWzlweF0gdGV4dC13aGl0ZS81MFwiPjE0OjAyPC9zcGFuPlxuICAgICAgICA8Q2hlY2tDaGVjayBjbGFzc05hbWU9XCJoLTMgdy0zIHRleHQtWyM1M2JkZWJdXCIgc3Ryb2tlV2lkdGg9ezIuNX0gLz5cbiAgICAgIDwvZGl2PlxuICAgIDwvZGl2PlxuICApO1xufVxuXG5mdW5jdGlvbiBGbG9hdGluZ0J1YmJsZVJpZ2h0KCkge1xuICByZXR1cm4gKFxuICAgIDxkaXZcbiAgICAgIGFyaWEtaGlkZGVuXG4gICAgICBjbGFzc05hbWU9XCJwb2ludGVyLWV2ZW50cy1ub25lIGFic29sdXRlIHJpZ2h0LVs2JV0gdG9wLVs2MiVdIGhpZGRlbiBtYXgtdy1bMjQwcHhdIHJvdGF0ZS0zIGxnOmJsb2NrXCJcbiAgICA+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cInJvdW5kZWQtMnhsIHJvdW5kZWQtYmwtbWQgYmctd2hpdGUgcHgtMy41IHB5LTIgdGV4dC1zbSB0ZXh0LWluayBzaGFkb3ctWzBfMjBweF80MHB4Xy0xMnB4X3JnYmEoMCwwLDAsMC40KV1cIj5cbiAgICAgICAg4pyFIFIkIDMwLDAwIGVtIDxzdHJvbmcgY2xhc3NOYW1lPVwiZm9udC1zZW1pYm9sZFwiPmFsaW1lbnRhw6fDo288L3N0cm9uZz4gcmVnaXN0cmFkby5cbiAgICAgIDwvZGl2PlxuICAgICAgPHNwYW4gY2xhc3NOYW1lPVwibnVtIG10LTEgaW5saW5lLWJsb2NrIHBsLTIgdGV4dC1bOXB4XSB0ZXh0LXdoaXRlLzUwXCI+XG4gICAgICAgIDE0OjAyXG4gICAgICA8L3NwYW4+XG4gICAgPC9kaXY+XG4gICk7XG59XG4iXSwiZmlsZSI6IkM6L1VzZXJzL0FDRVJfTklUUk8vRGVza3RvcC9Fc3R1ZG8vQURTIC0gRkFURUMvVEcvYW5vdGEtYWkvc3JjL2NvbXBvbmVudHMvbGFuZGluZy9GaW5hbENUQS50c3gifQ==

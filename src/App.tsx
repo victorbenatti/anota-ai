@@ -1,6 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { Loader2 } from "lucide-react";
 import { Landing } from "@/pages/Landing";
+import { About } from "@/pages/About";
 import { Dashboard } from "@/pages/Dashboard";
 import { Login } from "@/pages/Login";
 import { Signup } from "@/pages/Signup";
@@ -19,6 +20,7 @@ export default function App() {
             {(location) => (
               <Routes location={location}>
                 <Route path="/" element={<Landing />} />
+                <Route path="/sobre" element={<About />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route

@@ -5,9 +5,10 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 const LOGO_URL = "/logo-anotaAI.png";
 
 const NAV_LINKS: { href: string; label: string }[] = [
-  { href: "#como-funciona", label: "Como funciona" },
-  { href: "#features", label: "Features" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/#como-funciona", label: "Como funciona" },
+  { href: "/#features", label: "Features" },
+  { href: "/sobre", label: "Sobre nós" },
+  { href: "/#faq", label: "FAQ" },
 ];
 
 export function LandingNav() {
@@ -25,23 +26,36 @@ export function LandingNav() {
 
         <div className="hidden items-center gap-8 md:flex">
           {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-ink-soft transition-colors hover:text-ink"
-            >
-              {link.label}
-            </a>
+            link.href.startsWith("/#") ? (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium text-ink-soft transition-colors hover:text-ink"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.href}
+                to={link.href}
+                className="text-sm font-medium text-ink-soft transition-colors hover:text-ink"
+              >
+                {link.label}
+              </Link>
+            )
           ))}
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex min-w-0 items-center gap-2">
           <ThemeToggle />
-          <Button asChild variant="ghost" size="sm">
+          <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
             <Link to="/login">Entrar</Link>
           </Button>
-          <Button asChild size="sm" className="shadow-soft">
-            <Link to="/signup">Começar grátis</Link>
+          <Button asChild size="sm" className="shadow-soft max-[420px]:px-2.5">
+            <Link to="/signup">
+              <span className="max-[420px]:hidden">Começar grátis</span>
+              <span className="hidden max-[420px]:inline">Começar</span>
+            </Link>
           </Button>
         </div>
       </div>

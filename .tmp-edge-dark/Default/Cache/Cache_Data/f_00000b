@@ -1,0 +1,1031 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/pages/About.tsx");import __vite__cjsImport0_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=e31eda09"; const jsxDEV = __vite__cjsImport0_react_jsxDevRuntime["jsxDEV"];
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+import { Link } from "/node_modules/.vite/deps/react-router-dom.js?v=e31eda09";
+import {
+  ArrowLeft,
+  ArrowRight,
+  BarChart3,
+  Bot,
+  BrainCircuit,
+  Building2,
+  CheckCircle2,
+  Database,
+  FileText,
+  Github,
+  Linkedin,
+  MessageCircle,
+  Network,
+  ShieldCheck,
+  Sparkles,
+  TestTube2,
+  UserRoundCheck,
+  Workflow
+} from "/node_modules/.vite/deps/lucide-react.js?v=e31eda09";
+import { LandingNav } from "/src/components/landing/LandingNav.tsx";
+import { LandingFooter } from "/src/components/landing/LandingFooter.tsx";
+import { WhatsappChatMockup } from "/src/components/landing/WhatsappChatMockup.tsx";
+import { Button } from "/src/components/ui/button.tsx";
+const academicFacts = [
+  { label: "Instituição", value: "FATEC Campinas" },
+  { label: "Curso", value: "Análise e Desenvolvimento de Sistemas" },
+  { label: "Projeto", value: "TCC - 2026.1" },
+  { label: "Orientação", value: "Prof. Thiago Salhab" }
+];
+const projectPillars = [
+  {
+    index: "I",
+    title: "O problema",
+    copy: "Registrar gastos manualmente exige disciplina, troca de contexto e tempo. Na rotina real, pequenas despesas acabam esquecidas e o controle financeiro perde precisão."
+  },
+  {
+    index: "II",
+    title: "A solução",
+    copy: "O AnotAI usa o WhatsApp como porta de entrada: o usuário conversa com um agente de IA, registra despesas em linguagem natural e acompanha tudo em um dashboard visual."
+  },
+  {
+    index: "III",
+    title: "A origem",
+    copy: "O projeto nasceu no contexto acadêmico do TCC da Faculdade de Tecnologia de Campinas, aplicando conceitos de ADS em um produto funcional e testável."
+  }
+];
+const creators = [
+  {
+    name: "Victor Benatti Alves Dos Santos",
+    shortName: "Victor Benatti",
+    role: "Desenvolvimento front-end, back-end e integrações",
+    photo: "/ft-victor.webp",
+    description: "Victor concentrou sua atuação na implementação técnica do AnotAI, construindo a interface do dashboard, conectando telas e apoiando a comunicação entre sistema web, banco de dados e agente de IA.",
+    responsibilities: [
+      "Interface web do dashboard e fluxos principais.",
+      "Funcionalidades front-end e apoio na lógica back-end.",
+      "Integração entre dashboard, Supabase e agente de IA.",
+      "Experiência do usuário na leitura dos dados financeiros."
+    ],
+    experience: "Atua em projetos reais pela Fast Development, incluindo agentes de IA para WhatsApp, automações com n8n, WABA, Manychat e websites para clínicas, esportes e e-commerce.",
+    links: [
+      { label: "GitHub", href: "https://github.com/victorbenatti", icon: Github },
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/victor-benatti/",
+        icon: Linkedin
+      },
+      {
+        label: "FastDev",
+        href: "https://fastdevdigital.com.br/",
+        icon: Building2
+      }
+    ]
+  },
+  {
+    name: "Mikael Henrique Lino Rodrigues",
+    shortName: "Mikael Lino",
+    role: "Documentação, validação, requisitos e testes",
+    photo: "/ft-mikael.webp",
+    description: "Mikael ficou mais focado na organização acadêmica e na validação do projeto, apoiando requisitos, documentação, testes, revisão de fluxos e coerência da solução.",
+    responsibilities: [
+      "Levantamento e organização dos requisitos.",
+      "Documentação técnica e acadêmica do TCC.",
+      "Validação das funcionalidades implementadas.",
+      "Planejamento de testes, entregas e revisão de usabilidade."
+    ],
+    experience: "Parceiro frequente do Victor em projetos da faculdade, desenvolveu a maioria dos projetos acadêmicos junto com ele. Experiências específicas serão consolidadas na revisão final do TCC.",
+    links: [
+      { label: "GitHub", href: "https://github.com/mikaellino", icon: Github },
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/mikaelhenriquelinorodrigues/",
+        icon: Linkedin
+      }
+    ]
+  }
+];
+const stackItems = [
+  {
+    icon: BarChart3,
+    title: "React + Vite",
+    copy: "Interface web responsiva para visualizar gastos, categorias, tendências e histórico financeiro."
+  },
+  {
+    icon: Database,
+    title: "Supabase",
+    copy: "Banco de dados, autenticação e realtime para refletir novas despesas no dashboard."
+  },
+  {
+    icon: Workflow,
+    title: "n8n",
+    copy: "Automação dos fluxos entre WhatsApp, agente inteligente e persistência dos registros."
+  },
+  {
+    icon: BrainCircuit,
+    title: "IA / Gemini",
+    copy: "Interpretação de mensagens em linguagem natural para transformar conversa em dados estruturados."
+  }
+];
+const academicFocus = [
+  {
+    icon: UserRoundCheck,
+    title: "Usabilidade",
+    copy: "Reduzir fricção no registro financeiro usando um canal que o usuário já utiliza todos os dias."
+  },
+  {
+    icon: Network,
+    title: "Automação",
+    copy: "Conectar ferramentas e serviços para criar um fluxo completo, do WhatsApp ao dashboard."
+  },
+  {
+    icon: ShieldCheck,
+    title: "Dados",
+    copy: "Organizar despesas com categorias, datas e valores em centavos para manter consistência nas análises."
+  },
+  {
+    icon: TestTube2,
+    title: "Validação",
+    copy: "Acompanhar requisitos, fluxos esperados e experiência de leitura como parte da entrega acadêmica."
+  }
+];
+export function About() {
+  return /* @__PURE__ */ jsxDEV("div", { className: "min-h-screen bg-bg", children: [
+    /* @__PURE__ */ jsxDEV(LandingNav, {}, void 0, false, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+      lineNumber: 179,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("main", { children: [
+      /* @__PURE__ */ jsxDEV(HeroSection, {}, void 0, false, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+        lineNumber: 181,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(ProjectSection, {}, void 0, false, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+        lineNumber: 182,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(CreatorsSection, {}, void 0, false, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+        lineNumber: 183,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(BuildSection, {}, void 0, false, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+        lineNumber: 184,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(PurposeSection, {}, void 0, false, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+        lineNumber: 185,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(FinalSection, {}, void 0, false, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+        lineNumber: 186,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+      lineNumber: 180,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(LandingFooter, {}, void 0, false, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+      lineNumber: 188,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+    lineNumber: 178,
+    columnNumber: 5
+  }, this);
+}
+_c = About;
+function HeroSection() {
+  return /* @__PURE__ */ jsxDEV("section", { className: "relative overflow-hidden border-b border-line", children: [
+    /* @__PURE__ */ jsxDEV(
+      "div",
+      {
+        "aria-hidden": true,
+        className: "pointer-events-none absolute inset-0 -z-10",
+        style: {
+          background: "radial-gradient(ellipse 52% 42% at 16% 0%, hsl(var(--brand) / 0.11), transparent 64%), radial-gradient(ellipse 34% 28% at 90% 24%, hsl(var(--accent) / 0.12), transparent 72%)"
+        }
+      },
+      void 0,
+      false,
+      {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+        lineNumber: 196,
+        columnNumber: 7
+      },
+      this
+    ),
+    /* @__PURE__ */ jsxDEV("div", { className: "mx-auto grid max-w-6xl gap-12 px-5 py-14 md:px-8 md:py-20 lg:grid-cols-[1fr_0.92fr] lg:items-center lg:gap-16", children: [
+      /* @__PURE__ */ jsxDEV("div", { className: "reveal", children: [
+        /* @__PURE__ */ jsxDEV(
+          Link,
+          {
+            to: "/",
+            className: "inline-flex items-center gap-2 text-sm font-medium text-ink-soft transition-colors hover:text-ink",
+            children: [
+              /* @__PURE__ */ jsxDEV(ArrowLeft, { className: "h-4 w-4" }, void 0, false, {
+                fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+                lineNumber: 211,
+                columnNumber: 13
+              }, this),
+              "Voltar para o início"
+            ]
+          },
+          void 0,
+          true,
+          {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+            lineNumber: 207,
+            columnNumber: 11
+          },
+          this
+        ),
+        /* @__PURE__ */ jsxDEV("div", { className: "mt-8 flex items-center gap-3", children: [
+          /* @__PURE__ */ jsxDEV("span", { className: "flex h-10 w-10 items-center justify-center rounded-md border border-line bg-surface text-brand shadow-soft", children: /* @__PURE__ */ jsxDEV(FileText, { className: "h-5 w-5" }, void 0, false, {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+            lineNumber: 217,
+            columnNumber: 15
+          }, this) }, void 0, false, {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+            lineNumber: 216,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV("span", { className: "eyebrow", children: "Projeto acadêmico - TCC FATEC" }, void 0, false, {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+            lineNumber: 219,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+          lineNumber: 215,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("h1", { className: "mt-5 max-w-3xl text-4xl font-bold leading-[1.04] tracking-tight text-ink md:text-6xl", children: "Sobre o AnotAI" }, void 0, false, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+          lineNumber: 222,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("p", { className: "mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft", children: "Um dashboard financeiro pessoal que une inteligência artificial, WhatsApp e educação financeira para transformar mensagens do dia a dia em dados claros, organizados e úteis." }, void 0, false, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+          lineNumber: 226,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("p", { className: "mt-5 max-w-xl border-l-2 border-accent pl-4 text-base font-medium leading-relaxed text-ink", children: "Controle financeiro que começa em uma conversa e termina em clareza." }, void 0, false, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+          lineNumber: 232,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("div", { className: "mt-8 flex flex-col gap-3 sm:flex-row", children: [
+          /* @__PURE__ */ jsxDEV(Button, { asChild: true, size: "lg", className: "shadow-soft-md group", children: /* @__PURE__ */ jsxDEV(Link, { to: "/signup", children: [
+            "Criar conta",
+            /* @__PURE__ */ jsxDEV(ArrowRight, { className: "h-4 w-4 transition-transform group-hover:translate-x-0.5" }, void 0, false, {
+              fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+              lineNumber: 240,
+              columnNumber: 17
+            }, this)
+          ] }, void 0, true, {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+            lineNumber: 238,
+            columnNumber: 15
+          }, this) }, void 0, false, {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+            lineNumber: 237,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(Button, { asChild: true, variant: "outline", size: "lg", children: /* @__PURE__ */ jsxDEV(Link, { to: "/login", children: "Entrar no dashboard" }, void 0, false, {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+            lineNumber: 244,
+            columnNumber: 15
+          }, this) }, void 0, false, {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+            lineNumber: 243,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+          lineNumber: 236,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("div", { className: "mt-10 grid gap-3 sm:grid-cols-2", children: academicFacts.map(
+          (fact) => /* @__PURE__ */ jsxDEV(
+            "div",
+            {
+              className: "border-t border-line pt-3",
+              children: [
+                /* @__PURE__ */ jsxDEV("div", { className: "eyebrow", children: fact.label }, void 0, false, {
+                  fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+                  lineNumber: 254,
+                  columnNumber: 17
+                }, this),
+                /* @__PURE__ */ jsxDEV("div", { className: "mt-1 text-sm font-semibold text-ink", children: fact.value }, void 0, false, {
+                  fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+                  lineNumber: 255,
+                  columnNumber: 17
+                }, this)
+              ]
+            },
+            fact.label,
+            true,
+            {
+              fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+              lineNumber: 250,
+              columnNumber: 13
+            },
+            this
+          )
+        ) }, void 0, false, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+          lineNumber: 248,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+        lineNumber: 206,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { className: "reveal relative", style: { animationDelay: "120ms" }, children: [
+        /* @__PURE__ */ jsxDEV(WhatsappChatMockup, {}, void 0, false, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+          lineNumber: 264,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("div", { className: "mx-auto mt-5 grid max-w-sm grid-cols-2 gap-3", children: [
+          /* @__PURE__ */ jsxDEV(MiniMetric, { label: "Semana", value: "R$ 187,50" }, void 0, false, {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+            lineNumber: 266,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV(MiniMetric, { label: "Top categoria", value: "Alimentação" }, void 0, false, {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+            lineNumber: 267,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+          lineNumber: 265,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+        lineNumber: 263,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+      lineNumber: 205,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+    lineNumber: 195,
+    columnNumber: 5
+  }, this);
+}
+_c2 = HeroSection;
+function ProjectSection() {
+  return /* @__PURE__ */ jsxDEV(
+    SectionShell,
+    {
+      id: "projeto",
+      eyebrow: "I - O projeto",
+      title: "Uma solução criada para caber na rotina real.",
+      copy: "O AnotAI parte de um problema simples: controlar dinheiro exige constância, mas a vida cotidiana nem sempre respeita planilhas, apps e formulários.",
+      children: /* @__PURE__ */ jsxDEV("div", { className: "grid gap-4 md:grid-cols-3", children: projectPillars.map(
+        (pillar) => /* @__PURE__ */ jsxDEV(
+          "article",
+          {
+            className: "card-soft p-6 shadow-soft",
+            children: [
+              /* @__PURE__ */ jsxDEV("div", { className: "num text-sm font-semibold text-stamp", children: pillar.index }, void 0, false, {
+                fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+                lineNumber: 289,
+                columnNumber: 13
+              }, this),
+              /* @__PURE__ */ jsxDEV("h3", { className: "mt-5 text-xl font-bold text-ink", children: pillar.title }, void 0, false, {
+                fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+                lineNumber: 292,
+                columnNumber: 13
+              }, this),
+              /* @__PURE__ */ jsxDEV("p", { className: "mt-3 text-sm leading-relaxed text-ink-soft", children: pillar.copy }, void 0, false, {
+                fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+                lineNumber: 293,
+                columnNumber: 13
+              }, this)
+            ]
+          },
+          pillar.title,
+          true,
+          {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+            lineNumber: 285,
+            columnNumber: 9
+          },
+          this
+        )
+      ) }, void 0, false, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+        lineNumber: 283,
+        columnNumber: 7
+      }, this)
+    },
+    void 0,
+    false,
+    {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+      lineNumber: 277,
+      columnNumber: 5
+    },
+    this
+  );
+}
+_c3 = ProjectSection;
+function CreatorsSection() {
+  return /* @__PURE__ */ jsxDEV(
+    SectionShell,
+    {
+      id: "quem-somos",
+      eyebrow: "II - Quem somos",
+      title: "Duas frentes de trabalho, uma entrega integrada.",
+      copy: "O projeto combina implementação técnica, documentação acadêmica, validação e refinamento de experiência para entregar uma solução coerente como produto e como TCC.",
+      surface: true,
+      children: /* @__PURE__ */ jsxDEV("div", { className: "grid gap-5 lg:grid-cols-2", children: creators.map(
+        (creator) => /* @__PURE__ */ jsxDEV(
+          "article",
+          {
+            className: "card-soft overflow-hidden shadow-soft-md",
+            children: /* @__PURE__ */ jsxDEV("div", { className: "grid gap-0 md:grid-cols-[13rem_1fr]", children: [
+              /* @__PURE__ */ jsxDEV("div", { className: "border-b border-line bg-surface-muted p-5 md:border-b-0 md:border-r", children: [
+                /* @__PURE__ */ jsxDEV("div", { className: "aspect-[4/5] overflow-hidden rounded-md border border-line bg-bg", children: /* @__PURE__ */ jsxDEV(
+                  "img",
+                  {
+                    src: creator.photo,
+                    alt: creator.shortName,
+                    className: "h-full w-full object-cover",
+                    draggable: false
+                  },
+                  void 0,
+                  false,
+                  {
+                    fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+                    lineNumber: 321,
+                    columnNumber: 19
+                  },
+                  this
+                ) }, void 0, false, {
+                  fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+                  lineNumber: 320,
+                  columnNumber: 17
+                }, this),
+                /* @__PURE__ */ jsxDEV("div", { className: "mt-4 flex flex-wrap gap-2", children: creator.links.map((link) => {
+                  const Icon = link.icon;
+                  return /* @__PURE__ */ jsxDEV(
+                    "a",
+                    {
+                      href: link.href,
+                      target: "_blank",
+                      rel: "noreferrer",
+                      className: "inline-flex h-9 items-center gap-2 rounded-md border border-line bg-surface px-3 text-xs font-semibold text-ink-soft transition-colors hover:border-line-strong hover:text-ink",
+                      children: [
+                        /* @__PURE__ */ jsxDEV(Icon, { className: "h-3.5 w-3.5" }, void 0, false, {
+                          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+                          lineNumber: 340,
+                          columnNumber: 25
+                        }, this),
+                        link.label
+                      ]
+                    },
+                    link.href,
+                    true,
+                    {
+                      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+                      lineNumber: 333,
+                      columnNumber: 21
+                    },
+                    this
+                  );
+                }) }, void 0, false, {
+                  fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+                  lineNumber: 328,
+                  columnNumber: 17
+                }, this)
+              ] }, void 0, true, {
+                fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+                lineNumber: 319,
+                columnNumber: 15
+              }, this),
+              /* @__PURE__ */ jsxDEV("div", { className: "p-6", children: [
+                /* @__PURE__ */ jsxDEV("div", { className: "eyebrow", children: creator.role }, void 0, false, {
+                  fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+                  lineNumber: 349,
+                  columnNumber: 17
+                }, this),
+                /* @__PURE__ */ jsxDEV("h3", { className: "mt-2 text-2xl font-bold leading-tight text-ink", children: creator.shortName }, void 0, false, {
+                  fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+                  lineNumber: 350,
+                  columnNumber: 17
+                }, this),
+                /* @__PURE__ */ jsxDEV("p", { className: "mt-1 text-sm text-ink-muted", children: creator.name }, void 0, false, {
+                  fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+                  lineNumber: 353,
+                  columnNumber: 17
+                }, this),
+                /* @__PURE__ */ jsxDEV("p", { className: "mt-5 text-sm leading-relaxed text-ink-soft", children: creator.description }, void 0, false, {
+                  fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+                  lineNumber: 355,
+                  columnNumber: 17
+                }, this),
+                /* @__PURE__ */ jsxDEV("div", { className: "mt-6 border-t border-line pt-5", children: [
+                  /* @__PURE__ */ jsxDEV("h4", { className: "text-sm font-bold text-ink", children: "Responsabilidades" }, void 0, false, {
+                    fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+                    lineNumber: 360,
+                    columnNumber: 19
+                  }, this),
+                  /* @__PURE__ */ jsxDEV("ul", { className: "mt-3 space-y-2", children: creator.responsibilities.map(
+                    (item) => /* @__PURE__ */ jsxDEV(
+                      "li",
+                      {
+                        className: "flex gap-2 text-sm leading-relaxed text-ink-soft",
+                        children: [
+                          /* @__PURE__ */ jsxDEV(CheckCircle2, { className: "mt-0.5 h-4 w-4 flex-none text-accent" }, void 0, false, {
+                            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+                            lineNumber: 369,
+                            columnNumber: 25
+                          }, this),
+                          /* @__PURE__ */ jsxDEV("span", { children: item }, void 0, false, {
+                            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+                            lineNumber: 370,
+                            columnNumber: 25
+                          }, this)
+                        ]
+                      },
+                      item,
+                      true,
+                      {
+                        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+                        lineNumber: 365,
+                        columnNumber: 19
+                      },
+                      this
+                    )
+                  ) }, void 0, false, {
+                    fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+                    lineNumber: 363,
+                    columnNumber: 19
+                  }, this)
+                ] }, void 0, true, {
+                  fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+                  lineNumber: 359,
+                  columnNumber: 17
+                }, this),
+                /* @__PURE__ */ jsxDEV("div", { className: "mt-6 rounded-md border border-line bg-surface-muted p-4", children: [
+                  /* @__PURE__ */ jsxDEV("div", { className: "eyebrow", children: "Experiência" }, void 0, false, {
+                    fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+                    lineNumber: 377,
+                    columnNumber: 19
+                  }, this),
+                  /* @__PURE__ */ jsxDEV("p", { className: "mt-2 text-sm leading-relaxed text-ink-soft", children: creator.experience }, void 0, false, {
+                    fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+                    lineNumber: 378,
+                    columnNumber: 19
+                  }, this)
+                ] }, void 0, true, {
+                  fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+                  lineNumber: 376,
+                  columnNumber: 17
+                }, this)
+              ] }, void 0, true, {
+                fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+                lineNumber: 348,
+                columnNumber: 15
+              }, this)
+            ] }, void 0, true, {
+              fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+              lineNumber: 318,
+              columnNumber: 13
+            }, this)
+          },
+          creator.name,
+          false,
+          {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+            lineNumber: 314,
+            columnNumber: 9
+          },
+          this
+        )
+      ) }, void 0, false, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+        lineNumber: 312,
+        columnNumber: 7
+      }, this)
+    },
+    void 0,
+    false,
+    {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+      lineNumber: 305,
+      columnNumber: 5
+    },
+    this
+  );
+}
+_c4 = CreatorsSection;
+function BuildSection() {
+  return /* @__PURE__ */ jsxDEV(
+    SectionShell,
+    {
+      id: "como-construimos",
+      eyebrow: "III - Como construímos",
+      title: "Da mensagem no WhatsApp ao relatório financeiro.",
+      copy: "A arquitetura foi pensada para separar entrada de dados, processamento inteligente, persistência e visualização. O dashboard web não cria despesas: ele lê e organiza os dados recebidos pelo fluxo automatizado.",
+      children: [
+        /* @__PURE__ */ jsxDEV("div", { className: "grid gap-4 lg:grid-cols-4", children: stackItems.map((item) => {
+          const Icon = item.icon;
+          return /* @__PURE__ */ jsxDEV("article", { className: "card-soft p-5 shadow-soft", children: [
+            /* @__PURE__ */ jsxDEV("div", { className: "flex h-11 w-11 items-center justify-center rounded-md border border-line bg-surface-muted text-brand", children: /* @__PURE__ */ jsxDEV(Icon, { className: "h-5 w-5" }, void 0, false, {
+              fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+              lineNumber: 406,
+              columnNumber: 17
+            }, this) }, void 0, false, {
+              fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+              lineNumber: 405,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV("h3", { className: "mt-5 text-lg font-bold text-ink", children: item.title }, void 0, false, {
+              fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+              lineNumber: 408,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV("p", { className: "mt-3 text-sm leading-relaxed text-ink-soft", children: item.copy }, void 0, false, {
+              fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+              lineNumber: 409,
+              columnNumber: 15
+            }, this)
+          ] }, item.title, true, {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+            lineNumber: 404,
+            columnNumber: 13
+          }, this);
+        }) }, void 0, false, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+          lineNumber: 399,
+          columnNumber: 7
+        }, this),
+        /* @__PURE__ */ jsxDEV("div", { className: "mt-6 grid gap-4 rounded-lg border border-line bg-surface p-5 shadow-soft-md md:grid-cols-[1fr_auto_1fr_auto_1fr] md:items-center", children: [
+          /* @__PURE__ */ jsxDEV(FlowNode, { icon: MessageCircle, label: "WhatsApp", copy: "Mensagem do usuário" }, void 0, false, {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+            lineNumber: 418,
+            columnNumber: 9
+          }, this),
+          /* @__PURE__ */ jsxDEV(FlowArrow, {}, void 0, false, {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+            lineNumber: 419,
+            columnNumber: 9
+          }, this),
+          /* @__PURE__ */ jsxDEV(FlowNode, { icon: Bot, label: "Agente IA", copy: "Interpreta e categoriza" }, void 0, false, {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+            lineNumber: 420,
+            columnNumber: 9
+          }, this),
+          /* @__PURE__ */ jsxDEV(FlowArrow, {}, void 0, false, {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+            lineNumber: 421,
+            columnNumber: 9
+          }, this),
+          /* @__PURE__ */ jsxDEV(FlowNode, { icon: BarChart3, label: "Dashboard", copy: "Análise visual em tempo real" }, void 0, false, {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+            lineNumber: 422,
+            columnNumber: 9
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+          lineNumber: 417,
+          columnNumber: 7
+        }, this)
+      ]
+    },
+    void 0,
+    true,
+    {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+      lineNumber: 393,
+      columnNumber: 5
+    },
+    this
+  );
+}
+_c5 = BuildSection;
+function PurposeSection() {
+  return /* @__PURE__ */ jsxDEV(
+    SectionShell,
+    {
+      id: "proposito",
+      eyebrow: "IV - Propósito acadêmico",
+      title: "Um TCC com comportamento de produto real.",
+      copy: "Mais do que demonstrar tecnologias isoladas, o AnotAI busca aplicar conhecimentos do curso em uma experiência completa: automação, dados, interface, validação e utilidade prática.",
+      surface: true,
+      children: /* @__PURE__ */ jsxDEV("div", { className: "grid gap-4 md:grid-cols-2 lg:grid-cols-4", children: academicFocus.map((item) => {
+        const Icon = item.icon;
+        return /* @__PURE__ */ jsxDEV(
+          "article",
+          {
+            className: "border-l border-line bg-bg/45 p-5",
+            children: [
+              /* @__PURE__ */ jsxDEV(Icon, { className: "h-5 w-5 text-stamp" }, void 0, false, {
+                fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+                lineNumber: 446,
+                columnNumber: 15
+              }, this),
+              /* @__PURE__ */ jsxDEV("h3", { className: "mt-4 text-lg font-bold text-ink", children: item.title }, void 0, false, {
+                fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+                lineNumber: 447,
+                columnNumber: 15
+              }, this),
+              /* @__PURE__ */ jsxDEV("p", { className: "mt-2 text-sm leading-relaxed text-ink-soft", children: item.copy }, void 0, false, {
+                fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+                lineNumber: 448,
+                columnNumber: 15
+              }, this)
+            ]
+          },
+          item.title,
+          true,
+          {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+            lineNumber: 442,
+            columnNumber: 13
+          },
+          this
+        );
+      }) }, void 0, false, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+        lineNumber: 437,
+        columnNumber: 7
+      }, this)
+    },
+    void 0,
+    false,
+    {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+      lineNumber: 430,
+      columnNumber: 5
+    },
+    this
+  );
+}
+_c6 = PurposeSection;
+function FinalSection() {
+  return /* @__PURE__ */ jsxDEV("section", { className: "px-5 py-16 md:px-8 md:py-20", children: /* @__PURE__ */ jsxDEV("div", { className: "mx-auto max-w-6xl overflow-hidden rounded-lg border border-line bg-brand text-primary-foreground shadow-soft-md", children: /* @__PURE__ */ jsxDEV("div", { className: "grid gap-8 p-7 md:grid-cols-[1fr_auto] md:items-center md:p-10", children: [
+    /* @__PURE__ */ jsxDEV("div", { children: [
+      /* @__PURE__ */ jsxDEV("div", { className: "inline-flex items-center gap-2 rounded-md border border-primary-foreground/20 px-3 py-1 text-xs font-semibold", children: [
+        /* @__PURE__ */ jsxDEV(Sparkles, { className: "h-3.5 w-3.5 text-accent" }, void 0, false, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+          lineNumber: 466,
+          columnNumber: 15
+        }, this),
+        "AnotAI em desenvolvimento acadêmico"
+      ] }, void 0, true, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+        lineNumber: 465,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV("h2", { className: "mt-5 max-w-2xl text-3xl font-bold leading-tight md:text-4xl", children: "Conheça a experiência que conecta conversa, dados e decisão." }, void 0, false, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+        lineNumber: 469,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV("p", { className: "mt-4 max-w-2xl text-sm leading-relaxed text-primary-foreground/78", children: "Acesse o dashboard, crie sua conta ou volte para a página inicial para ver como o fluxo do produto funciona." }, void 0, false, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+        lineNumber: 472,
+        columnNumber: 13
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+      lineNumber: 464,
+      columnNumber: 11
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "flex flex-col gap-3 sm:flex-row md:flex-col", children: [
+      /* @__PURE__ */ jsxDEV(Button, { asChild: true, size: "lg", className: "bg-accent text-ink hover:bg-accent/90", children: /* @__PURE__ */ jsxDEV(Link, { to: "/signup", children: "Criar conta" }, void 0, false, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+        lineNumber: 479,
+        columnNumber: 15
+      }, this) }, void 0, false, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+        lineNumber: 478,
+        columnNumber: 13
+      }, this),
+      /* @__PURE__ */ jsxDEV(
+        Button,
+        {
+          asChild: true,
+          variant: "outline",
+          size: "lg",
+          className: "border-primary-foreground/35 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground",
+          children: /* @__PURE__ */ jsxDEV(Link, { to: "/", children: "Voltar ao início" }, void 0, false, {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+            lineNumber: 487,
+            columnNumber: 15
+          }, this)
+        },
+        void 0,
+        false,
+        {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+          lineNumber: 481,
+          columnNumber: 13
+        },
+        this
+      )
+    ] }, void 0, true, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+      lineNumber: 477,
+      columnNumber: 11
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+    lineNumber: 463,
+    columnNumber: 9
+  }, this) }, void 0, false, {
+    fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+    lineNumber: 462,
+    columnNumber: 7
+  }, this) }, void 0, false, {
+    fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+    lineNumber: 461,
+    columnNumber: 5
+  }, this);
+}
+_c7 = FinalSection;
+function SectionShell({
+  id,
+  eyebrow,
+  title,
+  copy,
+  children,
+  surface = false
+}) {
+  return /* @__PURE__ */ jsxDEV(
+    "section",
+    {
+      id,
+      className: `border-b border-line px-5 py-16 md:px-8 md:py-20 ${surface ? "bg-surface-muted/45" : ""}`,
+      children: /* @__PURE__ */ jsxDEV("div", { className: "mx-auto max-w-6xl", children: [
+        /* @__PURE__ */ jsxDEV("div", { className: "mb-10 grid gap-5 md:grid-cols-[0.86fr_1fr] md:items-end", children: [
+          /* @__PURE__ */ jsxDEV("div", { children: [
+            /* @__PURE__ */ jsxDEV("div", { className: "eyebrow", children: eyebrow }, void 0, false, {
+              fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+              lineNumber: 521,
+              columnNumber: 13
+            }, this),
+            /* @__PURE__ */ jsxDEV("h2", { className: "mt-3 max-w-2xl text-3xl font-bold leading-tight text-ink md:text-4xl", children: title }, void 0, false, {
+              fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+              lineNumber: 522,
+              columnNumber: 13
+            }, this)
+          ] }, void 0, true, {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+            lineNumber: 520,
+            columnNumber: 11
+          }, this),
+          /* @__PURE__ */ jsxDEV("p", { className: "max-w-2xl text-base leading-relaxed text-ink-soft md:justify-self-end", children: copy }, void 0, false, {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+            lineNumber: 526,
+            columnNumber: 11
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+          lineNumber: 519,
+          columnNumber: 9
+        }, this),
+        children
+      ] }, void 0, true, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+        lineNumber: 518,
+        columnNumber: 7
+      }, this)
+    },
+    void 0,
+    false,
+    {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+      lineNumber: 512,
+      columnNumber: 5
+    },
+    this
+  );
+}
+_c8 = SectionShell;
+function MiniMetric({ label, value }) {
+  return /* @__PURE__ */ jsxDEV("div", { className: "rounded-md border border-line bg-surface p-4 shadow-soft", children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "eyebrow", children: label }, void 0, false, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+      lineNumber: 539,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "num mt-2 text-lg font-semibold text-stamp", children: value }, void 0, false, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+      lineNumber: 540,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+    lineNumber: 538,
+    columnNumber: 5
+  }, this);
+}
+_c9 = MiniMetric;
+function FlowNode({
+  icon: Icon,
+  label,
+  copy
+}) {
+  return /* @__PURE__ */ jsxDEV("div", { className: "flex items-center gap-3", children: [
+    /* @__PURE__ */ jsxDEV("span", { className: "flex h-10 w-10 flex-none items-center justify-center rounded-md border border-line bg-surface-muted text-brand", children: /* @__PURE__ */ jsxDEV(Icon, { className: "h-5 w-5" }, void 0, false, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+      lineNumber: 557,
+      columnNumber: 9
+    }, this) }, void 0, false, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+      lineNumber: 556,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("span", { children: [
+      /* @__PURE__ */ jsxDEV("span", { className: "block text-sm font-bold text-ink", children: label }, void 0, false, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+        lineNumber: 560,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("span", { className: "block text-xs leading-relaxed text-ink-muted", children: copy }, void 0, false, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+        lineNumber: 561,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+      lineNumber: 559,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+    lineNumber: 555,
+    columnNumber: 5
+  }, this);
+}
+_c0 = FlowNode;
+function FlowArrow() {
+  return /* @__PURE__ */ jsxDEV("div", { className: "hidden items-center justify-center text-ink-muted md:flex", children: /* @__PURE__ */ jsxDEV(ArrowRight, { className: "h-5 w-5" }, void 0, false, {
+    fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+    lineNumber: 572,
+    columnNumber: 7
+  }, this) }, void 0, false, {
+    fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx",
+    lineNumber: 571,
+    columnNumber: 5
+  }, this);
+}
+_c1 = FlowArrow;
+var _c, _c2, _c3, _c4, _c5, _c6, _c7, _c8, _c9, _c0, _c1;
+$RefreshReg$(_c, "About");
+$RefreshReg$(_c2, "HeroSection");
+$RefreshReg$(_c3, "ProjectSection");
+$RefreshReg$(_c4, "CreatorsSection");
+$RefreshReg$(_c5, "BuildSection");
+$RefreshReg$(_c6, "PurposeSection");
+$RefreshReg$(_c7, "FinalSection");
+$RefreshReg$(_c8, "SectionShell");
+$RefreshReg$(_c9, "MiniMetric");
+$RefreshReg$(_c0, "FlowNode");
+$RefreshReg$(_c1, "FlowArrow");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/pages/About.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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WUFBWTtBQUNuQixTQUNFLHVCQUFDLFNBQUksV0FBVSw2REFDYixpQ0FBQyxjQUFXLFdBQVUsYUFBdEI7QUFBQTtBQUFBO0FBQUE7QUFBQSxTQUErQixLQURqQztBQUFBO0FBQUE7QUFBQTtBQUFBLFNBRUE7QUFFSjtBQUFDQyxNQU5RRDtBQUFTLElBQUFoQyxJQUFBTSxLQUFBRyxLQUFBTSxLQUFBRSxLQUFBRSxLQUFBRSxLQUFBTSxLQUFBRSxLQUFBRSxLQUFBRTtBQUFBLGFBQUFqQyxJQUFBO0FBQUEsYUFBQU0sS0FBQTtBQUFBLGFBQUFHLEtBQUE7QUFBQSxhQUFBTSxLQUFBO0FBQUEsYUFBQUUsS0FBQTtBQUFBLGFBQUFFLEtBQUE7QUFBQSxhQUFBRSxLQUFBO0FBQUEsYUFBQU0sS0FBQTtBQUFBLGFBQUFFLEtBQUE7QUFBQSxhQUFBRSxLQUFBO0FBQUEsYUFBQUUsS0FBQSIsIm5hbWVzIjpbIkxpbmsiLCJBcnJvd0xlZnQiLCJBcnJvd1JpZ2h0IiwiQmFyQ2hhcnQzIiwiQm90IiwiQnJhaW5DaXJjdWl0IiwiQnVpbGRpbmcyIiwiQ2hlY2tDaXJjbGUyIiwiRGF0YWJhc2UiLCJGaWxlVGV4dCIsIkdpdGh1YiIsIkxpbmtlZGluIiwiTWVzc2FnZUNpcmNsZSIsIk5ldHdvcmsiLCJTaGllbGRDaGVjayIsIlNwYXJrbGVzIiwiVGVzdFR1YmUyIiwiVXNlclJvdW5kQ2hlY2siLCJXb3JrZmxvdyIsIkxhbmRpbmdOYXYiLCJMYW5kaW5nRm9vdGVyIiwiV2hhdHNhcHBDaGF0TW9ja3VwIiwiQnV0dG9uIiwiYWNhZGVtaWNGYWN0cyIsImxhYmVsIiwidmFsdWUiLCJwcm9qZWN0UGlsbGFycyIsImluZGV4IiwidGl0bGUiLCJjb3B5IiwiY3JlYXRvcnMiLCJuYW1lIiwic2hvcnROYW1lIiwicm9sZSIsInBob3RvIiwiZGVzY3JpcHRpb24iLCJyZXNwb25zaWJpbGl0aWVzIiwiZXhwZXJpZW5jZSIsImxpbmtzIiwiaHJlZiIsImljb24iLCJzdGFja0l0ZW1zIiwiYWNhZGVtaWNGb2N1cyIsIkFib3V0IiwiX2MiLCJIZXJvU2VjdGlvbiIsImJhY2tncm91bmQiLCJtYXAiLCJmYWN0IiwiYW5pbWF0aW9uRGVsYXkiLCJfYzIiLCJQcm9qZWN0U2VjdGlvbiIsInBpbGxhciIsIl9jMyIsIkNyZWF0b3JzU2VjdGlvbiIsImNyZWF0b3IiLCJsaW5rIiwiSWNvbiIsIml0ZW0iLCJfYzQiLCJCdWlsZFNlY3Rpb24iLCJfYzUiLCJQdXJwb3NlU2VjdGlvbiIsIl9jNiIsIkZpbmFsU2VjdGlvbiIsIl9jNyIsIlNlY3Rpb25TaGVsbCIsImlkIiwiZXllYnJvdyIsImNoaWxkcmVuIiwic3VyZmFjZSIsIl9jOCIsIk1pbmlNZXRyaWMiLCJfYzkiLCJGbG93Tm9kZSIsIl9jMCIsIkZsb3dBcnJvdyIsIl9jMSJdLCJpZ25vcmVMaXN0IjpbXSwic291cmNlcyI6WyJBYm91dC50c3giXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgTGluayB9IGZyb20gXCJyZWFjdC1yb3V0ZXItZG9tXCI7XG5pbXBvcnQge1xuICBBcnJvd0xlZnQsXG4gIEFycm93UmlnaHQsXG4gIEJhckNoYXJ0MyxcbiAgQm90LFxuICBCcmFpbkNpcmN1aXQsXG4gIEJ1aWxkaW5nMixcbiAgQ2hlY2tDaXJjbGUyLFxuICBEYXRhYmFzZSxcbiAgRmlsZVRleHQsXG4gIEdpdGh1YixcbiAgTGlua2VkaW4sXG4gIE1lc3NhZ2VDaXJjbGUsXG4gIE5ldHdvcmssXG4gIFNoaWVsZENoZWNrLFxuICBTcGFya2xlcyxcbiAgVGVzdFR1YmUyLFxuICBVc2VyUm91bmRDaGVjayxcbiAgV29ya2Zsb3csXG59IGZyb20gXCJsdWNpZGUtcmVhY3RcIjtcbmltcG9ydCB7IExhbmRpbmdOYXYgfSBmcm9tIFwiQC9jb21wb25lbnRzL2xhbmRpbmcvTGFuZGluZ05hdlwiO1xuaW1wb3J0IHsgTGFuZGluZ0Zvb3RlciB9IGZyb20gXCJAL2NvbXBvbmVudHMvbGFuZGluZy9MYW5kaW5nRm9vdGVyXCI7XG5pbXBvcnQgeyBXaGF0c2FwcENoYXRNb2NrdXAgfSBmcm9tIFwiQC9jb21wb25lbnRzL2xhbmRpbmcvV2hhdHNhcHBDaGF0TW9ja3VwXCI7XG5pbXBvcnQgeyBCdXR0b24gfSBmcm9tIFwiQC9jb21wb25lbnRzL3VpL2J1dHRvblwiO1xuXG5jb25zdCBhY2FkZW1pY0ZhY3RzID0gW1xuICB7IGxhYmVsOiBcIkluc3RpdHVpw6fDo29cIiwgdmFsdWU6IFwiRkFURUMgQ2FtcGluYXNcIiB9LFxuICB7IGxhYmVsOiBcIkN1cnNvXCIsIHZhbHVlOiBcIkFuw6FsaXNlIGUgRGVzZW52b2x2aW1lbnRvIGRlIFNpc3RlbWFzXCIgfSxcbiAgeyBsYWJlbDogXCJQcm9qZXRvXCIsIHZhbHVlOiBcIlRDQyAtIDIwMjYuMVwiIH0sXG4gIHsgbGFiZWw6IFwiT3JpZW50YcOnw6NvXCIsIHZhbHVlOiBcIlByb2YuIFRoaWFnbyBTYWxoYWJcIiB9LFxuXTtcblxuY29uc3QgcHJvamVjdFBpbGxhcnMgPSBbXG4gIHtcbiAgICBpbmRleDogXCJJXCIsXG4gICAgdGl0bGU6IFwiTyBwcm9ibGVtYVwiLFxuICAgIGNvcHk6XG4gICAgICBcIlJlZ2lzdHJhciBnYXN0b3MgbWFudWFsbWVudGUgZXhpZ2UgZGlzY2lwbGluYSwgdHJvY2EgZGUgY29udGV4dG8gZSB0ZW1wby4gTmEgcm90aW5hIHJlYWwsIHBlcXVlbmFzIGRlc3Blc2FzIGFjYWJhbSBlc3F1ZWNpZGFzIGUgbyBjb250cm9sZSBmaW5hbmNlaXJvIHBlcmRlIHByZWNpc8Ojby5cIixcbiAgfSxcbiAge1xuICAgIGluZGV4OiBcIklJXCIsXG4gICAgdGl0bGU6IFwiQSBzb2x1w6fDo29cIixcbiAgICBjb3B5OlxuICAgICAgXCJPIEFub3RBSSB1c2EgbyBXaGF0c0FwcCBjb21vIHBvcnRhIGRlIGVudHJhZGE6IG8gdXN1w6FyaW8gY29udmVyc2EgY29tIHVtIGFnZW50ZSBkZSBJQSwgcmVnaXN0cmEgZGVzcGVzYXMgZW0gbGluZ3VhZ2VtIG5hdHVyYWwgZSBhY29tcGFuaGEgdHVkbyBlbSB1bSBkYXNoYm9hcmQgdmlzdWFsLlwiLFxuICB9LFxuICB7XG4gICAgaW5kZXg6IFwiSUlJXCIsXG4gICAgdGl0bGU6IFwiQSBvcmlnZW1cIixcbiAgICBjb3B5OlxuICAgICAgXCJPIHByb2pldG8gbmFzY2V1IG5vIGNvbnRleHRvIGFjYWTDqm1pY28gZG8gVENDIGRhIEZhY3VsZGFkZSBkZSBUZWNub2xvZ2lhIGRlIENhbXBpbmFzLCBhcGxpY2FuZG8gY29uY2VpdG9zIGRlIEFEUyBlbSB1bSBwcm9kdXRvIGZ1bmNpb25hbCBlIHRlc3TDoXZlbC5cIixcbiAgfSxcbl07XG5cbmNvbnN0IGNyZWF0b3JzID0gW1xuICB7XG4gICAgbmFtZTogXCJWaWN0b3IgQmVuYXR0aSBBbHZlcyBEb3MgU2FudG9zXCIsXG4gICAgc2hvcnROYW1lOiBcIlZpY3RvciBCZW5hdHRpXCIsXG4gICAgcm9sZTogXCJEZXNlbnZvbHZpbWVudG8gZnJvbnQtZW5kLCBiYWNrLWVuZCBlIGludGVncmHDp8O1ZXNcIixcbiAgICBwaG90bzogXCIvZnQtdmljdG9yLndlYnBcIixcbiAgICBkZXNjcmlwdGlvbjpcbiAgICAgIFwiVmljdG9yIGNvbmNlbnRyb3Ugc3VhIGF0dWHDp8OjbyBuYSBpbXBsZW1lbnRhw6fDo28gdMOpY25pY2EgZG8gQW5vdEFJLCBjb25zdHJ1aW5kbyBhIGludGVyZmFjZSBkbyBkYXNoYm9hcmQsIGNvbmVjdGFuZG8gdGVsYXMgZSBhcG9pYW5kbyBhIGNvbXVuaWNhw6fDo28gZW50cmUgc2lzdGVtYSB3ZWIsIGJhbmNvIGRlIGRhZG9zIGUgYWdlbnRlIGRlIElBLlwiLFxuICAgIHJlc3BvbnNpYmlsaXRpZXM6IFtcbiAgICAgIFwiSW50ZXJmYWNlIHdlYiBkbyBkYXNoYm9hcmQgZSBmbHV4b3MgcHJpbmNpcGFpcy5cIixcbiAgICAgIFwiRnVuY2lvbmFsaWRhZGVzIGZyb250LWVuZCBlIGFwb2lvIG5hIGzDs2dpY2EgYmFjay1lbmQuXCIsXG4gICAgICBcIkludGVncmHDp8OjbyBlbnRyZSBkYXNoYm9hcmQsIFN1cGFiYXNlIGUgYWdlbnRlIGRlIElBLlwiLFxuICAgICAgXCJFeHBlcmnDqm5jaWEgZG8gdXN1w6FyaW8gbmEgbGVpdHVyYSBkb3MgZGFkb3MgZmluYW5jZWlyb3MuXCIsXG4gICAgXSxcbiAgICBleHBlcmllbmNlOlxuICAgICAgXCJBdHVhIGVtIHByb2pldG9zIHJlYWlzIHBlbGEgRmFzdCBEZXZlbG9wbWVudCwgaW5jbHVpbmRvIGFnZW50ZXMgZGUgSUEgcGFyYSBXaGF0c0FwcCwgYXV0b21hw6fDtWVzIGNvbSBuOG4sIFdBQkEsIE1hbnljaGF0IGUgd2Vic2l0ZXMgcGFyYSBjbMOtbmljYXMsIGVzcG9ydGVzIGUgZS1jb21tZXJjZS5cIixcbiAgICBsaW5rczogW1xuICAgICAgeyBsYWJlbDogXCJHaXRIdWJcIiwgaHJlZjogXCJodHRwczovL2dpdGh1Yi5jb20vdmljdG9yYmVuYXR0aVwiLCBpY29uOiBHaXRodWIgfSxcbiAgICAgIHtcbiAgICAgICAgbGFiZWw6IFwiTGlua2VkSW5cIixcbiAgICAgICAgaHJlZjogXCJodHRwczovL3d3dy5saW5rZWRpbi5jb20vaW4vdmljdG9yLWJlbmF0dGkvXCIsXG4gICAgICAgIGljb246IExpbmtlZGluLFxuICAgICAgfSxcbiAgICAgIHtcbiAgICAgICAgbGFiZWw6IFwiRmFzdERldlwiLFxuICAgICAgICBocmVmOiBcImh0dHBzOi8vZmFzdGRldmRpZ2l0YWwuY29tLmJyL1wiLFxuICAgICAgICBpY29uOiBCdWlsZGluZzIsXG4gICAgICB9LFxuICAgIF0sXG4gIH0sXG4gIHtcbiAgICBuYW1lOiBcIk1pa2FlbCBIZW5yaXF1ZSBMaW5vIFJvZHJpZ3Vlc1wiLFxuICAgIHNob3J0TmFtZTogXCJNaWthZWwgTGlub1wiLFxuICAgIHJvbGU6IFwiRG9jdW1lbnRhw6fDo28sIHZhbGlkYcOnw6NvLCByZXF1aXNpdG9zIGUgdGVzdGVzXCIsXG4gICAgcGhvdG86IFwiL2Z0LW1pa2FlbC53ZWJwXCIsXG4gICAgZGVzY3JpcHRpb246XG4gICAgICBcIk1pa2FlbCBmaWNvdSBtYWlzIGZvY2FkbyBuYSBvcmdhbml6YcOnw6NvIGFjYWTDqm1pY2EgZSBuYSB2YWxpZGHDp8OjbyBkbyBwcm9qZXRvLCBhcG9pYW5kbyByZXF1aXNpdG9zLCBkb2N1bWVudGHDp8OjbywgdGVzdGVzLCByZXZpc8OjbyBkZSBmbHV4b3MgZSBjb2Vyw6puY2lhIGRhIHNvbHXDp8Ojby5cIixcbiAgICByZXNwb25zaWJpbGl0aWVzOiBbXG4gICAgICBcIkxldmFudGFtZW50byBlIG9yZ2FuaXphw6fDo28gZG9zIHJlcXVpc2l0b3MuXCIsXG4gICAgICBcIkRvY3VtZW50YcOnw6NvIHTDqWNuaWNhIGUgYWNhZMOqbWljYSBkbyBUQ0MuXCIsXG4gICAgICBcIlZhbGlkYcOnw6NvIGRhcyBmdW5jaW9uYWxpZGFkZXMgaW1wbGVtZW50YWRhcy5cIixcbiAgICAgIFwiUGxhbmVqYW1lbnRvIGRlIHRlc3RlcywgZW50cmVnYXMgZSByZXZpc8OjbyBkZSB1c2FiaWxpZGFkZS5cIixcbiAgICBdLFxuICAgIGV4cGVyaWVuY2U6XG4gICAgICBcIlBhcmNlaXJvIGZyZXF1ZW50ZSBkbyBWaWN0b3IgZW0gcHJvamV0b3MgZGEgZmFjdWxkYWRlLCBkZXNlbnZvbHZldSBhIG1haW9yaWEgZG9zIHByb2pldG9zIGFjYWTDqm1pY29zIGp1bnRvIGNvbSBlbGUuIEV4cGVyacOqbmNpYXMgZXNwZWPDrWZpY2FzIHNlcsOjbyBjb25zb2xpZGFkYXMgbmEgcmV2aXPDo28gZmluYWwgZG8gVENDLlwiLFxuICAgIGxpbmtzOiBbXG4gICAgICB7IGxhYmVsOiBcIkdpdEh1YlwiLCBocmVmOiBcImh0dHBzOi8vZ2l0aHViLmNvbS9taWthZWxsaW5vXCIsIGljb246IEdpdGh1YiB9LFxuICAgICAge1xuICAgICAgICBsYWJlbDogXCJMaW5rZWRJblwiLFxuICAgICAgICBocmVmOiBcImh0dHBzOi8vd3d3LmxpbmtlZGluLmNvbS9pbi9taWthZWxoZW5yaXF1ZWxpbm9yb2RyaWd1ZXMvXCIsXG4gICAgICAgIGljb246IExpbmtlZGluLFxuICAgICAgfSxcbiAgICBdLFxuICB9LFxuXTtcblxuY29uc3Qgc3RhY2tJdGVtcyA9IFtcbiAge1xuICAgIGljb246IEJhckNoYXJ0MyxcbiAgICB0aXRsZTogXCJSZWFjdCArIFZpdGVcIixcbiAgICBjb3B5OiBcIkludGVyZmFjZSB3ZWIgcmVzcG9uc2l2YSBwYXJhIHZpc3VhbGl6YXIgZ2FzdG9zLCBjYXRlZ29yaWFzLCB0ZW5kw6puY2lhcyBlIGhpc3TDs3JpY28gZmluYW5jZWlyby5cIixcbiAgfSxcbiAge1xuICAgIGljb246IERhdGFiYXNlLFxuICAgIHRpdGxlOiBcIlN1cGFiYXNlXCIsXG4gICAgY29weTogXCJCYW5jbyBkZSBkYWRvcywgYXV0ZW50aWNhw6fDo28gZSByZWFsdGltZSBwYXJhIHJlZmxldGlyIG5vdmFzIGRlc3Blc2FzIG5vIGRhc2hib2FyZC5cIixcbiAgfSxcbiAge1xuICAgIGljb246IFdvcmtmbG93LFxuICAgIHRpdGxlOiBcIm44blwiLFxuICAgIGNvcHk6IFwiQXV0b21hw6fDo28gZG9zIGZsdXhvcyBlbnRyZSBXaGF0c0FwcCwgYWdlbnRlIGludGVsaWdlbnRlIGUgcGVyc2lzdMOqbmNpYSBkb3MgcmVnaXN0cm9zLlwiLFxuICB9LFxuICB7XG4gICAgaWNvbjogQnJhaW5DaXJjdWl0LFxuICAgIHRpdGxlOiBcIklBIC8gR2VtaW5pXCIsXG4gICAgY29weTogXCJJbnRlcnByZXRhw6fDo28gZGUgbWVuc2FnZW5zIGVtIGxpbmd1YWdlbSBuYXR1cmFsIHBhcmEgdHJhbnNmb3JtYXIgY29udmVyc2EgZW0gZGFkb3MgZXN0cnV0dXJhZG9zLlwiLFxuICB9LFxuXTtcblxuY29uc3QgYWNhZGVtaWNGb2N1cyA9IFtcbiAge1xuICAgIGljb246IFVzZXJSb3VuZENoZWNrLFxuICAgIHRpdGxlOiBcIlVzYWJpbGlkYWRlXCIsXG4gICAgY29weTogXCJSZWR1emlyIGZyaWPDp8OjbyBubyByZWdpc3RybyBmaW5hbmNlaXJvIHVzYW5kbyB1bSBjYW5hbCBxdWUgbyB1c3XDoXJpbyBqw6EgdXRpbGl6YSB0b2RvcyBvcyBkaWFzLlwiLFxuICB9LFxuICB7XG4gICAgaWNvbjogTmV0d29yayxcbiAgICB0aXRsZTogXCJBdXRvbWHDp8Ojb1wiLFxuICAgIGNvcHk6IFwiQ29uZWN0YXIgZmVycmFtZW50YXMgZSBzZXJ2acOnb3MgcGFyYSBjcmlhciB1bSBmbHV4byBjb21wbGV0bywgZG8gV2hhdHNBcHAgYW8gZGFzaGJvYXJkLlwiLFxuICB9LFxuICB7XG4gICAgaWNvbjogU2hpZWxkQ2hlY2ssXG4gICAgdGl0bGU6IFwiRGFkb3NcIixcbiAgICBjb3B5OiBcIk9yZ2FuaXphciBkZXNwZXNhcyBjb20gY2F0ZWdvcmlhcywgZGF0YXMgZSB2YWxvcmVzIGVtIGNlbnRhdm9zIHBhcmEgbWFudGVyIGNvbnNpc3TDqm5jaWEgbmFzIGFuw6FsaXNlcy5cIixcbiAgfSxcbiAge1xuICAgIGljb246IFRlc3RUdWJlMixcbiAgICB0aXRsZTogXCJWYWxpZGHDp8Ojb1wiLFxuICAgIGNvcHk6IFwiQWNvbXBhbmhhciByZXF1aXNpdG9zLCBmbHV4b3MgZXNwZXJhZG9zIGUgZXhwZXJpw6puY2lhIGRlIGxlaXR1cmEgY29tbyBwYXJ0ZSBkYSBlbnRyZWdhIGFjYWTDqm1pY2EuXCIsXG4gIH0sXG5dO1xuXG5leHBvcnQgZnVuY3Rpb24gQWJvdXQoKSB7XG4gIHJldHVybiAoXG4gICAgPGRpdiBjbGFzc05hbWU9XCJtaW4taC1zY3JlZW4gYmctYmdcIj5cbiAgICAgIDxMYW5kaW5nTmF2IC8+XG4gICAgICA8bWFpbj5cbiAgICAgICAgPEhlcm9TZWN0aW9uIC8+XG4gICAgICAgIDxQcm9qZWN0U2VjdGlvbiAvPlxuICAgICAgICA8Q3JlYXRvcnNTZWN0aW9uIC8+XG4gICAgICAgIDxCdWlsZFNlY3Rpb24gLz5cbiAgICAgICAgPFB1cnBvc2VTZWN0aW9uIC8+XG4gICAgICAgIDxGaW5hbFNlY3Rpb24gLz5cbiAgICAgIDwvbWFpbj5cbiAgICAgIDxMYW5kaW5nRm9vdGVyIC8+XG4gICAgPC9kaXY+XG4gICk7XG59XG5cbmZ1bmN0aW9uIEhlcm9TZWN0aW9uKCkge1xuICByZXR1cm4gKFxuICAgIDxzZWN0aW9uIGNsYXNzTmFtZT1cInJlbGF0aXZlIG92ZXJmbG93LWhpZGRlbiBib3JkZXItYiBib3JkZXItbGluZVwiPlxuICAgICAgPGRpdlxuICAgICAgICBhcmlhLWhpZGRlblxuICAgICAgICBjbGFzc05hbWU9XCJwb2ludGVyLWV2ZW50cy1ub25lIGFic29sdXRlIGluc2V0LTAgLXotMTBcIlxuICAgICAgICBzdHlsZT17e1xuICAgICAgICAgIGJhY2tncm91bmQ6XG4gICAgICAgICAgICBcInJhZGlhbC1ncmFkaWVudChlbGxpcHNlIDUyJSA0MiUgYXQgMTYlIDAlLCBoc2wodmFyKC0tYnJhbmQpIC8gMC4xMSksIHRyYW5zcGFyZW50IDY0JSksIHJhZGlhbC1ncmFkaWVudChlbGxpcHNlIDM0JSAyOCUgYXQgOTAlIDI0JSwgaHNsKHZhcigtLWFjY2VudCkgLyAwLjEyKSwgdHJhbnNwYXJlbnQgNzIlKVwiLFxuICAgICAgICB9fVxuICAgICAgLz5cblxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJteC1hdXRvIGdyaWQgbWF4LXctNnhsIGdhcC0xMiBweC01IHB5LTE0IG1kOnB4LTggbWQ6cHktMjAgbGc6Z3JpZC1jb2xzLVsxZnJfMC45MmZyXSBsZzppdGVtcy1jZW50ZXIgbGc6Z2FwLTE2XCI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicmV2ZWFsXCI+XG4gICAgICAgICAgPExpbmtcbiAgICAgICAgICAgIHRvPVwiL1wiXG4gICAgICAgICAgICBjbGFzc05hbWU9XCJpbmxpbmUtZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTIgdGV4dC1zbSBmb250LW1lZGl1bSB0ZXh0LWluay1zb2Z0IHRyYW5zaXRpb24tY29sb3JzIGhvdmVyOnRleHQtaW5rXCJcbiAgICAgICAgICA+XG4gICAgICAgICAgICA8QXJyb3dMZWZ0IGNsYXNzTmFtZT1cImgtNCB3LTRcIiAvPlxuICAgICAgICAgICAgVm9sdGFyIHBhcmEgbyBpbsOtY2lvXG4gICAgICAgICAgPC9MaW5rPlxuXG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJtdC04IGZsZXggaXRlbXMtY2VudGVyIGdhcC0zXCI+XG4gICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJmbGV4IGgtMTAgdy0xMCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXIgcm91bmRlZC1tZCBib3JkZXIgYm9yZGVyLWxpbmUgYmctc3VyZmFjZSB0ZXh0LWJyYW5kIHNoYWRvdy1zb2Z0XCI+XG4gICAgICAgICAgICAgIDxGaWxlVGV4dCBjbGFzc05hbWU9XCJoLTUgdy01XCIgLz5cbiAgICAgICAgICAgIDwvc3Bhbj5cbiAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cImV5ZWJyb3dcIj5Qcm9qZXRvIGFjYWTDqm1pY28gLSBUQ0MgRkFURUM8L3NwYW4+XG4gICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICA8aDEgY2xhc3NOYW1lPVwibXQtNSBtYXgtdy0zeGwgdGV4dC00eGwgZm9udC1ib2xkIGxlYWRpbmctWzEuMDRdIHRyYWNraW5nLXRpZ2h0IHRleHQtaW5rIG1kOnRleHQtNnhsXCI+XG4gICAgICAgICAgICBTb2JyZSBvIEFub3RBSVxuICAgICAgICAgIDwvaDE+XG5cbiAgICAgICAgICA8cCBjbGFzc05hbWU9XCJtdC02IG1heC13LTJ4bCB0ZXh0LWxnIGxlYWRpbmctcmVsYXhlZCB0ZXh0LWluay1zb2Z0XCI+XG4gICAgICAgICAgICBVbSBkYXNoYm9hcmQgZmluYW5jZWlybyBwZXNzb2FsIHF1ZSB1bmUgaW50ZWxpZ8OqbmNpYSBhcnRpZmljaWFsLFxuICAgICAgICAgICAgV2hhdHNBcHAgZSBlZHVjYcOnw6NvIGZpbmFuY2VpcmEgcGFyYSB0cmFuc2Zvcm1hciBtZW5zYWdlbnMgZG8gZGlhIGFcbiAgICAgICAgICAgIGRpYSBlbSBkYWRvcyBjbGFyb3MsIG9yZ2FuaXphZG9zIGUgw7p0ZWlzLlxuICAgICAgICAgIDwvcD5cblxuICAgICAgICAgIDxwIGNsYXNzTmFtZT1cIm10LTUgbWF4LXcteGwgYm9yZGVyLWwtMiBib3JkZXItYWNjZW50IHBsLTQgdGV4dC1iYXNlIGZvbnQtbWVkaXVtIGxlYWRpbmctcmVsYXhlZCB0ZXh0LWlua1wiPlxuICAgICAgICAgICAgQ29udHJvbGUgZmluYW5jZWlybyBxdWUgY29tZcOnYSBlbSB1bWEgY29udmVyc2EgZSB0ZXJtaW5hIGVtIGNsYXJlemEuXG4gICAgICAgICAgPC9wPlxuXG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJtdC04IGZsZXggZmxleC1jb2wgZ2FwLTMgc206ZmxleC1yb3dcIj5cbiAgICAgICAgICAgIDxCdXR0b24gYXNDaGlsZCBzaXplPVwibGdcIiBjbGFzc05hbWU9XCJzaGFkb3ctc29mdC1tZCBncm91cFwiPlxuICAgICAgICAgICAgICA8TGluayB0bz1cIi9zaWdudXBcIj5cbiAgICAgICAgICAgICAgICBDcmlhciBjb250YVxuICAgICAgICAgICAgICAgIDxBcnJvd1JpZ2h0IGNsYXNzTmFtZT1cImgtNCB3LTQgdHJhbnNpdGlvbi10cmFuc2Zvcm0gZ3JvdXAtaG92ZXI6dHJhbnNsYXRlLXgtMC41XCIgLz5cbiAgICAgICAgICAgICAgPC9MaW5rPlxuICAgICAgICAgICAgPC9CdXR0b24+XG4gICAgICAgICAgICA8QnV0dG9uIGFzQ2hpbGQgdmFyaWFudD1cIm91dGxpbmVcIiBzaXplPVwibGdcIj5cbiAgICAgICAgICAgICAgPExpbmsgdG89XCIvbG9naW5cIj5FbnRyYXIgbm8gZGFzaGJvYXJkPC9MaW5rPlxuICAgICAgICAgICAgPC9CdXR0b24+XG4gICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm10LTEwIGdyaWQgZ2FwLTMgc206Z3JpZC1jb2xzLTJcIj5cbiAgICAgICAgICAgIHthY2FkZW1pY0ZhY3RzLm1hcCgoZmFjdCkgPT4gKFxuICAgICAgICAgICAgICA8ZGl2XG4gICAgICAgICAgICAgICAga2V5PXtmYWN0LmxhYmVsfVxuICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cImJvcmRlci10IGJvcmRlci1saW5lIHB0LTNcIlxuICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJleWVicm93XCI+e2ZhY3QubGFiZWx9PC9kaXY+XG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJtdC0xIHRleHQtc20gZm9udC1zZW1pYm9sZCB0ZXh0LWlua1wiPlxuICAgICAgICAgICAgICAgICAge2ZhY3QudmFsdWV9XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgKSl9XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuXG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicmV2ZWFsIHJlbGF0aXZlXCIgc3R5bGU9e3sgYW5pbWF0aW9uRGVsYXk6IFwiMTIwbXNcIiB9fT5cbiAgICAgICAgICA8V2hhdHNhcHBDaGF0TW9ja3VwIC8+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJteC1hdXRvIG10LTUgZ3JpZCBtYXgtdy1zbSBncmlkLWNvbHMtMiBnYXAtM1wiPlxuICAgICAgICAgICAgPE1pbmlNZXRyaWMgbGFiZWw9XCJTZW1hbmFcIiB2YWx1ZT1cIlIkIDE4Nyw1MFwiIC8+XG4gICAgICAgICAgICA8TWluaU1ldHJpYyBsYWJlbD1cIlRvcCBjYXRlZ29yaWFcIiB2YWx1ZT1cIkFsaW1lbnRhw6fDo29cIiAvPlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvZGl2PlxuICAgIDwvc2VjdGlvbj5cbiAgKTtcbn1cblxuZnVuY3Rpb24gUHJvamVjdFNlY3Rpb24oKSB7XG4gIHJldHVybiAoXG4gICAgPFNlY3Rpb25TaGVsbFxuICAgICAgaWQ9XCJwcm9qZXRvXCJcbiAgICAgIGV5ZWJyb3c9XCJJIC0gTyBwcm9qZXRvXCJcbiAgICAgIHRpdGxlPVwiVW1hIHNvbHXDp8OjbyBjcmlhZGEgcGFyYSBjYWJlciBuYSByb3RpbmEgcmVhbC5cIlxuICAgICAgY29weT1cIk8gQW5vdEFJIHBhcnRlIGRlIHVtIHByb2JsZW1hIHNpbXBsZXM6IGNvbnRyb2xhciBkaW5oZWlybyBleGlnZSBjb25zdMOibmNpYSwgbWFzIGEgdmlkYSBjb3RpZGlhbmEgbmVtIHNlbXByZSByZXNwZWl0YSBwbGFuaWxoYXMsIGFwcHMgZSBmb3JtdWzDoXJpb3MuXCJcbiAgICA+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImdyaWQgZ2FwLTQgbWQ6Z3JpZC1jb2xzLTNcIj5cbiAgICAgICAge3Byb2plY3RQaWxsYXJzLm1hcCgocGlsbGFyKSA9PiAoXG4gICAgICAgICAgPGFydGljbGVcbiAgICAgICAgICAgIGtleT17cGlsbGFyLnRpdGxlfVxuICAgICAgICAgICAgY2xhc3NOYW1lPVwiY2FyZC1zb2Z0IHAtNiBzaGFkb3ctc29mdFwiXG4gICAgICAgICAgPlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJudW0gdGV4dC1zbSBmb250LXNlbWlib2xkIHRleHQtc3RhbXBcIj5cbiAgICAgICAgICAgICAge3BpbGxhci5pbmRleH1cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPGgzIGNsYXNzTmFtZT1cIm10LTUgdGV4dC14bCBmb250LWJvbGQgdGV4dC1pbmtcIj57cGlsbGFyLnRpdGxlfTwvaDM+XG4gICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJtdC0zIHRleHQtc20gbGVhZGluZy1yZWxheGVkIHRleHQtaW5rLXNvZnRcIj5cbiAgICAgICAgICAgICAge3BpbGxhci5jb3B5fVxuICAgICAgICAgICAgPC9wPlxuICAgICAgICAgIDwvYXJ0aWNsZT5cbiAgICAgICAgKSl9XG4gICAgICA8L2Rpdj5cbiAgICA8L1NlY3Rpb25TaGVsbD5cbiAgKTtcbn1cblxuZnVuY3Rpb24gQ3JlYXRvcnNTZWN0aW9uKCkge1xuICByZXR1cm4gKFxuICAgIDxTZWN0aW9uU2hlbGxcbiAgICAgIGlkPVwicXVlbS1zb21vc1wiXG4gICAgICBleWVicm93PVwiSUkgLSBRdWVtIHNvbW9zXCJcbiAgICAgIHRpdGxlPVwiRHVhcyBmcmVudGVzIGRlIHRyYWJhbGhvLCB1bWEgZW50cmVnYSBpbnRlZ3JhZGEuXCJcbiAgICAgIGNvcHk9XCJPIHByb2pldG8gY29tYmluYSBpbXBsZW1lbnRhw6fDo28gdMOpY25pY2EsIGRvY3VtZW50YcOnw6NvIGFjYWTDqm1pY2EsIHZhbGlkYcOnw6NvIGUgcmVmaW5hbWVudG8gZGUgZXhwZXJpw6puY2lhIHBhcmEgZW50cmVnYXIgdW1hIHNvbHXDp8OjbyBjb2VyZW50ZSBjb21vIHByb2R1dG8gZSBjb21vIFRDQy5cIlxuICAgICAgc3VyZmFjZVxuICAgID5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZ3JpZCBnYXAtNSBsZzpncmlkLWNvbHMtMlwiPlxuICAgICAgICB7Y3JlYXRvcnMubWFwKChjcmVhdG9yKSA9PiAoXG4gICAgICAgICAgPGFydGljbGVcbiAgICAgICAgICAgIGtleT17Y3JlYXRvci5uYW1lfVxuICAgICAgICAgICAgY2xhc3NOYW1lPVwiY2FyZC1zb2Z0IG92ZXJmbG93LWhpZGRlbiBzaGFkb3ctc29mdC1tZFwiXG4gICAgICAgICAgPlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJncmlkIGdhcC0wIG1kOmdyaWQtY29scy1bMTNyZW1fMWZyXVwiPlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImJvcmRlci1iIGJvcmRlci1saW5lIGJnLXN1cmZhY2UtbXV0ZWQgcC01IG1kOmJvcmRlci1iLTAgbWQ6Ym9yZGVyLXJcIj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImFzcGVjdC1bNC81XSBvdmVyZmxvdy1oaWRkZW4gcm91bmRlZC1tZCBib3JkZXIgYm9yZGVyLWxpbmUgYmctYmdcIj5cbiAgICAgICAgICAgICAgICAgIDxpbWdcbiAgICAgICAgICAgICAgICAgICAgc3JjPXtjcmVhdG9yLnBob3RvfVxuICAgICAgICAgICAgICAgICAgICBhbHQ9e2NyZWF0b3Iuc2hvcnROYW1lfVxuICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJoLWZ1bGwgdy1mdWxsIG9iamVjdC1jb3ZlclwiXG4gICAgICAgICAgICAgICAgICAgIGRyYWdnYWJsZT17ZmFsc2V9XG4gICAgICAgICAgICAgICAgICAvPlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwibXQtNCBmbGV4IGZsZXgtd3JhcCBnYXAtMlwiPlxuICAgICAgICAgICAgICAgICAge2NyZWF0b3IubGlua3MubWFwKChsaW5rKSA9PiB7XG4gICAgICAgICAgICAgICAgICAgIGNvbnN0IEljb24gPSBsaW5rLmljb247XG5cbiAgICAgICAgICAgICAgICAgICAgcmV0dXJuIChcbiAgICAgICAgICAgICAgICAgICAgICA8YVxuICAgICAgICAgICAgICAgICAgICAgICAga2V5PXtsaW5rLmhyZWZ9XG4gICAgICAgICAgICAgICAgICAgICAgICBocmVmPXtsaW5rLmhyZWZ9XG4gICAgICAgICAgICAgICAgICAgICAgICB0YXJnZXQ9XCJfYmxhbmtcIlxuICAgICAgICAgICAgICAgICAgICAgICAgcmVsPVwibm9yZWZlcnJlclwiXG4gICAgICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJpbmxpbmUtZmxleCBoLTkgaXRlbXMtY2VudGVyIGdhcC0yIHJvdW5kZWQtbWQgYm9yZGVyIGJvcmRlci1saW5lIGJnLXN1cmZhY2UgcHgtMyB0ZXh0LXhzIGZvbnQtc2VtaWJvbGQgdGV4dC1pbmstc29mdCB0cmFuc2l0aW9uLWNvbG9ycyBob3Zlcjpib3JkZXItbGluZS1zdHJvbmcgaG92ZXI6dGV4dC1pbmtcIlxuICAgICAgICAgICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxJY29uIGNsYXNzTmFtZT1cImgtMy41IHctMy41XCIgLz5cbiAgICAgICAgICAgICAgICAgICAgICAgIHtsaW5rLmxhYmVsfVxuICAgICAgICAgICAgICAgICAgICAgIDwvYT5cbiAgICAgICAgICAgICAgICAgICAgKTtcbiAgICAgICAgICAgICAgICAgIH0pfVxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8L2Rpdj5cblxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInAtNlwiPlxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZXllYnJvd1wiPntjcmVhdG9yLnJvbGV9PC9kaXY+XG4gICAgICAgICAgICAgICAgPGgzIGNsYXNzTmFtZT1cIm10LTIgdGV4dC0yeGwgZm9udC1ib2xkIGxlYWRpbmctdGlnaHQgdGV4dC1pbmtcIj5cbiAgICAgICAgICAgICAgICAgIHtjcmVhdG9yLnNob3J0TmFtZX1cbiAgICAgICAgICAgICAgICA8L2gzPlxuICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cIm10LTEgdGV4dC1zbSB0ZXh0LWluay1tdXRlZFwiPntjcmVhdG9yLm5hbWV9PC9wPlxuXG4gICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwibXQtNSB0ZXh0LXNtIGxlYWRpbmctcmVsYXhlZCB0ZXh0LWluay1zb2Z0XCI+XG4gICAgICAgICAgICAgICAgICB7Y3JlYXRvci5kZXNjcmlwdGlvbn1cbiAgICAgICAgICAgICAgICA8L3A+XG5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm10LTYgYm9yZGVyLXQgYm9yZGVyLWxpbmUgcHQtNVwiPlxuICAgICAgICAgICAgICAgICAgPGg0IGNsYXNzTmFtZT1cInRleHQtc20gZm9udC1ib2xkIHRleHQtaW5rXCI+XG4gICAgICAgICAgICAgICAgICAgIFJlc3BvbnNhYmlsaWRhZGVzXG4gICAgICAgICAgICAgICAgICA8L2g0PlxuICAgICAgICAgICAgICAgICAgPHVsIGNsYXNzTmFtZT1cIm10LTMgc3BhY2UteS0yXCI+XG4gICAgICAgICAgICAgICAgICAgIHtjcmVhdG9yLnJlc3BvbnNpYmlsaXRpZXMubWFwKChpdGVtKSA9PiAoXG4gICAgICAgICAgICAgICAgICAgICAgPGxpXG4gICAgICAgICAgICAgICAgICAgICAgICBrZXk9e2l0ZW19XG4gICAgICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJmbGV4IGdhcC0yIHRleHQtc20gbGVhZGluZy1yZWxheGVkIHRleHQtaW5rLXNvZnRcIlxuICAgICAgICAgICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxDaGVja0NpcmNsZTIgY2xhc3NOYW1lPVwibXQtMC41IGgtNCB3LTQgZmxleC1ub25lIHRleHQtYWNjZW50XCIgLz5cbiAgICAgICAgICAgICAgICAgICAgICAgIDxzcGFuPntpdGVtfTwvc3Bhbj5cbiAgICAgICAgICAgICAgICAgICAgICA8L2xpPlxuICAgICAgICAgICAgICAgICAgICApKX1cbiAgICAgICAgICAgICAgICAgIDwvdWw+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm10LTYgcm91bmRlZC1tZCBib3JkZXIgYm9yZGVyLWxpbmUgYmctc3VyZmFjZS1tdXRlZCBwLTRcIj5cbiAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZXllYnJvd1wiPkV4cGVyacOqbmNpYTwvZGl2PlxuICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwibXQtMiB0ZXh0LXNtIGxlYWRpbmctcmVsYXhlZCB0ZXh0LWluay1zb2Z0XCI+XG4gICAgICAgICAgICAgICAgICAgIHtjcmVhdG9yLmV4cGVyaWVuY2V9XG4gICAgICAgICAgICAgICAgICA8L3A+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPC9hcnRpY2xlPlxuICAgICAgICApKX1cbiAgICAgIDwvZGl2PlxuICAgIDwvU2VjdGlvblNoZWxsPlxuICApO1xufVxuXG5mdW5jdGlvbiBCdWlsZFNlY3Rpb24oKSB7XG4gIHJldHVybiAoXG4gICAgPFNlY3Rpb25TaGVsbFxuICAgICAgaWQ9XCJjb21vLWNvbnN0cnVpbW9zXCJcbiAgICAgIGV5ZWJyb3c9XCJJSUkgLSBDb21vIGNvbnN0cnXDrW1vc1wiXG4gICAgICB0aXRsZT1cIkRhIG1lbnNhZ2VtIG5vIFdoYXRzQXBwIGFvIHJlbGF0w7NyaW8gZmluYW5jZWlyby5cIlxuICAgICAgY29weT1cIkEgYXJxdWl0ZXR1cmEgZm9pIHBlbnNhZGEgcGFyYSBzZXBhcmFyIGVudHJhZGEgZGUgZGFkb3MsIHByb2Nlc3NhbWVudG8gaW50ZWxpZ2VudGUsIHBlcnNpc3TDqm5jaWEgZSB2aXN1YWxpemHDp8Ojby4gTyBkYXNoYm9hcmQgd2ViIG7Do28gY3JpYSBkZXNwZXNhczogZWxlIGzDqiBlIG9yZ2FuaXphIG9zIGRhZG9zIHJlY2ViaWRvcyBwZWxvIGZsdXhvIGF1dG9tYXRpemFkby5cIlxuICAgID5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZ3JpZCBnYXAtNCBsZzpncmlkLWNvbHMtNFwiPlxuICAgICAgICB7c3RhY2tJdGVtcy5tYXAoKGl0ZW0pID0+IHtcbiAgICAgICAgICBjb25zdCBJY29uID0gaXRlbS5pY29uO1xuXG4gICAgICAgICAgcmV0dXJuIChcbiAgICAgICAgICAgIDxhcnRpY2xlIGtleT17aXRlbS50aXRsZX0gY2xhc3NOYW1lPVwiY2FyZC1zb2Z0IHAtNSBzaGFkb3ctc29mdFwiPlxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaC0xMSB3LTExIGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciByb3VuZGVkLW1kIGJvcmRlciBib3JkZXItbGluZSBiZy1zdXJmYWNlLW11dGVkIHRleHQtYnJhbmRcIj5cbiAgICAgICAgICAgICAgICA8SWNvbiBjbGFzc05hbWU9XCJoLTUgdy01XCIgLz5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDxoMyBjbGFzc05hbWU9XCJtdC01IHRleHQtbGcgZm9udC1ib2xkIHRleHQtaW5rXCI+e2l0ZW0udGl0bGV9PC9oMz5cbiAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwibXQtMyB0ZXh0LXNtIGxlYWRpbmctcmVsYXhlZCB0ZXh0LWluay1zb2Z0XCI+XG4gICAgICAgICAgICAgICAge2l0ZW0uY29weX1cbiAgICAgICAgICAgICAgPC9wPlxuICAgICAgICAgICAgPC9hcnRpY2xlPlxuICAgICAgICAgICk7XG4gICAgICAgIH0pfVxuICAgICAgPC9kaXY+XG5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwibXQtNiBncmlkIGdhcC00IHJvdW5kZWQtbGcgYm9yZGVyIGJvcmRlci1saW5lIGJnLXN1cmZhY2UgcC01IHNoYWRvdy1zb2Z0LW1kIG1kOmdyaWQtY29scy1bMWZyX2F1dG9fMWZyX2F1dG9fMWZyXSBtZDppdGVtcy1jZW50ZXJcIj5cbiAgICAgICAgPEZsb3dOb2RlIGljb249e01lc3NhZ2VDaXJjbGV9IGxhYmVsPVwiV2hhdHNBcHBcIiBjb3B5PVwiTWVuc2FnZW0gZG8gdXN1w6FyaW9cIiAvPlxuICAgICAgICA8Rmxvd0Fycm93IC8+XG4gICAgICAgIDxGbG93Tm9kZSBpY29uPXtCb3R9IGxhYmVsPVwiQWdlbnRlIElBXCIgY29weT1cIkludGVycHJldGEgZSBjYXRlZ29yaXphXCIgLz5cbiAgICAgICAgPEZsb3dBcnJvdyAvPlxuICAgICAgICA8Rmxvd05vZGUgaWNvbj17QmFyQ2hhcnQzfSBsYWJlbD1cIkRhc2hib2FyZFwiIGNvcHk9XCJBbsOhbGlzZSB2aXN1YWwgZW0gdGVtcG8gcmVhbFwiIC8+XG4gICAgICA8L2Rpdj5cbiAgICA8L1NlY3Rpb25TaGVsbD5cbiAgKTtcbn1cblxuZnVuY3Rpb24gUHVycG9zZVNlY3Rpb24oKSB7XG4gIHJldHVybiAoXG4gICAgPFNlY3Rpb25TaGVsbFxuICAgICAgaWQ9XCJwcm9wb3NpdG9cIlxuICAgICAgZXllYnJvdz1cIklWIC0gUHJvcMOzc2l0byBhY2Fkw6ptaWNvXCJcbiAgICAgIHRpdGxlPVwiVW0gVENDIGNvbSBjb21wb3J0YW1lbnRvIGRlIHByb2R1dG8gcmVhbC5cIlxuICAgICAgY29weT1cIk1haXMgZG8gcXVlIGRlbW9uc3RyYXIgdGVjbm9sb2dpYXMgaXNvbGFkYXMsIG8gQW5vdEFJIGJ1c2NhIGFwbGljYXIgY29uaGVjaW1lbnRvcyBkbyBjdXJzbyBlbSB1bWEgZXhwZXJpw6puY2lhIGNvbXBsZXRhOiBhdXRvbWHDp8OjbywgZGFkb3MsIGludGVyZmFjZSwgdmFsaWRhw6fDo28gZSB1dGlsaWRhZGUgcHLDoXRpY2EuXCJcbiAgICAgIHN1cmZhY2VcbiAgICA+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImdyaWQgZ2FwLTQgbWQ6Z3JpZC1jb2xzLTIgbGc6Z3JpZC1jb2xzLTRcIj5cbiAgICAgICAge2FjYWRlbWljRm9jdXMubWFwKChpdGVtKSA9PiB7XG4gICAgICAgICAgY29uc3QgSWNvbiA9IGl0ZW0uaWNvbjtcblxuICAgICAgICAgIHJldHVybiAoXG4gICAgICAgICAgICA8YXJ0aWNsZVxuICAgICAgICAgICAgICBrZXk9e2l0ZW0udGl0bGV9XG4gICAgICAgICAgICAgIGNsYXNzTmFtZT1cImJvcmRlci1sIGJvcmRlci1saW5lIGJnLWJnLzQ1IHAtNVwiXG4gICAgICAgICAgICA+XG4gICAgICAgICAgICAgIDxJY29uIGNsYXNzTmFtZT1cImgtNSB3LTUgdGV4dC1zdGFtcFwiIC8+XG4gICAgICAgICAgICAgIDxoMyBjbGFzc05hbWU9XCJtdC00IHRleHQtbGcgZm9udC1ib2xkIHRleHQtaW5rXCI+e2l0ZW0udGl0bGV9PC9oMz5cbiAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwibXQtMiB0ZXh0LXNtIGxlYWRpbmctcmVsYXhlZCB0ZXh0LWluay1zb2Z0XCI+XG4gICAgICAgICAgICAgICAge2l0ZW0uY29weX1cbiAgICAgICAgICAgICAgPC9wPlxuICAgICAgICAgICAgPC9hcnRpY2xlPlxuICAgICAgICAgICk7XG4gICAgICAgIH0pfVxuICAgICAgPC9kaXY+XG4gICAgPC9TZWN0aW9uU2hlbGw+XG4gICk7XG59XG5cbmZ1bmN0aW9uIEZpbmFsU2VjdGlvbigpIHtcbiAgcmV0dXJuIChcbiAgICA8c2VjdGlvbiBjbGFzc05hbWU9XCJweC01IHB5LTE2IG1kOnB4LTggbWQ6cHktMjBcIj5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwibXgtYXV0byBtYXgtdy02eGwgb3ZlcmZsb3ctaGlkZGVuIHJvdW5kZWQtbGcgYm9yZGVyIGJvcmRlci1saW5lIGJnLWJyYW5kIHRleHQtcHJpbWFyeS1mb3JlZ3JvdW5kIHNoYWRvdy1zb2Z0LW1kXCI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZ3JpZCBnYXAtOCBwLTcgbWQ6Z3JpZC1jb2xzLVsxZnJfYXV0b10gbWQ6aXRlbXMtY2VudGVyIG1kOnAtMTBcIj5cbiAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJpbmxpbmUtZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTIgcm91bmRlZC1tZCBib3JkZXIgYm9yZGVyLXByaW1hcnktZm9yZWdyb3VuZC8yMCBweC0zIHB5LTEgdGV4dC14cyBmb250LXNlbWlib2xkXCI+XG4gICAgICAgICAgICAgIDxTcGFya2xlcyBjbGFzc05hbWU9XCJoLTMuNSB3LTMuNSB0ZXh0LWFjY2VudFwiIC8+XG4gICAgICAgICAgICAgIEFub3RBSSBlbSBkZXNlbnZvbHZpbWVudG8gYWNhZMOqbWljb1xuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICA8aDIgY2xhc3NOYW1lPVwibXQtNSBtYXgtdy0yeGwgdGV4dC0zeGwgZm9udC1ib2xkIGxlYWRpbmctdGlnaHQgbWQ6dGV4dC00eGxcIj5cbiAgICAgICAgICAgICAgQ29uaGXDp2EgYSBleHBlcmnDqm5jaWEgcXVlIGNvbmVjdGEgY29udmVyc2EsIGRhZG9zIGUgZGVjaXPDo28uXG4gICAgICAgICAgICA8L2gyPlxuICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwibXQtNCBtYXgtdy0yeGwgdGV4dC1zbSBsZWFkaW5nLXJlbGF4ZWQgdGV4dC1wcmltYXJ5LWZvcmVncm91bmQvNzhcIj5cbiAgICAgICAgICAgICAgQWNlc3NlIG8gZGFzaGJvYXJkLCBjcmllIHN1YSBjb250YSBvdSB2b2x0ZSBwYXJhIGEgcMOhZ2luYSBpbmljaWFsXG4gICAgICAgICAgICAgIHBhcmEgdmVyIGNvbW8gbyBmbHV4byBkbyBwcm9kdXRvIGZ1bmNpb25hLlxuICAgICAgICAgICAgPC9wPlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBmbGV4LWNvbCBnYXAtMyBzbTpmbGV4LXJvdyBtZDpmbGV4LWNvbFwiPlxuICAgICAgICAgICAgPEJ1dHRvbiBhc0NoaWxkIHNpemU9XCJsZ1wiIGNsYXNzTmFtZT1cImJnLWFjY2VudCB0ZXh0LWluayBob3ZlcjpiZy1hY2NlbnQvOTBcIj5cbiAgICAgICAgICAgICAgPExpbmsgdG89XCIvc2lnbnVwXCI+Q3JpYXIgY29udGE8L0xpbms+XG4gICAgICAgICAgICA8L0J1dHRvbj5cbiAgICAgICAgICAgIDxCdXR0b25cbiAgICAgICAgICAgICAgYXNDaGlsZFxuICAgICAgICAgICAgICB2YXJpYW50PVwib3V0bGluZVwiXG4gICAgICAgICAgICAgIHNpemU9XCJsZ1wiXG4gICAgICAgICAgICAgIGNsYXNzTmFtZT1cImJvcmRlci1wcmltYXJ5LWZvcmVncm91bmQvMzUgYmctdHJhbnNwYXJlbnQgdGV4dC1wcmltYXJ5LWZvcmVncm91bmQgaG92ZXI6YmctcHJpbWFyeS1mb3JlZ3JvdW5kLzEwIGhvdmVyOnRleHQtcHJpbWFyeS1mb3JlZ3JvdW5kXCJcbiAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgPExpbmsgdG89XCIvXCI+Vm9sdGFyIGFvIGluw61jaW88L0xpbms+XG4gICAgICAgICAgICA8L0J1dHRvbj5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L2Rpdj5cbiAgICA8L3NlY3Rpb24+XG4gICk7XG59XG5cbmZ1bmN0aW9uIFNlY3Rpb25TaGVsbCh7XG4gIGlkLFxuICBleWVicm93LFxuICB0aXRsZSxcbiAgY29weSxcbiAgY2hpbGRyZW4sXG4gIHN1cmZhY2UgPSBmYWxzZSxcbn06IHtcbiAgaWQ6IHN0cmluZztcbiAgZXllYnJvdzogc3RyaW5nO1xuICB0aXRsZTogc3RyaW5nO1xuICBjb3B5OiBzdHJpbmc7XG4gIGNoaWxkcmVuOiBSZWFjdC5SZWFjdE5vZGU7XG4gIHN1cmZhY2U/OiBib29sZWFuO1xufSkge1xuICByZXR1cm4gKFxuICAgIDxzZWN0aW9uXG4gICAgICBpZD17aWR9XG4gICAgICBjbGFzc05hbWU9e2Bib3JkZXItYiBib3JkZXItbGluZSBweC01IHB5LTE2IG1kOnB4LTggbWQ6cHktMjAgJHtcbiAgICAgICAgc3VyZmFjZSA/IFwiYmctc3VyZmFjZS1tdXRlZC80NVwiIDogXCJcIlxuICAgICAgfWB9XG4gICAgPlxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJteC1hdXRvIG1heC13LTZ4bFwiPlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm1iLTEwIGdyaWQgZ2FwLTUgbWQ6Z3JpZC1jb2xzLVswLjg2ZnJfMWZyXSBtZDppdGVtcy1lbmRcIj5cbiAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJleWVicm93XCI+e2V5ZWJyb3d9PC9kaXY+XG4gICAgICAgICAgICA8aDIgY2xhc3NOYW1lPVwibXQtMyBtYXgtdy0yeGwgdGV4dC0zeGwgZm9udC1ib2xkIGxlYWRpbmctdGlnaHQgdGV4dC1pbmsgbWQ6dGV4dC00eGxcIj5cbiAgICAgICAgICAgICAge3RpdGxlfVxuICAgICAgICAgICAgPC9oMj5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8cCBjbGFzc05hbWU9XCJtYXgtdy0yeGwgdGV4dC1iYXNlIGxlYWRpbmctcmVsYXhlZCB0ZXh0LWluay1zb2Z0IG1kOmp1c3RpZnktc2VsZi1lbmRcIj5cbiAgICAgICAgICAgIHtjb3B5fVxuICAgICAgICAgIDwvcD5cbiAgICAgICAgPC9kaXY+XG4gICAgICAgIHtjaGlsZHJlbn1cbiAgICAgIDwvZGl2PlxuICAgIDwvc2VjdGlvbj5cbiAgKTtcbn1cblxuZnVuY3Rpb24gTWluaU1ldHJpYyh7IGxhYmVsLCB2YWx1ZSB9OiB7IGxhYmVsOiBzdHJpbmc7IHZhbHVlOiBzdHJpbmcgfSkge1xuICByZXR1cm4gKFxuICAgIDxkaXYgY2xhc3NOYW1lPVwicm91bmRlZC1tZCBib3JkZXIgYm9yZGVyLWxpbmUgYmctc3VyZmFjZSBwLTQgc2hhZG93LXNvZnRcIj5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZXllYnJvd1wiPntsYWJlbH08L2Rpdj5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwibnVtIG10LTIgdGV4dC1sZyBmb250LXNlbWlib2xkIHRleHQtc3RhbXBcIj57dmFsdWV9PC9kaXY+XG4gICAgPC9kaXY+XG4gICk7XG59XG5cbmZ1bmN0aW9uIEZsb3dOb2RlKHtcbiAgaWNvbjogSWNvbixcbiAgbGFiZWwsXG4gIGNvcHksXG59OiB7XG4gIGljb246IHR5cGVvZiBNZXNzYWdlQ2lyY2xlO1xuICBsYWJlbDogc3RyaW5nO1xuICBjb3B5OiBzdHJpbmc7XG59KSB7XG4gIHJldHVybiAoXG4gICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtM1wiPlxuICAgICAgPHNwYW4gY2xhc3NOYW1lPVwiZmxleCBoLTEwIHctMTAgZmxleC1ub25lIGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciByb3VuZGVkLW1kIGJvcmRlciBib3JkZXItbGluZSBiZy1zdXJmYWNlLW11dGVkIHRleHQtYnJhbmRcIj5cbiAgICAgICAgPEljb24gY2xhc3NOYW1lPVwiaC01IHctNVwiIC8+XG4gICAgICA8L3NwYW4+XG4gICAgICA8c3Bhbj5cbiAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwiYmxvY2sgdGV4dC1zbSBmb250LWJvbGQgdGV4dC1pbmtcIj57bGFiZWx9PC9zcGFuPlxuICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJibG9jayB0ZXh0LXhzIGxlYWRpbmctcmVsYXhlZCB0ZXh0LWluay1tdXRlZFwiPlxuICAgICAgICAgIHtjb3B5fVxuICAgICAgICA8L3NwYW4+XG4gICAgICA8L3NwYW4+XG4gICAgPC9kaXY+XG4gICk7XG59XG5cbmZ1bmN0aW9uIEZsb3dBcnJvdygpIHtcbiAgcmV0dXJuIChcbiAgICA8ZGl2IGNsYXNzTmFtZT1cImhpZGRlbiBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXIgdGV4dC1pbmstbXV0ZWQgbWQ6ZmxleFwiPlxuICAgICAgPEFycm93UmlnaHQgY2xhc3NOYW1lPVwiaC01IHctNVwiIC8+XG4gICAgPC9kaXY+XG4gICk7XG59XG4iXSwiZmlsZSI6IkM6L1VzZXJzL0FDRVJfTklUUk8vRGVza3RvcC9Fc3R1ZG8vQURTIC0gRkFURUMvVEcvYW5vdGEtYWkvc3JjL3BhZ2VzL0Fib3V0LnRzeCJ9

@@ -1,0 +1,393 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/AuthLayout.tsx");import __vite__cjsImport0_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=e31eda09"; const jsxDEV = __vite__cjsImport0_react_jsxDevRuntime["jsxDEV"];
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+import { Link } from "/node_modules/.vite/deps/react-router-dom.js?v=e31eda09";
+import { ArrowLeft, CheckCheck, Sparkles } from "/node_modules/.vite/deps/lucide-react.js?v=e31eda09";
+const LOGO_URL = "/logo-anotaAI.png";
+export function AuthLayout({ title, subtitle, children, footer }) {
+  return /* @__PURE__ */ jsxDEV("div", { className: "grid min-h-screen lg:grid-cols-2", children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "relative flex min-h-screen flex-col bg-bg px-5 py-8 sm:px-8 lg:px-12", children: [
+      /* @__PURE__ */ jsxDEV("div", { className: "flex items-center justify-between gap-4", children: [
+        /* @__PURE__ */ jsxDEV(Link, { to: "/", "aria-label": "Início", children: /* @__PURE__ */ jsxDEV(
+          "img",
+          {
+            src: LOGO_URL,
+            alt: "AnotAI",
+            className: "h-10 w-auto select-none lg:h-12",
+            draggable: false
+          },
+          void 0,
+          false,
+          {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+            lineNumber: 40,
+            columnNumber: 13
+          },
+          this
+        ) }, void 0, false, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+          lineNumber: 39,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(
+          Link,
+          {
+            to: "/",
+            className: "group inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3 py-1.5 text-xs font-semibold text-ink-soft transition-colors hover:border-line-strong hover:text-ink",
+            children: [
+              /* @__PURE__ */ jsxDEV(ArrowLeft, { className: "h-3.5 w-3.5 transition-transform group-hover:-translate-x-0.5", strokeWidth: 2.5 }, void 0, false, {
+                fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+                lineNumber: 51,
+                columnNumber: 13
+              }, this),
+              "Voltar pra home"
+            ]
+          },
+          void 0,
+          true,
+          {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+            lineNumber: 47,
+            columnNumber: 11
+          },
+          this
+        )
+      ] }, void 0, true, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+        lineNumber: 38,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { className: "flex flex-1 items-center justify-center py-10", children: /* @__PURE__ */ jsxDEV("div", { className: "w-full max-w-md", children: [
+        /* @__PURE__ */ jsxDEV("h1", { className: "text-2xl font-bold tracking-tight text-ink md:text-3xl", children: title }, void 0, false, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+          lineNumber: 58,
+          columnNumber: 13
+        }, this),
+        subtitle && /* @__PURE__ */ jsxDEV("p", { className: "mt-2 text-sm text-ink-soft", children: subtitle }, void 0, false, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+          lineNumber: 62,
+          columnNumber: 13
+        }, this),
+        /* @__PURE__ */ jsxDEV("div", { className: "mt-8", children }, void 0, false, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+          lineNumber: 65,
+          columnNumber: 13
+        }, this),
+        footer && /* @__PURE__ */ jsxDEV("p", { className: "mt-6 text-sm text-ink-soft", children: footer }, void 0, false, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+          lineNumber: 68,
+          columnNumber: 13
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+        lineNumber: 57,
+        columnNumber: 11
+      }, this) }, void 0, false, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+        lineNumber: 56,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("p", { className: "text-xs text-ink-muted", children: "© 2026 AnotAI · Projeto de TCC FATEC" }, void 0, false, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+        lineNumber: 73,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+      lineNumber: 37,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(BrandPanel, {}, void 0, false, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+      lineNumber: 79,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+    lineNumber: 35,
+    columnNumber: 5
+  }, this);
+}
+_c = AuthLayout;
+function BrandPanel() {
+  return /* @__PURE__ */ jsxDEV(
+    "aside",
+    {
+      className: "relative hidden overflow-hidden bg-brand-strong text-white lg:flex lg:flex-col lg:justify-between lg:p-12 xl:p-16",
+      "aria-hidden": true,
+      children: [
+        /* @__PURE__ */ jsxDEV(
+          "div",
+          {
+            className: "pointer-events-none absolute inset-0 opacity-60",
+            style: {
+              background: "radial-gradient(ellipse 55% 65% at 100% 0%, hsl(75 60% 45% / 0.25), transparent 60%), radial-gradient(ellipse 60% 50% at 0% 100%, hsl(75 60% 45% / 0.15), transparent 70%)"
+            }
+          },
+          void 0,
+          false,
+          {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+            lineNumber: 91,
+            columnNumber: 7
+          },
+          this
+        ),
+        /* @__PURE__ */ jsxDEV(
+          "div",
+          {
+            className: "pointer-events-none absolute inset-0 opacity-[0.18]",
+            style: {
+              backgroundImage: "radial-gradient(circle, hsl(0 0% 100% / 0.7) 1px, transparent 1px)",
+              backgroundSize: "22px 22px"
+            }
+          },
+          void 0,
+          false,
+          {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+            lineNumber: 100,
+            columnNumber: 7
+          },
+          this
+        ),
+        /* @__PURE__ */ jsxDEV("div", { className: "relative", children: /* @__PURE__ */ jsxDEV("span", { className: "inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-semibold text-white/90 backdrop-blur-sm", children: [
+          /* @__PURE__ */ jsxDEV(Sparkles, { className: "h-3.5 w-3.5 text-accent", strokeWidth: 2.5 }, void 0, false, {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+            lineNumber: 112,
+            columnNumber: 11
+          }, this),
+          "Beta aberto · 100% grátis"
+        ] }, void 0, true, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+          lineNumber: 111,
+          columnNumber: 9
+        }, this) }, void 0, false, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+          lineNumber: 110,
+          columnNumber: 7
+        }, this),
+        /* @__PURE__ */ jsxDEV("div", { className: "relative space-y-10", children: [
+          /* @__PURE__ */ jsxDEV("h2", { className: "text-3xl font-bold leading-tight tracking-tight xl:text-4xl", children: [
+            "Anote pelo WhatsApp.",
+            /* @__PURE__ */ jsxDEV("br", {}, void 0, false, {
+              fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+              lineNumber: 121,
+              columnNumber: 11
+            }, this),
+            /* @__PURE__ */ jsxDEV("span", { className: "text-accent", children: "Visualize tudo aqui." }, void 0, false, {
+              fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+              lineNumber: 122,
+              columnNumber: 11
+            }, this)
+          ] }, void 0, true, {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+            lineNumber: 119,
+            columnNumber: 9
+          }, this),
+          /* @__PURE__ */ jsxDEV(AnimatedChatPreview, {}, void 0, false, {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+            lineNumber: 125,
+            columnNumber: 9
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+          lineNumber: 118,
+          columnNumber: 7
+        }, this),
+        /* @__PURE__ */ jsxDEV("div", { className: "relative space-y-3", children: [
+          /* @__PURE__ */ jsxDEV("div", { className: "grid grid-cols-3 gap-4 border-t border-white/15 pt-6", children: [
+            /* @__PURE__ */ jsxDEV(Stat, { label: "Categorias", value: "10" }, void 0, false, {
+              fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+              lineNumber: 131,
+              columnNumber: 11
+            }, this),
+            /* @__PURE__ */ jsxDEV(Stat, { label: "Tempo p/ começar", value: "30s" }, void 0, false, {
+              fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+              lineNumber: 132,
+              columnNumber: 11
+            }, this),
+            /* @__PURE__ */ jsxDEV(Stat, { label: "Custo", value: "R$ 0" }, void 0, false, {
+              fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+              lineNumber: 133,
+              columnNumber: 11
+            }, this)
+          ] }, void 0, true, {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+            lineNumber: 130,
+            columnNumber: 9
+          }, this),
+          /* @__PURE__ */ jsxDEV("p", { className: "text-xs text-white/50", children: "Construído com Supabase, n8n e Gemini." }, void 0, false, {
+            fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+            lineNumber: 135,
+            columnNumber: 9
+          }, this)
+        ] }, void 0, true, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+          lineNumber: 129,
+          columnNumber: 7
+        }, this)
+      ]
+    },
+    void 0,
+    true,
+    {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+      lineNumber: 86,
+      columnNumber: 5
+    },
+    this
+  );
+}
+_c2 = BrandPanel;
+function AnimatedChatPreview() {
+  return /* @__PURE__ */ jsxDEV("div", { className: "min-h-[240px] space-y-2.5", children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "chat-anim-1 max-w-[80%]", children: /* @__PURE__ */ jsxDEV("div", { className: "chat-bubble-bot rounded-2xl rounded-bl-md px-3.5 py-2 text-sm shadow-lg", children: "Oi! Sou o AnotAI 👋 me conta seus gastos." }, void 0, false, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+      lineNumber: 150,
+      columnNumber: 9
+    }, this) }, void 0, false, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+      lineNumber: 149,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "chat-anim-2 ml-auto flex max-w-[80%] flex-col items-end", children: [
+      /* @__PURE__ */ jsxDEV("div", { className: "chat-bubble-user flex items-end gap-1.5 rounded-2xl rounded-br-md px-3.5 py-2 text-sm shadow-lg", children: /* @__PURE__ */ jsxDEV("span", { children: "gastei 30 na padaria" }, void 0, false, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+        lineNumber: 158,
+        columnNumber: 11
+      }, this) }, void 0, false, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+        lineNumber: 157,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { className: "mt-0.5 flex items-center gap-1 pr-2", children: [
+        /* @__PURE__ */ jsxDEV("span", { className: "num text-[9px] text-white/50", children: "14:02" }, void 0, false, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+          lineNumber: 161,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(CheckCheck, { className: "h-3 w-3 text-[#53bdeb]", strokeWidth: 2.5 }, void 0, false, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+          lineNumber: 162,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+        lineNumber: 160,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+      lineNumber: 156,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "chat-typing-anim-1 flex max-w-[60px]", children: /* @__PURE__ */ jsxDEV("div", { className: "chat-bubble-bot flex items-center gap-1 rounded-2xl rounded-bl-md px-3 py-2.5 shadow-lg", children: [
+      /* @__PURE__ */ jsxDEV("span", { className: "typing-dot-anim h-1.5 w-1.5 rounded-full bg-ink-muted" }, void 0, false, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+        lineNumber: 169,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV("span", { className: "typing-dot-anim h-1.5 w-1.5 rounded-full bg-ink-muted" }, void 0, false, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+        lineNumber: 170,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV("span", { className: "typing-dot-anim h-1.5 w-1.5 rounded-full bg-ink-muted" }, void 0, false, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+        lineNumber: 171,
+        columnNumber: 11
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+      lineNumber: 168,
+      columnNumber: 9
+    }, this) }, void 0, false, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+      lineNumber: 167,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "chat-anim-3 max-w-[80%]", children: [
+      /* @__PURE__ */ jsxDEV("div", { className: "chat-bubble-bot rounded-2xl rounded-bl-md px-3.5 py-2 text-sm shadow-lg", children: [
+        "✅ R$ 30,00 em ",
+        /* @__PURE__ */ jsxDEV("strong", { className: "font-semibold", children: "alimentação" }, void 0, false, {
+          fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+          lineNumber: 178,
+          columnNumber: 25
+        }, this),
+        " registrado."
+      ] }, void 0, true, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+        lineNumber: 177,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("span", { className: "num mt-0.5 inline-block pl-2 text-[9px] text-white/50", children: "14:02" }, void 0, false, {
+        fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+        lineNumber: 180,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+      lineNumber: 176,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+    lineNumber: 147,
+    columnNumber: 5
+  }, this);
+}
+_c3 = AnimatedChatPreview;
+function Stat({ label, value }) {
+  return /* @__PURE__ */ jsxDEV("div", { children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "num text-2xl font-bold text-white", children: value }, void 0, false, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+      lineNumber: 189,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "mt-0.5 text-[10px] uppercase tracking-wider text-white/50", children: label }, void 0, false, {
+      fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+      lineNumber: 190,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx",
+    lineNumber: 188,
+    columnNumber: 5
+  }, this);
+}
+_c4 = Stat;
+var _c, _c2, _c3, _c4;
+$RefreshReg$(_c, "AuthLayout");
+$RefreshReg$(_c2, "BrandPanel");
+$RefreshReg$(_c3, "AnimatedChatPreview");
+$RefreshReg$(_c4, "Stat");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("C:/Users/ACER_NITRO/Desktop/Estudo/ADS - FATEC/TG/anota-ai/src/components/AuthLayout.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6IkFBb0JZOzs7Ozs7Ozs7Ozs7Ozs7O0FBbkJaLFNBQVNBLFlBQVk7QUFDckIsU0FBU0MsV0FBV0MsWUFBWUMsZ0JBQWdCO0FBU2hELE1BQU1DLFdBQVc7QUFFVixnQkFBU0MsV0FBVyxFQUFFQyxPQUFPQyxVQUFVQyxVQUFVQyxPQUF3QixHQUFHO0FBQ2pGLFNBQ0UsdUJBQUMsU0FBSSxXQUFVLG9DQUViO0FBQUEsMkJBQUMsU0FBSSxXQUFVLHdFQUNiO0FBQUEsNkJBQUMsU0FBSSxXQUFVLDJDQUNiO0FBQUEsK0JBQUMsUUFBSyxJQUFHLEtBQUksY0FBVyxVQUN0QjtBQUFBLFVBQUM7QUFBQTtBQUFBLFlBQ0MsS0FBS0w7QUFBQUEsWUFDTCxLQUFJO0FBQUEsWUFDSixXQUFVO0FBQUEsWUFDVixXQUFXO0FBQUE7QUFBQSxVQUpiO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxRQUltQixLQUxyQjtBQUFBO0FBQUE7QUFBQTtBQUFBLGVBT0E7QUFBQSxRQUNBO0FBQUEsVUFBQztBQUFBO0FBQUEsWUFDQyxJQUFHO0FBQUEsWUFDSCxXQUFVO0FBQUEsWUFFVjtBQUFBLHFDQUFDLGFBQVUsV0FBVSxpRUFBZ0UsYUFBYSxPQUFsRztBQUFBO0FBQUE7QUFBQTtBQUFBLHFCQUFzRztBQUFBO0FBQUE7QUFBQTtBQUFBLFVBSnhHO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxRQU1BO0FBQUEsV0FmRjtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBZ0JBO0FBQUEsTUFFQSx1QkFBQyxTQUFJLFdBQVUsaURBQ2IsaUNBQUMsU0FBSSxXQUFVLG1CQUNiO0FBQUEsK0JBQUMsUUFBRyxXQUFVLDBEQUNYRSxtQkFESDtBQUFBO0FBQUE7QUFBQTtBQUFBLGVBRUE7QUFBQSxRQUNDQyxZQUNDLHVCQUFDLE9BQUUsV0FBVSw4QkFBOEJBLHNCQUEzQztBQUFBO0FBQUE7QUFBQTtBQUFBLGVBQW9EO0FBQUEsUUFHdEQsdUJBQUMsU0FBSSxXQUFVLFFBQVFDLFlBQXZCO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFBZ0M7QUFBQSxRQUUvQkMsVUFDQyx1QkFBQyxPQUFFLFdBQVUsOEJBQThCQSxvQkFBM0M7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQUFrRDtBQUFBLFdBWHREO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFhQSxLQWRGO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFlQTtBQUFBLE1BRUEsdUJBQUMsT0FBRSxXQUFVLDBCQUF3QixvREFBckM7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQUVBO0FBQUEsU0F0Q0Y7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQXVDQTtBQUFBLElBR0EsdUJBQUMsZ0JBQUQ7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQUFXO0FBQUEsT0E1Q2I7QUFBQTtBQUFBO0FBQUE7QUFBQSxTQTZDQTtBQUVKO0FBQUNDLEtBakRlTDtBQW1EaEIsU0FBU00sYUFBYTtBQUNwQixTQUNFO0FBQUEsSUFBQztBQUFBO0FBQUEsTUFDQyxXQUFVO0FBQUEsTUFDVixlQUFXO0FBQUEsTUFHWDtBQUFBO0FBQUEsVUFBQztBQUFBO0FBQUEsWUFDQyxXQUFVO0FBQUEsWUFDVixPQUFPO0FBQUEsY0FDTEMsWUFDRTtBQUFBLFlBQ0o7QUFBQTtBQUFBLFVBTEY7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLFFBS0k7QUFBQSxRQUlKO0FBQUEsVUFBQztBQUFBO0FBQUEsWUFDQyxXQUFVO0FBQUEsWUFDVixPQUFPO0FBQUEsY0FDTEMsaUJBQ0U7QUFBQSxjQUNGQyxnQkFBZ0I7QUFBQSxZQUNsQjtBQUFBO0FBQUEsVUFORjtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsUUFNSTtBQUFBLFFBSUosdUJBQUMsU0FBSSxXQUFVLFlBQ2IsaUNBQUMsVUFBSyxXQUFVLGdKQUNkO0FBQUEsaUNBQUMsWUFBUyxXQUFVLDJCQUEwQixhQUFhLE9BQTNEO0FBQUE7QUFBQTtBQUFBO0FBQUEsaUJBQStEO0FBQUE7QUFBQSxhQURqRTtBQUFBO0FBQUE7QUFBQTtBQUFBLGVBR0EsS0FKRjtBQUFBO0FBQUE7QUFBQTtBQUFBLGVBS0E7QUFBQSxRQUdBLHVCQUFDLFNBQUksV0FBVSx1QkFDYjtBQUFBLGlDQUFDLFFBQUcsV0FBVSwrREFBNkQ7QUFBQTtBQUFBLFlBRXpFLHVCQUFDLFVBQUQ7QUFBQTtBQUFBO0FBQUE7QUFBQSxtQkFBRztBQUFBLFlBQ0gsdUJBQUMsVUFBSyxXQUFVLGVBQWMsb0NBQTlCO0FBQUE7QUFBQTtBQUFBO0FBQUEsbUJBQWtEO0FBQUEsZUFIcEQ7QUFBQTtBQUFBO0FBQUE7QUFBQSxpQkFJQTtBQUFBLFVBRUEsdUJBQUMseUJBQUQ7QUFBQTtBQUFBO0FBQUE7QUFBQSxpQkFBb0I7QUFBQSxhQVB0QjtBQUFBO0FBQUE7QUFBQTtBQUFBLGVBUUE7QUFBQSxRQUdBLHVCQUFDLFNBQUksV0FBVSxzQkFDYjtBQUFBLGlDQUFDLFNBQUksV0FBVSx3REFDYjtBQUFBLG1DQUFDLFFBQUssT0FBTSxjQUFhLE9BQU0sUUFBL0I7QUFBQTtBQUFBO0FBQUE7QUFBQSxtQkFBbUM7QUFBQSxZQUNuQyx1QkFBQyxRQUFLLE9BQU0sb0JBQW1CLE9BQU0sU0FBckM7QUFBQTtBQUFBO0FBQUE7QUFBQSxtQkFBMEM7QUFBQSxZQUMxQyx1QkFBQyxRQUFLLE9BQU0sU0FBUSxPQUFNLFVBQTFCO0FBQUE7QUFBQTtBQUFBO0FBQUEsbUJBQWdDO0FBQUEsZUFIbEM7QUFBQTtBQUFBO0FBQUE7QUFBQSxpQkFJQTtBQUFBLFVBQ0EsdUJBQUMsT0FBRSxXQUFVLHlCQUF1QixzREFBcEM7QUFBQTtBQUFBO0FBQUE7QUFBQSxpQkFFQTtBQUFBLGFBUkY7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQVNBO0FBQUE7QUFBQTtBQUFBLElBcERGO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxFQXFEQTtBQUVKO0FBR0FDLE1BNURTSjtBQTZEVCxTQUFTSyxzQkFBc0I7QUFDN0IsU0FDRSx1QkFBQyxTQUFJLFdBQVUsNkJBRWI7QUFBQSwyQkFBQyxTQUFJLFdBQVUsMkJBQ2IsaUNBQUMsU0FBSSxXQUFVLDJFQUF5RSx5REFBeEY7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQUVBLEtBSEY7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQUlBO0FBQUEsSUFHQSx1QkFBQyxTQUFJLFdBQVUsMkRBQ2I7QUFBQSw2QkFBQyxTQUFJLFdBQVUsbUdBQ2IsaUNBQUMsVUFBSyxvQ0FBTjtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBQTBCLEtBRDVCO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFFQTtBQUFBLE1BQ0EsdUJBQUMsU0FBSSxXQUFVLHVDQUNiO0FBQUEsK0JBQUMsVUFBSyxXQUFVLGdDQUErQixxQkFBL0M7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQUFvRDtBQUFBLFFBQ3BELHVCQUFDLGNBQVcsV0FBVSwwQkFBeUIsYUFBYSxPQUE1RDtBQUFBO0FBQUE7QUFBQTtBQUFBLGVBQWdFO0FBQUEsV0FGbEU7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQUdBO0FBQUEsU0FQRjtBQUFBO0FBQUE7QUFBQTtBQUFBLFdBUUE7QUFBQSxJQUdBLHVCQUFDLFNBQUksV0FBVSx3Q0FDYixpQ0FBQyxTQUFJLFdBQVUsMkZBQ2I7QUFBQSw2QkFBQyxVQUFLLFdBQVUsMkRBQWhCO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFBdUU7QUFBQSxNQUN2RSx1QkFBQyxVQUFLLFdBQVUsMkRBQWhCO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFBdUU7QUFBQSxNQUN2RSx1QkFBQyxVQUFLLFdBQVUsMkRBQWhCO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFBdUU7QUFBQSxTQUh6RTtBQUFBO0FBQUE7QUFBQTtBQUFBLFdBSUEsS0FMRjtBQUFBO0FBQUE7QUFBQTtBQUFBLFdBTUE7QUFBQSxJQUdBLHVCQUFDLFNBQUksV0FBVSwyQkFDYjtBQUFBLDZCQUFDLFNBQUksV0FBVSwyRUFBeUU7QUFBQTtBQUFBLFFBQ3hFLHVCQUFDLFlBQU8sV0FBVSxpQkFBZ0IsMkJBQWxDO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFBNkM7QUFBQSxRQUFTO0FBQUEsV0FEdEU7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQUVBO0FBQUEsTUFDQSx1QkFBQyxVQUFLLFdBQVUseURBQXdELHFCQUF4RTtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBQTZFO0FBQUEsU0FKL0U7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQUtBO0FBQUEsT0FsQ0Y7QUFBQTtBQUFBO0FBQUE7QUFBQSxTQW1DQTtBQUVKO0FBQUNDLE1BdkNRRDtBQXlDVCxTQUFTRSxLQUFLLEVBQUVDLE9BQU9DLE1BQXdDLEdBQUc7QUFDaEUsU0FDRSx1QkFBQyxTQUNDO0FBQUEsMkJBQUMsU0FBSSxXQUFVLHFDQUFxQ0EsbUJBQXBEO0FBQUE7QUFBQTtBQUFBO0FBQUEsV0FBMEQ7QUFBQSxJQUMxRCx1QkFBQyxTQUFJLFdBQVUsNkRBQ1pELG1CQURIO0FBQUE7QUFBQTtBQUFBO0FBQUEsV0FFQTtBQUFBLE9BSkY7QUFBQTtBQUFBO0FBQUE7QUFBQSxTQUtBO0FBRUo7QUFBQ0UsTUFUUUg7QUFBSSxJQUFBUixJQUFBSyxLQUFBRSxLQUFBSTtBQUFBLGFBQUFYLElBQUE7QUFBQSxhQUFBSyxLQUFBO0FBQUEsYUFBQUUsS0FBQTtBQUFBLGFBQUFJLEtBQUEiLCJuYW1lcyI6WyJMaW5rIiwiQXJyb3dMZWZ0IiwiQ2hlY2tDaGVjayIsIlNwYXJrbGVzIiwiTE9HT19VUkwiLCJBdXRoTGF5b3V0IiwidGl0bGUiLCJzdWJ0aXRsZSIsImNoaWxkcmVuIiwiZm9vdGVyIiwiX2MiLCJCcmFuZFBhbmVsIiwiYmFja2dyb3VuZCIsImJhY2tncm91bmRJbWFnZSIsImJhY2tncm91bmRTaXplIiwiX2MyIiwiQW5pbWF0ZWRDaGF0UHJldmlldyIsIl9jMyIsIlN0YXQiLCJsYWJlbCIsInZhbHVlIiwiX2M0Il0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VzIjpbIkF1dGhMYXlvdXQudHN4Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB0eXBlIHsgUmVhY3ROb2RlIH0gZnJvbSBcInJlYWN0XCI7XG5pbXBvcnQgeyBMaW5rIH0gZnJvbSBcInJlYWN0LXJvdXRlci1kb21cIjtcbmltcG9ydCB7IEFycm93TGVmdCwgQ2hlY2tDaGVjaywgU3BhcmtsZXMgfSBmcm9tIFwibHVjaWRlLXJlYWN0XCI7XG5cbnR5cGUgQXV0aExheW91dFByb3BzID0ge1xuICB0aXRsZTogc3RyaW5nO1xuICBzdWJ0aXRsZT86IHN0cmluZztcbiAgY2hpbGRyZW46IFJlYWN0Tm9kZTtcbiAgZm9vdGVyPzogUmVhY3ROb2RlO1xufTtcblxuY29uc3QgTE9HT19VUkwgPSBcIi9sb2dvLWFub3RhQUkucG5nXCI7XG5cbmV4cG9ydCBmdW5jdGlvbiBBdXRoTGF5b3V0KHsgdGl0bGUsIHN1YnRpdGxlLCBjaGlsZHJlbiwgZm9vdGVyIH06IEF1dGhMYXlvdXRQcm9wcykge1xuICByZXR1cm4gKFxuICAgIDxkaXYgY2xhc3NOYW1lPVwiZ3JpZCBtaW4taC1zY3JlZW4gbGc6Z3JpZC1jb2xzLTJcIj5cbiAgICAgIHsvKiAtLS0gQ29sdW5hIGVzcXVlcmRhOiBmb3JtdWzDoXJpbyAtLS0gKi99XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cInJlbGF0aXZlIGZsZXggbWluLWgtc2NyZWVuIGZsZXgtY29sIGJnLWJnIHB4LTUgcHktOCBzbTpweC04IGxnOnB4LTEyXCI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIGdhcC00XCI+XG4gICAgICAgICAgPExpbmsgdG89XCIvXCIgYXJpYS1sYWJlbD1cIkluw61jaW9cIj5cbiAgICAgICAgICAgIDxpbWdcbiAgICAgICAgICAgICAgc3JjPXtMT0dPX1VSTH1cbiAgICAgICAgICAgICAgYWx0PVwiQW5vdEFJXCJcbiAgICAgICAgICAgICAgY2xhc3NOYW1lPVwiaC0xMCB3LWF1dG8gc2VsZWN0LW5vbmUgbGc6aC0xMlwiXG4gICAgICAgICAgICAgIGRyYWdnYWJsZT17ZmFsc2V9XG4gICAgICAgICAgICAvPlxuICAgICAgICAgIDwvTGluaz5cbiAgICAgICAgICA8TGlua1xuICAgICAgICAgICAgdG89XCIvXCJcbiAgICAgICAgICAgIGNsYXNzTmFtZT1cImdyb3VwIGlubGluZS1mbGV4IGl0ZW1zLWNlbnRlciBnYXAtMS41IHJvdW5kZWQtZnVsbCBib3JkZXIgYm9yZGVyLWxpbmUgYmctc3VyZmFjZSBweC0zIHB5LTEuNSB0ZXh0LXhzIGZvbnQtc2VtaWJvbGQgdGV4dC1pbmstc29mdCB0cmFuc2l0aW9uLWNvbG9ycyBob3Zlcjpib3JkZXItbGluZS1zdHJvbmcgaG92ZXI6dGV4dC1pbmtcIlxuICAgICAgICAgID5cbiAgICAgICAgICAgIDxBcnJvd0xlZnQgY2xhc3NOYW1lPVwiaC0zLjUgdy0zLjUgdHJhbnNpdGlvbi10cmFuc2Zvcm0gZ3JvdXAtaG92ZXI6LXRyYW5zbGF0ZS14LTAuNVwiIHN0cm9rZVdpZHRoPXsyLjV9IC8+XG4gICAgICAgICAgICBWb2x0YXIgcHJhIGhvbWVcbiAgICAgICAgICA8L0xpbms+XG4gICAgICAgIDwvZGl2PlxuXG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBmbGV4LTEgaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyIHB5LTEwXCI+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJ3LWZ1bGwgbWF4LXctbWRcIj5cbiAgICAgICAgICAgIDxoMSBjbGFzc05hbWU9XCJ0ZXh0LTJ4bCBmb250LWJvbGQgdHJhY2tpbmctdGlnaHQgdGV4dC1pbmsgbWQ6dGV4dC0zeGxcIj5cbiAgICAgICAgICAgICAge3RpdGxlfVxuICAgICAgICAgICAgPC9oMT5cbiAgICAgICAgICAgIHtzdWJ0aXRsZSAmJiAoXG4gICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cIm10LTIgdGV4dC1zbSB0ZXh0LWluay1zb2Z0XCI+e3N1YnRpdGxlfTwvcD5cbiAgICAgICAgICAgICl9XG5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwibXQtOFwiPntjaGlsZHJlbn08L2Rpdj5cblxuICAgICAgICAgICAge2Zvb3RlciAmJiAoXG4gICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cIm10LTYgdGV4dC1zbSB0ZXh0LWluay1zb2Z0XCI+e2Zvb3Rlcn08L3A+XG4gICAgICAgICAgICApfVxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2Rpdj5cblxuICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXhzIHRleHQtaW5rLW11dGVkXCI+XG4gICAgICAgICAgwqkgMjAyNiBBbm90QUkgwrcgUHJvamV0byBkZSBUQ0MgRkFURUNcbiAgICAgICAgPC9wPlxuICAgICAgPC9kaXY+XG5cbiAgICAgIHsvKiAtLS0gQ29sdW5hIGRpcmVpdGE6IHBhaW5lbCBkZSBtYXJjYSAob2N1bHRvIGVtIG1vYmlsZSkgLS0tICovfVxuICAgICAgPEJyYW5kUGFuZWwgLz5cbiAgICA8L2Rpdj5cbiAgKTtcbn1cblxuZnVuY3Rpb24gQnJhbmRQYW5lbCgpIHtcbiAgcmV0dXJuIChcbiAgICA8YXNpZGVcbiAgICAgIGNsYXNzTmFtZT1cInJlbGF0aXZlIGhpZGRlbiBvdmVyZmxvdy1oaWRkZW4gYmctYnJhbmQtc3Ryb25nIHRleHQtd2hpdGUgbGc6ZmxleCBsZzpmbGV4LWNvbCBsZzpqdXN0aWZ5LWJldHdlZW4gbGc6cC0xMiB4bDpwLTE2XCJcbiAgICAgIGFyaWEtaGlkZGVuXG4gICAgPlxuICAgICAgey8qIE1lc2ggZGVjb3JhdGl2byBsaW1hIG5vcyBjYW50b3MgKi99XG4gICAgICA8ZGl2XG4gICAgICAgIGNsYXNzTmFtZT1cInBvaW50ZXItZXZlbnRzLW5vbmUgYWJzb2x1dGUgaW5zZXQtMCBvcGFjaXR5LTYwXCJcbiAgICAgICAgc3R5bGU9e3tcbiAgICAgICAgICBiYWNrZ3JvdW5kOlxuICAgICAgICAgICAgXCJyYWRpYWwtZ3JhZGllbnQoZWxsaXBzZSA1NSUgNjUlIGF0IDEwMCUgMCUsIGhzbCg3NSA2MCUgNDUlIC8gMC4yNSksIHRyYW5zcGFyZW50IDYwJSksIHJhZGlhbC1ncmFkaWVudChlbGxpcHNlIDYwJSA1MCUgYXQgMCUgMTAwJSwgaHNsKDc1IDYwJSA0NSUgLyAwLjE1KSwgdHJhbnNwYXJlbnQgNzAlKVwiLFxuICAgICAgICB9fVxuICAgICAgLz5cblxuICAgICAgey8qIEdyaWQgZGUgcG9udG9zIHN1dGlsIHNvYnJlIG8gdmVyZGUgKi99XG4gICAgICA8ZGl2XG4gICAgICAgIGNsYXNzTmFtZT1cInBvaW50ZXItZXZlbnRzLW5vbmUgYWJzb2x1dGUgaW5zZXQtMCBvcGFjaXR5LVswLjE4XVwiXG4gICAgICAgIHN0eWxlPXt7XG4gICAgICAgICAgYmFja2dyb3VuZEltYWdlOlxuICAgICAgICAgICAgXCJyYWRpYWwtZ3JhZGllbnQoY2lyY2xlLCBoc2woMCAwJSAxMDAlIC8gMC43KSAxcHgsIHRyYW5zcGFyZW50IDFweClcIixcbiAgICAgICAgICBiYWNrZ3JvdW5kU2l6ZTogXCIyMnB4IDIycHhcIixcbiAgICAgICAgfX1cbiAgICAgIC8+XG5cbiAgICAgIHsvKiBUb3BvOiB0YWdsaW5lIGN1cnRhICovfVxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJyZWxhdGl2ZVwiPlxuICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJpbmxpbmUtZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTIgcm91bmRlZC1mdWxsIGJvcmRlciBib3JkZXItd2hpdGUvMTUgYmctd2hpdGUvNSBweC0zIHB5LTEgdGV4dC14cyBmb250LXNlbWlib2xkIHRleHQtd2hpdGUvOTAgYmFja2Ryb3AtYmx1ci1zbVwiPlxuICAgICAgICAgIDxTcGFya2xlcyBjbGFzc05hbWU9XCJoLTMuNSB3LTMuNSB0ZXh0LWFjY2VudFwiIHN0cm9rZVdpZHRoPXsyLjV9IC8+XG4gICAgICAgICAgQmV0YSBhYmVydG8gwrcgMTAwJSBncsOhdGlzXG4gICAgICAgIDwvc3Bhbj5cbiAgICAgIDwvZGl2PlxuXG4gICAgICB7LyogQ2VudHJvOiBoZWFkbGluZSArIGNoYXQgZXN0w6F0aWNvIHByZXZpZXcgKi99XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cInJlbGF0aXZlIHNwYWNlLXktMTBcIj5cbiAgICAgICAgPGgyIGNsYXNzTmFtZT1cInRleHQtM3hsIGZvbnQtYm9sZCBsZWFkaW5nLXRpZ2h0IHRyYWNraW5nLXRpZ2h0IHhsOnRleHQtNHhsXCI+XG4gICAgICAgICAgQW5vdGUgcGVsbyBXaGF0c0FwcC5cbiAgICAgICAgICA8YnIgLz5cbiAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LWFjY2VudFwiPlZpc3VhbGl6ZSB0dWRvIGFxdWkuPC9zcGFuPlxuICAgICAgICA8L2gyPlxuXG4gICAgICAgIDxBbmltYXRlZENoYXRQcmV2aWV3IC8+XG4gICAgICA8L2Rpdj5cblxuICAgICAgey8qIEJhc2U6IHByb3ZhIGRlIHZhbG9yICsgY3LDqWRpdG9zICovfVxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJyZWxhdGl2ZSBzcGFjZS15LTNcIj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJncmlkIGdyaWQtY29scy0zIGdhcC00IGJvcmRlci10IGJvcmRlci13aGl0ZS8xNSBwdC02XCI+XG4gICAgICAgICAgPFN0YXQgbGFiZWw9XCJDYXRlZ29yaWFzXCIgdmFsdWU9XCIxMFwiIC8+XG4gICAgICAgICAgPFN0YXQgbGFiZWw9XCJUZW1wbyBwLyBjb21lw6dhclwiIHZhbHVlPVwiMzBzXCIgLz5cbiAgICAgICAgICA8U3RhdCBsYWJlbD1cIkN1c3RvXCIgdmFsdWU9XCJSJCAwXCIgLz5cbiAgICAgICAgPC9kaXY+XG4gICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC13aGl0ZS81MFwiPlxuICAgICAgICAgIENvbnN0cnXDrWRvIGNvbSBTdXBhYmFzZSwgbjhuIGUgR2VtaW5pLlxuICAgICAgICA8L3A+XG4gICAgICA8L2Rpdj5cbiAgICA8L2FzaWRlPlxuICApO1xufVxuXG4vLyBQcmV2aWV3IGFuaW1hZG8gZG8gY2hhdC4gUmV1c2EgYXMga2V5ZnJhbWVzIGRhIEhlcm8gKGxvb3AgZGUgMTJzKSBwcmFcbi8vIG1hbnRlciBjb2Vyw6puY2lhIHZpc3VhbCBjb20gYSBsYW5kaW5nLlxuZnVuY3Rpb24gQW5pbWF0ZWRDaGF0UHJldmlldygpIHtcbiAgcmV0dXJuIChcbiAgICA8ZGl2IGNsYXNzTmFtZT1cIm1pbi1oLVsyNDBweF0gc3BhY2UteS0yLjVcIj5cbiAgICAgIHsvKiBCb3QgZ3JlZXRpbmcgKi99XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImNoYXQtYW5pbS0xIG1heC13LVs4MCVdXCI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiY2hhdC1idWJibGUtYm90IHJvdW5kZWQtMnhsIHJvdW5kZWQtYmwtbWQgcHgtMy41IHB5LTIgdGV4dC1zbSBzaGFkb3ctbGdcIj5cbiAgICAgICAgICBPaSEgU291IG8gQW5vdEFJIPCfkYsgbWUgY29udGEgc2V1cyBnYXN0b3MuXG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9kaXY+XG5cbiAgICAgIHsvKiBVc2VyIG1zZyAqL31cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiY2hhdC1hbmltLTIgbWwtYXV0byBmbGV4IG1heC13LVs4MCVdIGZsZXgtY29sIGl0ZW1zLWVuZFwiPlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImNoYXQtYnViYmxlLXVzZXIgZmxleCBpdGVtcy1lbmQgZ2FwLTEuNSByb3VuZGVkLTJ4bCByb3VuZGVkLWJyLW1kIHB4LTMuNSBweS0yIHRleHQtc20gc2hhZG93LWxnXCI+XG4gICAgICAgICAgPHNwYW4+Z2FzdGVpIDMwIG5hIHBhZGFyaWE8L3NwYW4+XG4gICAgICAgIDwvZGl2PlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm10LTAuNSBmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMSBwci0yXCI+XG4gICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwibnVtIHRleHQtWzlweF0gdGV4dC13aGl0ZS81MFwiPjE0OjAyPC9zcGFuPlxuICAgICAgICAgIDxDaGVja0NoZWNrIGNsYXNzTmFtZT1cImgtMyB3LTMgdGV4dC1bIzUzYmRlYl1cIiBzdHJva2VXaWR0aD17Mi41fSAvPlxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvZGl2PlxuXG4gICAgICB7LyogVHlwaW5nIGluZGljYXRvciAqL31cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiY2hhdC10eXBpbmctYW5pbS0xIGZsZXggbWF4LXctWzYwcHhdXCI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiY2hhdC1idWJibGUtYm90IGZsZXggaXRlbXMtY2VudGVyIGdhcC0xIHJvdW5kZWQtMnhsIHJvdW5kZWQtYmwtbWQgcHgtMyBweS0yLjUgc2hhZG93LWxnXCI+XG4gICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidHlwaW5nLWRvdC1hbmltIGgtMS41IHctMS41IHJvdW5kZWQtZnVsbCBiZy1pbmstbXV0ZWRcIiAvPlxuICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInR5cGluZy1kb3QtYW5pbSBoLTEuNSB3LTEuNSByb3VuZGVkLWZ1bGwgYmctaW5rLW11dGVkXCIgLz5cbiAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0eXBpbmctZG90LWFuaW0gaC0xLjUgdy0xLjUgcm91bmRlZC1mdWxsIGJnLWluay1tdXRlZFwiIC8+XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9kaXY+XG5cbiAgICAgIHsvKiBCb3QgY29uZmlybSAqL31cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiY2hhdC1hbmltLTMgbWF4LXctWzgwJV1cIj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJjaGF0LWJ1YmJsZS1ib3Qgcm91bmRlZC0yeGwgcm91bmRlZC1ibC1tZCBweC0zLjUgcHktMiB0ZXh0LXNtIHNoYWRvdy1sZ1wiPlxuICAgICAgICAgIOKchSBSJCAzMCwwMCBlbSA8c3Ryb25nIGNsYXNzTmFtZT1cImZvbnQtc2VtaWJvbGRcIj5hbGltZW50YcOnw6NvPC9zdHJvbmc+IHJlZ2lzdHJhZG8uXG4gICAgICAgIDwvZGl2PlxuICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJudW0gbXQtMC41IGlubGluZS1ibG9jayBwbC0yIHRleHQtWzlweF0gdGV4dC13aGl0ZS81MFwiPjE0OjAyPC9zcGFuPlxuICAgICAgPC9kaXY+XG4gICAgPC9kaXY+XG4gICk7XG59XG5cbmZ1bmN0aW9uIFN0YXQoeyBsYWJlbCwgdmFsdWUgfTogeyBsYWJlbDogc3RyaW5nOyB2YWx1ZTogc3RyaW5nIH0pIHtcbiAgcmV0dXJuIChcbiAgICA8ZGl2PlxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJudW0gdGV4dC0yeGwgZm9udC1ib2xkIHRleHQtd2hpdGVcIj57dmFsdWV9PC9kaXY+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cIm10LTAuNSB0ZXh0LVsxMHB4XSB1cHBlcmNhc2UgdHJhY2tpbmctd2lkZXIgdGV4dC13aGl0ZS81MFwiPlxuICAgICAgICB7bGFiZWx9XG4gICAgICA8L2Rpdj5cbiAgICA8L2Rpdj5cbiAgKTtcbn1cbiJdLCJmaWxlIjoiQzovVXNlcnMvQUNFUl9OSVRSTy9EZXNrdG9wL0VzdHVkby9BRFMgLSBGQVRFQy9URy9hbm90YS1haS9zcmMvY29tcG9uZW50cy9BdXRoTGF5b3V0LnRzeCJ9

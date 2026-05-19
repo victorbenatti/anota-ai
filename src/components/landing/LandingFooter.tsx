@@ -26,13 +26,16 @@ export function LandingFooter() {
             <div className="col-span-2 mb-2 text-xs font-semibold uppercase tracking-wider text-ink-muted">
               Produto
             </div>
-            <a href="#como-funciona" className="text-ink-soft hover:text-ink">
+            <a href="/#como-funciona" className="text-ink-soft hover:text-ink">
               Como funciona
             </a>
-            <a href="#features" className="text-ink-soft hover:text-ink">
+            <a href="/#features" className="text-ink-soft hover:text-ink">
               Features
             </a>
-            <a href="#faq" className="text-ink-soft hover:text-ink">
+            <Link to="/sobre" className="text-ink-soft hover:text-ink">
+              Sobre nós
+            </Link>
+            <a href="/#faq" className="text-ink-soft hover:text-ink">
               FAQ
             </a>
             <Link to="/login" className="text-ink-soft hover:text-ink">
