@@ -53,6 +53,20 @@
     @apply border-border;
   }
 
+  html {
+    /* Scroll suave global para todas as âncoras (#features, #faq, etc.) */
+    scroll-behavior: smooth;
+  }
+
+  /* Compensa a altura da nav sticky ao rolar até as seções */
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+
   body {
     background-color: hsl(var(--bg));
     color: hsl(var(--ink));
