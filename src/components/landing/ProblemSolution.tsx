@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export function ProblemSolution() {
   return (
-    <section className="bg-surface py-20 md:py-28">
+    <section className="bg-bg py-20 md:py-28">
       <div className="mx-auto max-w-5xl px-5 md:px-8">
         <div className="grid gap-10 md:grid-cols-12 md:items-start md:gap-12">
           {/* Coluna esquerda — headline grande, asymétrica */}

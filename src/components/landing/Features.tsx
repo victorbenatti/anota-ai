@@ -49,7 +49,7 @@ const FEATURES: Feature[] = [
 
 export function Features() {
   return (
-    <section id="features" className="bg-bg py-20 md:py-28">
+    <section id="features" className="bg-surface py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <header className="max-w-2xl">
           <span className="eyebrow">Features</span>

@@ -82,7 +82,7 @@ function FloatingBubbleLeft() {
       aria-hidden
       className="pointer-events-none absolute left-[6%] top-[22%] hidden max-w-[220px] -rotate-6 lg:block"
     >
-      <div className="rounded-2xl rounded-br-md bg-[#d9fdd3] px-3.5 py-2 text-sm text-ink shadow-[0_20px_40px_-12px_rgba(0,0,0,0.4)]">
+      <div className="rounded-2xl rounded-br-md bg-[#d9fdd3] px-3.5 py-2 text-sm text-[#19342f] shadow-[0_20px_40px_-12px_rgba(0,0,0,0.4)]">
         gastei 30 na padaria
       </div>
       <div className="mt-1 flex items-center justify-end gap-1 pr-2">
@@ -99,7 +99,7 @@ function FloatingBubbleRight() {
       aria-hidden
       className="pointer-events-none absolute right-[6%] top-[62%] hidden max-w-[240px] rotate-3 lg:block"
     >
-      <div className="rounded-2xl rounded-bl-md bg-white px-3.5 py-2 text-sm text-ink shadow-[0_20px_40px_-12px_rgba(0,0,0,0.4)]">
+      <div className="rounded-2xl rounded-bl-md bg-white px-3.5 py-2 text-sm text-[#19342f] shadow-[0_20px_40px_-12px_rgba(0,0,0,0.4)]">
         ✅ R$ 30,00 em <strong className="font-semibold">alimentação</strong> registrado.
       </div>
       <span className="num mt-1 inline-block pl-2 text-[9px] text-white/50">
