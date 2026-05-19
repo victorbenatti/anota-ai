@@ -19,7 +19,7 @@ export function Signup() {
   const [needsConfirm, setNeedsConfirm] = useState(false);
 
   if (!authLoading && session) {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/app" replace />;
   }
 
   async function handleSubmit(e: FormEvent) {
@@ -46,7 +46,7 @@ export function Signup() {
       setNeedsConfirm(true);
       return;
     }
-    navigate("/", { replace: true });
+    navigate("/app", { replace: true });
   }
 
   if (needsConfirm) {
