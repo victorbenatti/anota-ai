@@ -9,7 +9,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { eachDayOfInterval, format, isSameDay } from "date-fns";
+import { eachDayOfInterval, format, isSameDay, parseISO } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { TrendingUp } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -35,13 +35,15 @@ export function WeeklyTrendChart({
 }: WeeklyTrendChartProps) {
   const data = useMemo<DayDatum[]>(() => {
     const days = eachDayOfInterval({ start: range.from, end: range.to });
+    // Em janelas longas (>14 dias) usa "dd" pra não embolar o eixo X.
+    const labelFmt = days.length > 14 ? "dd" : "EEE";
     return days.map((d) => {
       const total = expenses
-        .filter((e) => isSameDay(new Date(e.occurred_at), d))
+        .filter((e) => isSameDay(parseISO(e.occurred_at), d))
         .reduce((acc, e) => acc + e.amount, 0);
       return {
         date: d,
-        label: format(d, "EEE", { locale: ptBR }).replace(".", ""),
+        label: format(d, labelFmt, { locale: ptBR }).replace(".", ""),
         total: total / 100,
       };
     });
@@ -58,7 +60,12 @@ export function WeeklyTrendChart({
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-surface-muted text-brand">
             <TrendingUp className="h-4 w-4" strokeWidth={2} />
           </span>
-          <h2 className="text-base font-semibold text-ink">Gasto por dia</h2>
+          <h2 className="text-base font-semibold text-ink">
+            Gasto por dia
+            <span className="ml-2 text-xs font-normal text-ink-muted">
+              · {data.length} {data.length === 1 ? "dia" : "dias"}
+            </span>
+          </h2>
         </div>
         <span className="num text-sm font-semibold text-stamp">
           {formatCurrency(Math.round(weeklyTotal * 100))}

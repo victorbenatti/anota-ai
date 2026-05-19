@@ -1,32 +1,56 @@
-import { useCallback, useMemo } from "react";
+import { useCallback, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-import { endOfWeek, startOfWeek } from "date-fns";
+import { LogOut } from "lucide-react";
+import {
+  endOfDay,
+  endOfMonth,
+  endOfWeek,
+  startOfDay,
+  startOfMonth,
+  startOfWeek,
+  subDays,
+} from "date-fns";
 import { DashboardHeader } from "@/components/DashboardHeader";
 import { SummaryCards } from "@/components/SummaryCards";
 import { CategoryChart } from "@/components/CategoryChart";
 import { WeeklyTrendChart } from "@/components/WeeklyTrendChart";
 import { ExpensesList } from "@/components/ExpensesList";
+import { WhatsappLinkCard } from "@/components/WhatsappLinkCard";
+import { Button } from "@/components/ui/button";
 import { useExpenses } from "@/hooks/useExpenses";
 import { useSupabaseRealtime } from "@/hooks/useSupabaseRealtime";
+import { useAuth } from "@/hooks/useAuth";
+import { useProfile } from "@/hooks/useProfile";
 import { isSupabaseConfigured } from "@/lib/supabase";
-import type { PeriodRange } from "@/types/expense";
+import type { PeriodPreset, PeriodRange } from "@/types/expense";
 
-// Logo oficial servida estaticamente de public/
 const LOGO_URL = "/logo-anotaAI.png";
 
-// O painel opera em visão semanal fixa (segunda a domingo).
-function buildWeeklyRange(): PeriodRange {
+// Constrói o range concreto a partir do preset selecionado.
+function buildRange(preset: PeriodPreset): PeriodRange {
   const now = new Date();
-  return {
-    preset: "week",
-    from: startOfWeek(now, { weekStartsOn: 1 }),
-    to: endOfWeek(now, { weekStartsOn: 1 }),
-  };
+  switch (preset) {
+    case "week":
+      return {
+        preset,
+        from: startOfWeek(now, { weekStartsOn: 1 }),
+        to: endOfWeek(now, { weekStartsOn: 1 }),
+      };
+    case "month":
+      return { preset, from: startOfMonth(now), to: endOfMonth(now) };
+    case "last30":
+      return { preset, from: startOfDay(subDays(now, 29)), to: endOfDay(now) };
+  }
 }
 
 export function Dashboard() {
-  const range = useMemo(() => buildWeeklyRange(), []);
+  const [period, setPeriod] = useState<PeriodPreset>("week");
+  const range = useMemo(() => buildRange(period), [period]);
   const { expenses, loading, error, refetch } = useExpenses(range);
+  const { profile } = useProfile();
+  const { signOut, user } = useAuth();
+  const navigate = useNavigate();
 
   const handleInsert = useCallback(() => {
     toast("Nova despesa registrada", {
@@ -37,11 +61,15 @@ export function Dashboard() {
 
   useSupabaseRealtime(handleInsert);
 
+  const handleLogout = useCallback(async () => {
+    await signOut();
+    navigate("/login", { replace: true });
+  }, [signOut, navigate]);
+
   const isEmpty = !loading && !error && expenses.length === 0;
 
   return (
     <div className="min-h-screen">
-      {/* Barra de topo */}
       <nav className="sticky top-0 z-10 border-b border-line bg-bg/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3.5 md:px-8">
           <img
@@ -50,18 +78,46 @@ export function Dashboard() {
             className="h-9 w-auto select-none md:h-11"
             draggable={false}
           />
-          <span className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5 text-xs font-medium text-ink-soft">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+
+          <div className="flex items-center gap-3">
+            <span className="hidden items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5 text-xs font-medium text-ink-soft sm:inline-flex">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+              </span>
+              Agente online
             </span>
-            Agente online
-          </span>
+
+            {user && (
+              <div className="flex items-center gap-2">
+                <span className="hidden text-xs text-ink-muted md:inline">
+                  {user.email}
+                </span>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={handleLogout}
+                  aria-label="Sair"
+                  title="Sair"
+                >
+                  <LogOut className="h-4 w-4" />
+                  <span className="hidden sm:inline">Sair</span>
+                </Button>
+              </div>
+            )}
+          </div>
         </div>
       </nav>
 
       <div className="mx-auto max-w-6xl px-5 pb-20 pt-8 md:px-8">
-        <DashboardHeader range={range} />
+        <DashboardHeader
+          range={range}
+          period={period}
+          onPeriodChange={setPeriod}
+          displayName={profile?.display_name}
+        />
+
+        <WhatsappLinkCard />
 
         {!isSupabaseConfigured && (
           <div className="reveal mb-8 flex gap-3 rounded-xl border border-stamp/20 bg-stamp-soft px-4 py-3.5 text-sm text-ink">

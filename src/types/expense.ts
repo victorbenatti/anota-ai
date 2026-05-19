@@ -12,15 +12,30 @@ export type ExpenseCategory =
 
 export type Expense = {
   id: string;
-  amount: number; // centavos
+  user_id: string;     // FK -> auth.users.id, preenchido pelo agente WhatsApp
+  amount: number;      // centavos
   description: string;
   category: ExpenseCategory;
   occurred_at: string; // ISO date
-  created_at: string; // ISO timestamp
+  created_at: string;  // ISO timestamp
   raw_message: string;
 };
 
-export type PeriodPreset = "week";
+export type Profile = {
+  id: string;
+  display_name: string | null;
+  whatsapp_phone: string | null;
+  created_at: string;
+  updated_at: string;
+};
+
+export type PeriodPreset = "week" | "month" | "last30";
+
+export const PERIOD_LABELS: Record<PeriodPreset, string> = {
+  week: "Esta semana",
+  month: "Este mês",
+  last30: "Últimos 30 dias",
+};
 
 export type PeriodRange = {
   preset: PeriodPreset;

@@ -1,4 +1,4 @@
-import { format } from "date-fns";
+import { format, parseISO } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { ReceiptText } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -55,7 +55,7 @@ export function ExpensesList({ expenses, loading }: ExpensesListProps) {
                 className="flex items-center gap-4 px-5 py-3.5 transition-colors hover:bg-surface-muted"
               >
                 <span className="num w-14 shrink-0 text-xs text-ink-muted">
-                  {format(new Date(e.occurred_at), "dd/MM", { locale: ptBR })}
+                  {format(parseISO(e.occurred_at), "dd/MM", { locale: ptBR })}
                 </span>
 
                 <div className="min-w-0 flex-1">

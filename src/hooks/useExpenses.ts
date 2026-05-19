@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { format } from "date-fns";
 import { supabase } from "@/lib/supabase";
 import type { Expense, PeriodRange } from "@/types/expense";
 
@@ -9,8 +10,8 @@ type UseExpensesResult = {
   refetch: () => Promise<void>;
 };
 
-// Busca despesas dentro de um período. occurred_at é tratado como ISO/UTC
-// no banco; o filtro usa o range exato fornecido (já em UTC pelos toISOString).
+// Busca despesas dentro de um período. `occurred_at` no banco é DATE (sem hora),
+// então mandamos YYYY-MM-DD direto — evita confusão de fuso na borda.
 export function useExpenses(range: PeriodRange): UseExpensesResult {
   const [expenses, setExpenses] = useState<Expense[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -20,11 +21,14 @@ export function useExpenses(range: PeriodRange): UseExpensesResult {
     setLoading(true);
     setError(null);
 
+    const from = format(range.from, "yyyy-MM-dd");
+    const to = format(range.to, "yyyy-MM-dd");
+
     const { data, error: queryError } = await supabase
       .from("expenses")
       .select("*")
-      .gte("occurred_at", range.from.toISOString())
-      .lte("occurred_at", range.to.toISOString())
+      .gte("occurred_at", from)
+      .lte("occurred_at", to)
       .order("occurred_at", { ascending: false });
 
     if (queryError) {
